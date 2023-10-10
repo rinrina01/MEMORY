@@ -3,18 +3,33 @@ body {
 	color:white;
 }
 
-.parent {
-  width: 30%;
-  height: 30vh;
-  overflow: hidden;
-  display: flex;
-}
-
 img {
   flex-direction: flex-start;
-  max-width: 100%;
+  max-width: 30%;
   max-height: inherit;
   height: inherit;
   width: inherit;
   object-fit: cover;
+}
+
+
+header{
+    overflow: hidden;
+}
+ 
+#top-header{
+    text-align: right;
+    height: 60px;
+    flex-wrap: wrap;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+a:hover{
+    background-color: rgba(255, 255, 0, 0.2);
+    font-size: 20px;
+    
 }
