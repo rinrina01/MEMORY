@@ -1,16 +1,22 @@
 body {
-    background-color:#0E0F2E;
-    color:white;
+	background-color:#0E0F2E;
+	color:white;
+}
+
+.parent {
+  width: 30%;
+  height: 30vh;
+  overflow: hidden;
+  display: flex;
+
 }
 
 img {
   flex-direction: flex-start;
-  max-width: 30%;
-  max-height: inherit;
-  height: inherit;
-  width: inherit;
-  object-fit: cover;
+  max-width: 100%;
+
 }
+
 
 
 header{
