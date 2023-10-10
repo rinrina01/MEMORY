@@ -8,13 +8,28 @@ body {
   height: 30vh;
   overflow: hidden;
   display: flex;
+
 }
 
 img {
   flex-direction: flex-start;
   max-width: 100%;
-  max-height: inherit;
-  height: inherit;
-  width: inherit;
-  object-fit: cover;
+
+}
+
+
+
+header{
+    overflow: hidden;
+}
+ 
+#top-header{
+    text-align: right;
+    height: 60px;
+    flex-wrap: wrap;
+}
+
+a{
+    color: white;
+    text-decoration: none;
 }
