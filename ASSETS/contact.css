@@ -29,7 +29,26 @@ a{
 }
 
 a:hover{
-    background-color: rgba(255, 255, 0, 0.2);
-    font-size: 20px;
+    background-color: rgba(88, 139, 207, 0.25);
     
+}
+button{
+    background-color: orange;
+    padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    color: white;
+    border-radius: 2px;
+    border: none;
+}
+
+.titre{
+    font-size: 51px;
+}
+
+#top_image{
+    background-image: 
+    url("../ASSETS/IMAGES/homme_content.png");
+    background-size: 50%;
+    ù
 }
