@@ -4,39 +4,49 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Votre compte</title>
-	<link rel="stylesheet" href="ASSETS/contact.css">
+	<link rel="stylesheet" href="ASSETS/myAccount.css">
 </head>
 <body>
 
 	<header>
 		<div id="top-header">
-		<a style="float:left;">THE POWER OF MEMORY</a>
+		<a class="" style="float:left;margin-left: 5px;">The Power Of Memory</P>
 			<!-- Navigation Menu -->
 			<nav>
-				<a href="#" style="text-align:right;float:right;margin-right: 10px"> S'INSCRIRE</a>
-				<a href="#" style="text-align:right;float:right;margin-right: 10px"> SE CONNECTER</a>
-				<a href="#" style="text-align:right;float:right;margin-right: 10px"> NOUS CONTACTER</a>
-				<a href="#" style="text-align:right;float:right;margin-right: 10px"> SCORE</a>
-				<a href="#" style="text-align:right;float:right;margin-right: 10px"> JEU</a>
-				<a href="#" style="text-align:right;float:right;margin-right: 10px;"> ACCUEIL</a>
+
+				<a href="#" style="text-align:right;float: right ;margin-right: 10px;"> S'INSCRIRE</a>
+				<a href="#" style="text-align:right;float: right;margin-right:10px"> SE CONNECTER</a>
+				<a href="#" style="text-align:right;float: right;margin-right:10px"> NOUS CONTACTER</a>
+				<a href="#" style="text-align:right;float: right;margin-right:10px"> SCORE</a>
+				<a href="#" style="text-align:right;float: right;margin-right:10px"> JEU</a>
+				<a href="#" style="text-align:right;float: right;margin-right:10px"> ACCUEIL</a>
 			</nav>
 		</div>
 	</header>
+
+	<div id ="top_image"> 
+		<h1 class="titre" align="center"><br>VOTRE COMPTE</br></h1>
+	</div>
+
 	<br>
 
-	<h1>VOTRE COMPTE</h1>
+	<div class="box">
+		<h2>Changer votre email</h2>
+		<input type="email" name="Email" placeholder="Email actuel" id="email">
+		<input type="email" name="NewEmail" placeholder="Nouveau email" id="newemail">
+		<input type="password" name="MotDePasse" placeholder="Mot de passe" id="password">
+		<button class="button">Changer l'email</button>
+	</div>
+
 	<br>
-	<h2>Changer votre email</h2>
-	<input type="email" name="Email" placeholder="Email actuel" id="email">
-	<input type="email" name="NewEmail" placeholder="Nouveau email" id="newemail">
-	<input type="password" name="MotDePasse" placeholder="Mot de passe" id="password">
-	<button>Changer l'email</button>
-	<br>
-	<h2>Chnger votre mot de passe</h2>
-	<input type="password" name="AncienMotDePasse" placeholder="Ancien mot de passe" id="olgpassword">
-	<input type="password" name="MotDePasse" placeholder="Nouveau mot de passe" id="password">
-	<input type="password" name="NewMotDePasse" placeholder="Confirmez le mot de passe" id="newpassword">
-	<button>Changer le mot de passe</button>
+
+	<div class="box">
+		<h2>Changer votre mot de passe</h2>
+		<input type="password" name="AncienMotDePasse" placeholder="Ancien mot de passe" id="olgpassword">
+		<input type="password" name="MotDePasse" placeholder="Nouveau mot de passe" id="password">
+		<input type="password" name="NewMotDePasse" placeholder="Confirmez le mot de passe" id="newpassword">
+		<button class="button">Changer le mot de passe</button>
+	</div>
 
 	<article>
 		<footer>
