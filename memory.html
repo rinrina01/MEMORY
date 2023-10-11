@@ -3,8 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Connexion</title>
-	<link rel="stylesheet" href="ASSETS/login.css">
+	<title>Memory</title>
+	<link rel="stylesheet" href="ASSETS/memory.css">
 </head>
 <body>
 	<header>
@@ -24,16 +24,31 @@
 	</header>
 
 	<div id ="top_image"> 
-		<h1 class="titre" align="center"><br>CONNEXION</br></h1>
+		<h1 class="titre" align="center"><br>MEMORY</br></h1>
 	</div>
-	<br>
 
 	<div class="box">
-		<input type="email" name="Email" placeholder="Email" id="email">
-		<input type="password" name="MotDePasse" placeholder="Mot de passe" id="password">
-		<br>
-		<button class="button">Connexion</button>
-		<p>Pas de compte ? <a id="connexion" href="register.html">S'inscrire</a></p>
+		<h2>COMMENT JOUER ?</h2>
+		<p>Le jeu se compose de paires de cartes portant des illustrations identiques.
+			L'ensemble des cartes est mélangé, puis étalé face contre table.
+			À son tour, chaque joueur retourne deux cartes de son choix.
+			S'il découvre deux cartes identiques, il les ramasse et les conserve, ce qui lui permet de rejouer.
+			Si les cartes ne sont pas identiques, il les retourne faces cachées à leur emplacement de départ.
+			Le jeu se termine quand toutes les paires de cartes ont été découvertes et ramassées. Le gagnant est le joueur qui possède le plus de paires.</p>
+	
+			<h2>Choississez votre difficulté</h2>
+			<form>
+				<button type="submit" formaction="memory_lvl1.html">Facile (5x5)</button>
+				<button type="submit" formaction="memory_lvl2.html">Moyenne (10x10)</button>
+				<button type="submit" formaction="memory_lvl3.html">Difficile (20x20)</button>
+			</form>
+
+			<h2>Choississez votre thème</h2>
+			<form>
+				<button>Couleurs</button>
+				<button>Objets marrants</button>
+				<button>-</button>
+			</form>
 	</div>
 	<br>
 
