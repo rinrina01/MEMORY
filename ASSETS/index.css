@@ -1,16 +1,11 @@
 body {
 	background-color:#0E0F2E;
 	color:white;
+    font-family: 'Konkhmer Sleokcher', 'consolas', 'sans-serif';
+    margin: 0px;
 }
 
-img {
-  flex-direction: flex-start;
-  max-width: 30%;
-  max-height: inherit;
-  height: inherit;
-  width: inherit;
-  object-fit: cover;
-}
+
 
 
 
@@ -35,6 +30,7 @@ a:hover{
     
 }
 button{
+   
     background-color: orange;
     padding: 20px;
     padding-left: 40px;
@@ -43,6 +39,18 @@ button{
     border-radius: 2px;
     border: none;
 }
+button:hover{
+    background-color: yellow;
+    padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    color: black;
+    border-radius: 2px;
+    border: none;
+}
+
+
+
 
 .titre{
     font-size: 51px;
@@ -54,20 +62,56 @@ button{
     background-size: 50%;
 }
 
-.image-container {
+.touteslesimage { 
     display: flex;
-    justify-content: space-around; /* Espacement égal entre les éléments */
+    justify-content: center;
     align-items: center; /* Centrer verticalement le contenu */
-    text-align: center; /* Centrer le texte sous l'image */
-    margin: 20px 0; /* Marge autour du conteneur */
+    margin: 45px 0; /* Marge autour du conteneur */
+
 }
 
-/* Style pour les éléments d'image et de texte */
-.image-container div {
-    margin: 0 9px; /* Espacement horizontal entre les éléments */
+.touteslesimage img {
+    margin: 0 10px;
 }
 
-.image-container img {
-    max-width: 90%; /* Pour que les images s'adaptent à la largeur du conteneur */
-    height: auto; /* Pour conserver les proportions de l'image */
+.tout_les_texte{
+    
+    display: flex;
+    justify-content: center;
+    margin-left: -9%;
+    align-items: center;
+    margin: 4px 0;
+    
+    
+}
+
+
+
+
+footer{
+    background-color: #0400188b;
+    margin: 0px;
+
+}
+
+
+.copyright{
+    align-self: flex-end;
+}
+
+.zero_un{
+    display: flex;
+    ;
+}
+
+#zero{
+    margin-right: 10px;
+    color: purple;
+    font-size: 32px;
+    font-weight: bold;
+
+}
+.pc_incroyable{
+    display: flex;
+    flex-wrap: wrap;
 }
