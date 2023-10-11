@@ -1,0 +1,142 @@
+body {
+	background-color:#0E0F2E;
+	color:white;
+    font-family: 'Konkhmer Sleokchher', 'consolas', 'sans-serif';
+    margin: 0px;
+}
+
+
+
+
+
+header{
+    overflow: hidden;
+}
+ 
+#top-header{
+    text-align: right;
+    height: 60px;
+    flex-wrap: wrap;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+
+a:hover{
+    background-color: rgba(88, 139, 207, 0.25);
+    
+}
+button{
+   
+    background-color: orange;
+    padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    color: white;
+    border-radius: 2px;
+    border: none;
+}
+button:hover{
+    background-color: yellow;
+    padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    color: black;
+    border-radius: 2px;
+    border: none;
+}
+
+
+
+
+.titre{
+    font-size: 51px;
+}
+
+#top_image{
+    background-image: 
+    url("../ASSETS/IMAGES/homme_content.png");
+    background-size: 50%;
+}
+
+.touteslesimage { 
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centrer verticalement le contenu */
+    margin: 45px 0; /* Marge autour du conteneur */
+
+}
+
+.touteslesimage img {
+    margin: 0 10px;
+}
+
+.tout_les_texte{
+    
+    display: flex;
+    justify-content: center;
+    margin-left: -9%;
+
+    margin: 4px 0;
+    margin: left;
+
+    
+    
+    
+}
+
+
+
+
+
+footer{
+    background-color: #0400188b;
+    margin: 0px;
+
+}
+
+
+.copyright{
+    align-self: flex-end;
+}
+
+.zero_un{
+    display: flex;
+    flex-direction: row;
+    align-items: start
+
+    ;
+}
+
+#zero{
+
+    margin-right: 10px;
+    color: purple;
+    font-size: 32px;
+    font-weight: bold;
+
+}
+.pc_incroyable{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.incroyable{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    
+}
+
+#a_gauche{
+    align-self: flex-start;
+    margin-top: 40px;
+    margin-bottom: -20px;
+}
+.description{
+    color: grey;
+}
