@@ -13,6 +13,7 @@ img {
 }
 
 
+
 header{
     overflow: hidden;
 }
@@ -27,6 +28,7 @@ a{
     color: white;
     text-decoration: none;
 }
+
 
 a:hover{
     background-color: rgba(88, 139, 207, 0.25);
@@ -50,5 +52,22 @@ button{
     background-image: 
     url("../ASSETS/IMAGES/homme_content.png");
     background-size: 50%;
-    ù
+}
+
+.image-container {
+    display: flex;
+    justify-content: space-around; /* Espacement égal entre les éléments */
+    align-items: center; /* Centrer verticalement le contenu */
+    text-align: center; /* Centrer le texte sous l'image */
+    margin: 20px 0; /* Marge autour du conteneur */
+}
+
+/* Style pour les éléments d'image et de texte */
+.image-container div {
+    margin: 0 9px; /* Espacement horizontal entre les éléments */
+}
+
+.image-container img {
+    max-width: 90%; /* Pour que les images s'adaptent à la largeur du conteneur */
+    height: auto; /* Pour conserver les proportions de l'image */
 }
