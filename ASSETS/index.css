@@ -1,7 +1,7 @@
 body {
 	background-color:#0E0F2E;
 	color:white;
-    font-family: 'Konkhmer Sleokcher', 'consolas', 'sans-serif';
+    font-family: 'Konkhmer Sleokchher', 'consolas', 'sans-serif';
     margin: 0px;
 }
 
@@ -79,11 +79,15 @@ button:hover{
     display: flex;
     justify-content: center;
     margin-left: -9%;
-    align-items: center;
+
     margin: 4px 0;
+    margin: left;
+
+    
     
     
 }
+
 
 
 
@@ -101,10 +105,14 @@ footer{
 
 .zero_un{
     display: flex;
+    flex-direction: row;
+    align-items: start
+
     ;
 }
 
 #zero{
+
     margin-right: 10px;
     color: purple;
     font-size: 32px;
@@ -114,4 +122,21 @@ footer{
 .pc_incroyable{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+}
+.incroyable{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    
+}
+
+#a_gauche{
+    align-self: flex-start;
+    margin-top: 40px;
+    margin-bottom: -20px;
+}
+.description{
+    color: grey;
 }
