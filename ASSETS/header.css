@@ -94,8 +94,6 @@ a{
   text-decoration: none;
 }
 
-/*
-
 a:after{
   content:"";
   position:absolute;
@@ -110,7 +108,6 @@ a:hover:after{
   width:100%;
 }
 
-*/
 
 a:hover{
   color: #EA9033;
