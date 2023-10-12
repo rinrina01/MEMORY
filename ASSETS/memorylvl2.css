@@ -157,3 +157,119 @@ input{
     width: 90px;
     margin: 2px;
 }
+
+footer
+{
+    background-color: rgba(13,11,38,255);
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    margin-top: 100px;
+
+}
+.orange{
+    color: rgba(236,145,35,255);
+}
+
+.white{
+    color: rgb(255, 255, 255, .5);
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.footer_list{
+    list-style-type: square ;
+    color: rgba(236,145,35,255);
+}
+
+.logo_footer{
+    display: flex;
+    margin-left: 21%;
+}
+.logo_footer > div{
+    margin-right: 1%;
+    transition: transform .9s;
+}
+
+.logo_footer > div:hover{
+    transform: scale(1.5);
+    }
+
+.copyright{
+    margin-left: 21%;
+}
+.ajoutermoi{
+    color: rgb(255, 255, 255, .5) ;
+}
+.top-left { /* HEADER : LOGO 'The Power Of Memory' */
+    color:white;
+    font-weight: bold;
+    position:absolute;
+    top: 30px;
+    left: 115px;
+  }
+  
+  nav {
+    position:absolute;
+    top: 30px;
+    right: 115px;
+    min-width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .menu {
+    position:relative;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    padding: 0 10px;
+    text-decoration:none;
+  }
+  
+  .menu:after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 0;
+    background-color: #EA9033;
+    transition: 0.3s;
+  }
+  
+  .menu:after {
+    left: 6px;
+    top: -30px;
+  }
+  
+  .menu:hover:after,
+  .menu:hover:before {
+    width: 85%;
+  }
+
+  header{
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .top-left { /* HEADER : LOGO 'The Power Of Memory' */
+    color:white;
+    font-weight: bold;
+    top: 30px;
+    left: 115px;
+  }
+
+  @font-face {
+    font-family: "Poppins";
+    src: url("FONTS/POPPINS/Poppins-Light.ttf");
+    font-weight: normal;
+  }
+  @font-face {
+    font-family: "Poppins";
+    src: url("FONTS/POPPINS/Poppins-Bold.ttf");
+    font-weight: bold;
+  }
+
