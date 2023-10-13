@@ -1,73 +1,225 @@
 body {
-	background-color:#0E0F2E;
-	color:white;
-}
-
-img {
-  flex-direction: flex-start;
-  max-width: 30%;
-  max-height: inherit;
-  height: inherit;
-  width: inherit;
-  object-fit: cover;
+  background-color:#0E0F2E;
+  color:white;
+  font-family:'Poppins';
 }
 
 
-
-header{
+/* -------------------------------- TOP PAGE --------------------------------------- */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(14, 14, 47, 0.8);
+    color: #fff;
+    padding: 0px;
     overflow: hidden;
-}
- 
-#top-header{
-    text-align: right;
-    height: 60px;
-    flex-wrap: wrap;
+  } 
+
+main {
+    margin-top: 75px; /* AJOUT DE MARGE AU DESSUS DU CONTENU DE LA PAGE */
 }
 
-a{
-    color: white;
-    text-decoration: none;
+/* ---------------- FONT/SETUP ----------------------- */
+@font-face {
+  font-family: "Poppins";
+  src: url("FONTS/POPPINS/Poppins-Light.ttf");
+  font-weight: normal;
 }
+@font-face {
+  font-family: "Poppins";
+  src: url("FONTS/POPPINS/Poppins-Bold.ttf");
+  font-weight: bold;
+}/* -------------------------------------------------- */
 
 
-a:hover{
-    background-color: rgba(88, 139, 207, 0.25);
-    
-}
-button{
-    background-color: orange;
-    padding: 20px;
-    padding-left: 40px;
-    padding-right: 40px;
-    color: white;
-    border-radius: 2px;
-    border: none;
+/* ---------------- HEADER --------------------------- */
+*,
+*:before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.titre{
-    font-size: 51px;
+nav {
+  float:right;
+
+  height: 10vh; /* POSITION NAV */
+  width: 50vw; /* ESPACEMENT ÉLÉMENTS NAV */
+  min-width: 600px; /* LARGEUR TOTALE DE NAV */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-right: 10vh;
 }
 
-#top_image{
-    background-image: 
-    url("../ASSETS/IMAGES/homme_content.png");
-    background-size: 50%;
+a {
+  position: relative;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  font-weight:bold;
+  font-size: 13px;
+  letter-spacing: 0.5px;
 }
 
-.image-container {
+a:before {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 0;
+  background-color: #EA9033;
+  transition: 0.3s;
+}
+
+a:before {
+  right: 0;
+  top: -26px;
+}
+
+a:hover {
+  color: #EA9033;
+}
+
+a:hover:before {
+  width: 100%;
+}/* -------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+/* -------------------------------- PAGE CONTENT --------------------------------------- */
+/* ---------------- BANNER --------------------------- */
+.top-container { /* "BOÎTE" CONTENANT LA BANNIÈRE DU HAUT */
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.centered { /* TEXTE CENTRÉ SUR IMAGE */
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-weight: bold;
+  font-size: 40px;
+}/* -------------------------------------------------- */
+/* ---------------- CONTACT BOXES -------------------- */
+.square {
+  width: 300px;
+  height: 190px;
+  border-radius: 5px;
+  background-color: #0C0C27;
+  display: grid;
+  justify-content:center;
+  align-items: center;
+}
+
+.square .text {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.contact-squares {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  /*padding:0 500px;*/
+
+}/* -------------------------------------------------- */
+/* ---------------- FORMS ---------------------------- */
+.contact-form {
+  display:flex;
+  width:65vh;
+  margin-left:152px;
+  margin-top:20px;
+  flex-direction: column;
+}
+
+.div-probleme {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+
+input[type=text], select {
+  padding: 12px 25px;
+  margin: 8px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: rgb(38, 39, 69);
+  border:none;
+  color:white;
+}
+
+input[type=envoyer] {
+  width: 20%;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: orange;
+  text-align: center;
+}
+input[type=envoyer]:hover {
+  background-color: pink;
+}
+/* -------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+/* -------------------------------- FOOOTER --------------------------------------------- */
+footer {
+  background-color: rgba(13,11,38,255);
+  color: rgb(255, 255, 255);
+  margin-top: 20px;
+  padding:20px; /* ESPACE EN HAUT DU FOOTER */
+}
+
+.footer-description{
+    color: #CECEE8;
+}
+
+.wrapper {
     display: flex;
-    justify-content: space-around; /* Espacement égal entre les éléments */
-    align-items: center; /* Centrer verticalement le contenu */
-    text-align: center; /* Centrer le texte sous l'image */
-    margin: 20px 0; /* Marge autour du conteneur */
+    justify-content: space-around;
+    line-height: 2.2;
 }
 
-/* Style pour les éléments d'image et de texte */
-.image-container div {
-    margin: 0 9px; /* Espacement horizontal entre les éléments */
+.logo_footer{
+  display:flex;
+}
+.logo_footer > div{
+    transition: transform .9s;
 }
 
-.image-container img {
-    max-width: 90%; /* Pour que les images s'adaptent à la largeur du conteneur */
-    height: auto; /* Pour conserver les proportions de l'image */
+.logo_footer > div:hover{
+    transform: scale(1.5);
+    }
+
+.copyright {
+  margin-top: 40px;
+  background-color: rgba(11,11,38);
+  font-size: 10px;
+  color:#CECEE8;
 }
+
+.copyright p {
+  font-size: 0.9em;
+  text-align: left;
+}/* ------------------------------------------------------------------------------------- */
