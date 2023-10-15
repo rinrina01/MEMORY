@@ -1,7 +1,7 @@
 body {
 	background-color:#0E0F2E;
 	color:white;
-    font-family: 'Konkhmer Sleokchher', 'consolas', 'sans-serif';
+    font-family:'Poppins';
     margin: 0px;
 }
 
@@ -133,11 +133,6 @@ button:hover{
 
 
 
-footer{
-    background-color: #0400188b;
-    margin: 0px;
-
-}
 
 
 .copyright{
@@ -271,7 +266,10 @@ footer{
 
 .equipe {
     text-align: center;
+    line-height:0.9;
 }
+
+
 .delimiter {
     display: flex;
     justify-content: center;
@@ -310,51 +308,6 @@ footer{
 }
 
 
-footer
-{
-    background-color: rgba(13,11,38,255);
-    color: rgb(255, 255, 255);
-    font-size: 20px;
-    margin-top: 20px;
-
-}
-.orange{
-    color: rgba(236,145,35,255);
-}
-
-.white{
-    color: rgb(255, 255, 255, .5);
-}
-
-.wrapper {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.footer_list{
-    list-style-type: square ;
-    color: rgba(236,145,35,255);
-}
-
-.logo_footer{
-    display: flex;
-    margin-left: 21%;
-}
-.logo_footer > div{
-    margin-right: 1%;
-    transition: transform .9s;
-}
-
-.logo_footer > div:hover{
-    transform: scale(1.5);
-    }
-
-.copyright{
-    margin-left: 21%;
-}
-.ajoutermoi{
-    color: rgb(255, 255, 255, .5) ;
-}
 
 
 
@@ -365,7 +318,7 @@ footer
 
 
 
-
+/* partie du chatBox  */
 .chat-box {
     position: fixed;
     bottom: 2px;
@@ -377,6 +330,7 @@ footer
     display: flex;
     flex-direction: column;
 }
+
 
 .chat-header {
     background-color: #0E0F2E;
@@ -417,7 +371,50 @@ footer
     cursor: pointer;
 }
 
+.chat-box {
+    position: fixed;
+    bottom: 2px;
+    right: 2px;
+    min-width: 300px; 
+    min-height: 100px; 
+    background-color: #fff;
+    border: 1px solid #473f2d;
+    border-radius:50px;
+    display: flex;
+    flex-direction: column;
+    resize:vertical; 
+    overflow:hidden; 
+}
 
+.bouttonc{
+        background-color: gray;
+        display: flex;
+        border-radius: 100px;
+}
+
+.bouttoncc{
+    background-color: blue;
+    display: flex;
+    border-radius: 100px;
+    margin-left: 110px;
+}
+.bouttonccc{
+    background-color: gray;
+    display: flex;
+    border-radius: 100px;
+
+}
+
+.bouttoncccc{
+    background-color: blue;
+    display:flex;
+    border-radius: 110px;
+    margin-left: 110px;
+}
+
+.chat{
+    margin-left: 19px;
+}
 
 .top-left { /* HEADER : LOGO 'The Power Of Memory' */
     color:white;
@@ -489,3 +486,64 @@ footer
     src: url("FONTS/POPPINS/Poppins-Bold.ttf");
     font-weight: bold;
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -------------------------------- FOOOTER --------------------------------------------- */
+footer {
+  background-color: rgba(13,11,38,255);
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  margin-top: 20px;
+  padding:20px; /* ESPACE EN HAUT DU FOOTER */
+}
+
+footer img {
+  border-radius: 7%;
+  scale:85%;
+}
+
+.footer-description{
+    color: #CECEE8;
+    display: flex;
+    text-decoration: none;
+}
+
+.footer-wrapper {
+    display: flex;
+    justify-content: space-around;
+    line-height: 2.2;
+}
+
+.footer-logos {
+  display:flex;
+  align-items: flex-start;
+}
+.footer-logos > div{
+    transition: transform .25s;
+}
+
+.footer-logos > div:hover{
+    transform: scale(1.2);
+    }
+
+.copyright {
+  margin-top: 70px;
+  background-color: rgba(11,11,38);
+  color:#CECEE8;
+}
+
+.copyright p {
+  font-size: 0.9em;
+  text-align: left;
+}/* ------------------------------------------------------------------------------------- */
