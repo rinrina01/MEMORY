@@ -1,0 +1,49 @@
+body{
+    background-color: grey;
+}
+
+
+{
+    background-color: rgba(13,11,38,255);
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    margin-top: 20px;
+
+}
+.orange{
+    color: rgba(236,145,35,255);
+}
+
+.white{
+    color: rgb(255, 255, 255, .5);
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.footer_list{
+    list-style-type: square ;
+    color: rgba(236,145,35,255);
+}
+
+.logo_footer{
+    display: flex;
+    margin-left: 21%;
+}
+.logo_footer > div{
+    margin-right: 1%;
+    transition: transform .9s;
+}
+
+.logo_footer > div:hover{
+    transform: scale(1.5);
+    }
+
+.copyright{
+    margin-left: 21%;
+}
+.ajoutermoi{
+    color: rgb(255, 255, 255, .5) ;
+}
