@@ -1,62 +1,141 @@
-.container {
-display: flex;
-align-items: flex-start;
-flex-wrap: no-wrap;
-}
-
-.item-1 {
-
-float:right;
-
-font-size:10px;
-margin:10px;
-text-align:center;
-float:right;
-text-decoration:none;
-color:white;
-
-text-align:center;
-padding: 10px;
-width: 150px;
-}
-
-.parent {
-width: 100%;
-height: 150px;
-overflow: hidden;
-display: flex;
-}
-
-img {
-flex-direction: flex-start;
-max-width: 80%;
-max-height: inherit;
-height: inherit;
-width: inherit;
-object-fit: cover;
-}
-
 body {
-    background-color:#0E0F2E;
-    color:white;
-    font-family: "Tahoma", "sans-serif";
+  background-color:#0E0F2E;
+  color:white;
+  font-family:'Poppins';
+  margin:0;
 }
+main {
+    margin-top: 75px; /* AJOUT D'ESPACE ENTRE LES ÉLÉMENTS */
+}
+/* ---------------- FONT/SETUP ----------------------- */
+@font-face {
+  font-family: "Poppins";
+  src: url("FONTS/POPPINS/Poppins-Light.ttf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("FONTS/POPPINS/Poppins-Bold.ttf");
+  font-weight: bold;
+}/* -------------------------------------------------- */
 
-header{
+
+
+
+
+
+/* -------------------------------- HEADER --------------------------------------- */
+header {
+    position: fixed; /* LE HEADER RESTE EN HAUT DE LA PAGE EN SCROLLANT */
+    width: 100%;
+    top:0;
+    left: 0;
+    background-color: rgba(14, 14, 47, 0.8);
     overflow: hidden;
-    font-family: "Tahoma", "sans-serif";
+    padding:3vh;
+  }
+/* ---------------- HEADER SETUP --------------------------- */
+*,
+*:before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-#top-header{
-    text-align: right;
-    height: 10px;
-    flex-wrap: wrap;
+.header-nav { /* CLASSE NAVIGATION HEADER (ÉLÉMENTS DE DROITE)*/
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+
+  width: 50vw; /* ESPACEMENT ÉLÉMENTS NAV */
+  min-width: 15vh; /* LARGEUR TOTALE DE NAV */
 }
 
-a{
-    color: white;
-    text-decoration: none;
+.header-left-element { /* ÉLÉMENT DE GAUCHE DU HEADER */
+  display:flex;
+  align-items: center;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
+.header-alignment { /* ALIGNEMENT ET POSITION DES ÉLÉMENTS DE GAUCHE/DROITE */
+  display: flex;
+  justify-content: space-between;
+  margin-right:10vh;
+  margin-left:10vh;
+
+  flex-wrap: nowrap;
+}
+
+/* ---------------- HOVER ANIMATION --------------------------- */
+.header-a { 
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  font-weight:bold;
+  text-decoration: none;
+  color:white;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+
+  white-space: nowrap;
+}
+
+.header-a:before {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 0;
+  background-color: #EA9033;
+  transition: 0.3s;
+}
+
+.header-a:before {
+  right: 0;
+  top: -4.4vh;
+}
+
+.header-a:hover {
+  color: #EA9033;
+}
+
+.header-a:hover:before {
+  width: 100%;
+}/* -------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+/* -------------------------------- IMG BANNER ----------------------------------------- */
+.top-banner-container { /* BANNIÈRE AVEC IMAGE DU HAUT */
+  position: relative;
+  text-align: center;
+}
+
+.top-banner-centered { /* TEXTE CENTRÉ SUR IMAGE */
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-weight: bold;
+  font-size: 40px;
+}/* ------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
 
 .grid{
     display: flex;
@@ -121,154 +200,67 @@ input{
     border: none;
 }
 
-.image-container div {
-    margin: 0 9px;
-}
 
-.image-container img {
-    max-width: 90%;
-    height: auto;
-}
 
-#top_image{
-    background-image: url("../ASSETS/IMAGES/2814.jpg");
-    background-size: 150%;
-    background-position: -132px -100px;
-}
-
-.image-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    text-align: center;
-    margin: 20px 0;
-}
-
-#lastheader{
-    padding-bottom:  50px;
-}
-.titre{
-    font-size: 40px;
-    padding-top: 50px;
-    padding-bottom: 75px;
-}
 
 .card{
     width: 100px;
     margin: 2px;
 }
 
-footer
-{
-    background-color: rgba(13,11,38,255);
-    color: rgb(255, 255, 255);
-    font-size: 20px;
-    margin-top: 100px;
 
-}
-.orange{
-    color: rgba(236,145,35,255);
+
+
+
+
+
+
+
+/* -------------------------------- FOOOTER --------------------------------------------- */
+footer {
+  background-color: rgba(13,11,38,255);
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  margin-top: 20px;
+  padding:20px; /* ESPACE EN HAUT DU FOOTER */
 }
 
-.white{
-    color: rgb(255, 255, 255, .5);
+footer img {
+  border-radius: 7%;
+  scale:85%;
 }
 
-.wrapper {
+.footer-description{
+    color: #CECEE8;
     display: flex;
-    justify-content: space-evenly;
+    text-decoration: none;
 }
 
-.footer_list{
-    list-style-type: square ;
-    color: rgba(236,145,35,255);
-}
-
-.logo_footer{
+.footer-wrapper {
     display: flex;
-    margin-left: 21%;
-}
-.logo_footer > div{
-    margin-right: 1%;
-    transition: transform .9s;
+    justify-content: space-around;
+    line-height: 2.2;
 }
 
-.logo_footer > div:hover{
-    transform: scale(1.5);
+.footer-logos {
+  display:flex;
+  align-items: flex-start;
+}
+.footer-logos > div{
+    transition: transform .25s;
+}
+
+.footer-logos > div:hover{
+    transform: scale(1.2);
     }
 
-.copyright{
-    margin-left: 21%;
+.copyright {
+  margin-top: 70px;
+  background-color: rgba(11,11,38);
+  color:#CECEE8;
 }
-.ajoutermoi{
-    color: rgb(255, 255, 255, .5) ;
-}
-.top-left { /* HEADER : LOGO 'The Power Of Memory' */
-    color:white;
-    font-weight: bold;
-    position:absolute;
-    top: 30px;
-    left: 115px;
-  }
-  
-  nav {
-    position:absolute;
-    top: 30px;
-    right: 115px;
-    min-width: 600px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-  }
 
-  .menu {
-    position:relative;
-    color: white;
-    font-size: 13px;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    padding: 0 10px;
-    text-decoration:none;
-  }
-  
-  .menu:after {
-    content: "";
-    position: absolute;
-    height: 3px;
-    width: 0;
-    background-color: #EA9033;
-    transition: 0.3s;
-  }
-  
-  .menu:after {
-    left: 6px;
-    top: -30px;
-  }
-  
-  .menu:hover:after,
-  .menu:hover:before {
-    width: 85%;
-  }
-
-  header{
-    overflow: hidden;
-    text-align: center;
-  }
-
-  .top-left { /* HEADER : LOGO 'The Power Of Memory' */
-    color:white;
-    font-weight: bold;
-    top: 30px;
-    left: 115px;
-  }
-
-  @font-face {
-    font-family: "Poppins";
-    src: url("FONTS/POPPINS/Poppins-Light.ttf");
-    font-weight: normal;
-  }
-  @font-face {
-    font-family: "Poppins";
-    src: url("FONTS/POPPINS/Poppins-Bold.ttf");
-    font-weight: bold;
-  }
+.copyright p {
+  font-size: 0.9em;
+  text-align: left;
+}/* ------------------------------------------------------------------------------------- */
