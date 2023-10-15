@@ -1,88 +1,171 @@
-.container {
-display: flex;
-align-items: flex-start;
-flex-wrap: no-wrap;
-}
-
-.item-1 {
-
-float:right;
-
-font-size:10px;
-margin:10px;
-text-align:center;
-float:right;
-text-decoration:none;
-color:white;
-
-text-align:center;
-padding: 10px;
-width: 150px;
-}
-
-.parent {
-width: 100%;
-height: 150px;
-overflow: hidden;
-display: flex;
-}
-
-img {
-flex-direction: flex-start;
-max-width: 80%;
-max-height: inherit;
-height: inherit;
-width: inherit;
-object-fit: cover;
-}
-
 body {
-    background-color:#0E0F2E;
-    color:white;
-    font-family: "Tahoma", "sans-serif";
+  background-color:#0E0F2E;
+  color:white;
+  font-family:'Poppins';
 }
+main {
+    margin-top: 75px; /* AJOUT D'ESPACE ENTRE LES ÉLÉMENTS */
+}
+/* ---------------- FONT/SETUP ----------------------- */
+@font-face {
+  font-family: "Poppins";
+  src: url("FONTS/POPPINS/Poppins-Light.ttf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("FONTS/POPPINS/Poppins-Bold.ttf");
+  font-weight: bold;
+}/* -------------------------------------------------- */
 
-header{
+
+
+
+/* -------------------------------- HEADER --------------------------------------- */
+header {
+    position: fixed; /* LE HEADER RESTE EN HAUT DE LA PAGE EN SCROLLANT */
+    width: 100%;
+    top:0;
+    left: 0;
+    background-color: rgba(14, 14, 47, 0.8);
     overflow: hidden;
-    font-family: "Tahoma", "sans-serif";
+    padding:3vh;
+  }
+/* ---------------- HEADER SETUP --------------------------- */
+*,
+*:before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-#top-header{
-    text-align: right;
-    height: 10px;
-    flex-wrap: wrap;
+.header-nav { /* CLASSE NAVIGATION HEADER (ÉLÉMENTS DE DROITE)*/
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+
+  width: 50vw; /* ESPACEMENT ÉLÉMENTS NAV */
+  min-width: 15vh; /* LARGEUR TOTALE DE NAV */
 }
 
-a{
-    color: white;
-    text-decoration: none;
+.header-left-element { /* ÉLÉMENT DE GAUCHE DU HEADER */
+  display:flex;
+  align-items: center;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.box{
-    margin-top: 50px;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
+.header-alignment { /* ALIGNEMENT ET POSITION DES ÉLÉMENTS DE GAUCHE/DROITE */
+  display: flex;
+  justify-content: space-between;
+  margin-right:10vh;
+  margin-left:10vh;
+
+  flex-wrap: nowrap;
 }
 
-input{
-    background-color: rgb(38, 39, 69);
-    border-radius: 2px;
-    border: none;
-    color: white;
-    padding: 5px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin: 10px;
-    height: 32px;
-    width: 512px;
-    text-align: left;
-    font-size: 14px;
+/* ---------------- HOVER ANIMATION --------------------------- */
+.header-a { 
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  font-weight:bold;
+  text-decoration: none;
+  color:white;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+
+  white-space: nowrap;
 }
 
-.button{
+.header-a:before {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 0;
+  background-color: #EA9033;
+  transition: 0.3s;
+}
+
+.header-a:before {
+  right: 0;
+  top: -4.4vh;
+}
+
+.header-a:hover {
+  color: #EA9033;
+}
+
+.header-a:hover:before {
+  width: 100%;
+}/* -------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+
+
+
+
+/* -------------------------------- IMG BANNER ----------------------------------------- */
+.top-banner-container { /* BANNIÈRE AVEC IMAGE DU HAUT */
+  position: relative;
+  text-align: center;
+}
+
+.top-banner-centered { /* TEXTE CENTRÉ SUR IMAGE */
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-weight: bold;
+  font-size: 40px;
+}/* ------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+input[type=text], select {
+    background-color: rgb(38,39,69);
+    width:100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border:none;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+
+.register-form{
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.register-button{
+    margin-top:15px;
     background-color: orange;
     padding: 15px;
     padding-left: 20px;
@@ -90,182 +173,71 @@ input{
     color: white;
     border-radius: 2px;
     border: none;
+    align-self: flex-start;
 }
 .button:hover{
-    background-color: yellow;
+    background-color: #FFB43C;
     padding: 15px;
     padding-left: 20px;
     padding-right: 20px;
-    color: black;
+    color: white;
     border-radius: 2px;
     border: none;
 }
 
-.image-container div {
-    margin: 0 9px;
+
+
+
+
+
+
+
+
+/* -------------------------------- FOOOTER --------------------------------------------- */
+footer {
+  background-color: rgba(13,11,38,255);
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  margin-top: 20px;
+  padding:20px; /* ESPACE EN HAUT DU FOOTER */
 }
 
-.image-container img {
-    max-width: 90%;
-    height: auto;
+footer img {
+  border-radius: 7%;
+  scale:85%;
 }
 
-#top_image{
-    background-image: url("../ASSETS/IMAGES/2814.jpg");
-    background-size: 150%;
-    background-position: -132px -100px;
-    margin-top: 35px;
+.footer-description{
+    color: #CECEE8;
+    display: flex;
+    text-decoration: none;
 }
 
-.image-container {
+.footer-wrapper {
     display: flex;
     justify-content: space-around;
-    align-items: center;
-    text-align: center;
-    margin: 20px 0;
+    line-height: 2.2;
 }
 
-#lastheader{
-    padding-bottom:  50px;
+.footer-logos {
+  display:flex;
+  align-items: flex-start;
 }
-.titre{
-    font-size: 40px;
-    padding-top: 50px;
-    padding-bottom: 75px;
-}
-
-#connexion{
-    color:orange;
+.footer-logos > div{
+    transition: transform .25s;
 }
 
-footer{
-    background-color: rgba(13,11,38,255);
-    color: rgb(255, 255, 255);
-    font-size: 20px;
-    margin-top: 100px;
-
-}
-.orange{
-    color: rgba(236,145,35,255);
-}
-
-.white{
-    color: rgb(255, 255, 255, .5);
-}
-
-.wrapper {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.footer_list{
-    list-style-type: square ;
-    color: rgba(236,145,35,255);
-}
-
-.logo_footer{
-    display: flex;
-    margin-left: 21%;
-}
-.logo_footer > div{
-    margin-right: 1%;
-    transition: transform .9s;
-}
-
-.logo_footer > div:hover{
-    transform: scale(1.5);
+.footer-logos > div:hover{
+    transform: scale(1.2);
     }
 
-.copyright{
-    margin-left: 21%;
+.copyright {
+  margin-top: 70px;
+  background-color: rgba(11,11,38);
+  color:#CECEE8;
 }
-.ajoutermoi{
-    color: rgb(255, 255, 255, .5) ;
-}
 
-.top-left { /* HEADER : LOGO 'The Power Of Memory' */
-    color:white;
-    font-weight: bold;
-    position:absolute;
-    top: 30px;
-    left: 115px;
-  }
-  
-  nav {
-    position:absolute;
-    top: 30px;
-    right: 115px;
-    min-width: 600px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-  }
-
-  .menu {
-    position:relative;
-    color: white;
-    font-size: 13px;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    padding: 0 10px;
-    text-decoration:none;
-  }
-  
-  .menu:after {
-    content: "";
-    position: absolute;
-    height: 3px;
-    width: 0;
-    background-color: #EA9033;
-    transition: 0.3s;
-  }
-  
-  .menu:after {
-    left: 6px;
-    top: -30px;
-  }
-  
-  .menu:hover:after,
-  .menu:hover:before {
-    width: 85%;
-  }
-
-  header{
-    overflow: hidden;
-    text-align: center;
-  }
-
-  .top-left { /* HEADER : LOGO 'The Power Of Memory' */
-    color:white;
-    font-weight: bold;
-    top: 30px;
-    left: 115px;
-  }
-
-  @font-face {
-    font-family: "Poppins";
-    src: url("FONTS/POPPINS/Poppins-Light.ttf");
-    font-weight: normal;
-  }
-  @font-face {
-    font-family: "Poppins";
-    src: url("FONTS/POPPINS/Poppins-Bold.ttf");
-    font-weight: bold;
-  }
-
-  .pwdForm {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .formBtn {
-    width: 100%;
-    display: flex;
-    /* align-items: center; */
-    justify-content: flex-start;
-  }
-
-  .formBtn button {
-    margin-left: 10px;
-    margin-top: 10px;
-  }
+.copyright p {
+  font-size: 0.9em;
+  text-align: left;
+}/* ------------------------------------------------------------------------------------- */
