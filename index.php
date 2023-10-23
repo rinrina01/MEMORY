@@ -1,33 +1,36 @@
+<?php 
+	require 'utils/common.php';
+	require_once SITE_ROOT.'utils/database.php'; 
+?>
 <!DOCTYPE html>
 <html>
 
 	<head>
-		<meta charset="utf-8">
+		<?php 
+			require SITE_ROOT.'partials/head.php';
+		?>
 		<title>The Memory</title>
-		<link rel="stylesheet" href="ASSETS/index.css"/>
-		<link href="https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&display=swap" rel="stylesheet">
-		<link rel="icon" type="image/x-icon" href="ASSETS/IMAGES/favicon.ico">
 	</head>
 
 	<body>
 		<header>
-			<img src="ASSETS/IMAGES/accueil.jpg" style="width:200vh;height:110vh;opacity:0.40;">
+		<img src="ASSETS/IMAGES/accueil.jpg" style="width:200vh;height:110vh;opacity:0.40;">
 			
-            <div class="centered"> BIENVENUE DANS <br> NOTRE STUDIO !
-                
-                <div class="undertitle">
-                    <p> Venez challenger les cerveaux les plus agiles ! </p>
-                </div>
-                
-                <div class="button">
+			<div class="centered"> BIENVENUE DANS <br> NOTRE STUDIO !
+				
+				<div class="undertitle">
+					<p> Venez challenger les cerveaux les plus agiles ! </p>
+				</div>
+				
+				<div class="button">
 					<form>
-					<button type="submit" formaction="memory.html">Jouer !</button>   
+					<button type="submit" formaction="games/memory/memory.php">Jouer !</button>   
 					</form>
-             </div>
-
-            </div>
-		
-                <div id ="top_image"> 
+				</div>
+			
+			</div>
+			
+				<div id ="top_image"> 
 					<div class="top-left">
 						<p style="font-size:16px;"> The Power Of Memory </p>
 					</div>
@@ -42,30 +45,26 @@
 							
 				
 							<nav>
-								<a class="menu" href="index.html"> ACCUEIL </a>
-								<a class="menu" href="memory.html"> JEU </a>
-								<a class="menu" href="scores.html"> SCORE </a>
-								<a class="menu" href="contact.html"> NOUS CONTACTER </a>
-								<a class="menu" href="login.html"> SE CONNECTER </a>
+								<a class="menu" href="index.php"> ACCUEIL </a>
+								<a class="menu" href="games/memory/memory.php"> JEU </a>
+								<a class="menu" href="games/memory/scores.php"> SCORE </a>
+								<a class="menu" href="contact.php"> NOUS CONTACTER </a>
+								<a class="menu" href="login.php"> SE CONNECTER </a>
 							</nav>
 						</header>
 					</div>
-		
+			
 				
 				
-		
+			
 				</div>
-			   
 		</header>
        
 		<!---image -->
-        
-
-
 		<div class="touteslesimage">
-			<img src="ASSETS/IMAGES/pc.png" alt="PC INCROYABLE" height="300" width="400">
-			<img src="ASSETS/IMAGES/trottinette.png" alt="SOYEZ AGDILE" height="300" width="190">
-			<img src="ASSETS/IMAGES/poker.png" alt="AYEZ DE LA CHANCE" height="300" width="190">
+			<img src="assets/IMAGES/pc.png" alt="PC INCROYABLE" height="300" width="400">
+			<img src="assets/IMAGES/trottinette.png" alt="SOYEZ AGDILE" height="300" width="190">
+			<img src="assets/IMAGES/poker.png" alt="AYEZ DE LA CHANCE" height="300" width="190">
 		</div>
 		
 	<div class="tout_les_texte">
@@ -172,14 +171,12 @@
 
     
     <!--partie avec nous-->
-
 	<h1 class = "equipe" style ="margin-top:100px">Gang de Nolan</h1>
 	<p class = "equipe">Salut bonsoir c'est POLO </p>
 	<div class = "delimiter">
 
 		<img src="assets/IMAGES/letrait.png" alt="Pour delimiter" class = "delimiter">
 	</div>
-	
 	<div class="kln" style="margin-bottom:100px">
 
 		<div class="khalid">
@@ -223,10 +220,6 @@
 	</div>
 
 
-
-
-
-
 	<div class="chat-box resizable">
 		<div class="chat-header">
 			<h3 class="chat">Chat</h3>
@@ -255,58 +248,11 @@
 		<!-------------------------- FOOTER --------------------------->
 		<main>
 			<footer>
-		        <div class="footer-wrapper">
-		            <div>
-		                <h3 style="margin-top: 30px;">Information</h3>
-		                <p class="footer-description"> Notre équipe reste à votre disposition en cas de pépin ! </p>
-		                <p class="footer-description"> <span style="color:rgba(236,145,35);margin-right:5px;font-weight:bold;"> TEL • </span> 06 05 04 03 02 </p>
-		                <p class="footer-description"> <span style="color:rgba(236,145,35);margin-right:5px;font-weight:bold;"> EMAIL • </span> support@powerofmemory.com </p>
-		                <p class="footer-description"> <span style="color:rgba(236,145,35);margin-right:5px;font-weight:bold;"> EMPLACEMENT • </span> Paris </p>		          
-
-		                <section class="footer-logos" style="margin-top:10px">
-				            <div>
-				            	<a href="https://www.facebook.com/">
-				            		<img src="assets/IMAGES/facebook-orange.png" alt="Facebook">
-				            	</a>
-				            </div>
-
-				            <div>
-				            	<a href="https://twitter.com/">
-				            		<img src="assets/IMAGES/twitter-orange.png" alt="Twitter">
-				            	</a>
-				            </div>
-
-				            <div>
-				            	<a href="https://www.google.com/">
-				            		<img src="assets/IMAGES/google-orange.png" alt="Google">
-				            	</a>
-				            </div>
-
-				            <div>
-				            	<a href="https://www.pinterest.fr/">
-				            		<img src="assets/IMAGES/pinterest-orange.png" alt="Pinterest">
-				            	</a>
-				            </div>
-
-				            <div>
-				            	<a href="https://www.instagram.com/h_khalid__h/">
-				            		<img src="assets/IMAGES/instagram-orange.png" alt="Instagram (de Khalid)">
-				            	</a>
-				            </div>
-					</div>
-
-		            <div>
-		                <h3 style="margin-top: 30px;"> Power Of Memory </h3>
-		                <ul class="footer_list">
-		                    <a class="footer-description" href="memory.html"> <span style="color:rgba(236,145,35);margin-right:5px;font-weight:bold;"> • </span> Jouer ! </a>
-		                    <a class="footer-description" href="scores.html"> <span style="color:rgba(236,145,35);margin-right:5px;font-weight:bold;"> • </span> Scores </a>
-		                    <a class="footer-description" href="contact.html"> <span style="color:rgba(236,145,35);margin-right:5px;font-weight:bold;"> • </span> Nous contacter </a>
-		                </ul>
-		            </div>
-		        </div>
-		        <p class="copyright">Copyright © 2022 Tous droits réservés</p>
+				<?php 
+				require SITE_ROOT.'partials/footer.php';
+				?>
 			</footer>
 		</main>
 		<!------------------------------------------------------------->
 
-		</body>
+</body>
