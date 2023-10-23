@@ -1,5 +1,5 @@
 <?php 
-	require 'utils/common.php';
+	require SITE_ROOT.'utils/common.php';
 	require_once SITE_ROOT.'utils/database.php'; 
 ?>
 <!DOCTYPE html>
@@ -7,8 +7,8 @@
 <head>
 		<?php 
 			require SITE_ROOT.'partials/head.php';
+			require SITE_ROOT.'partials/header.php';
 		?>
-		<link rel='stylesheet' type='text/css' href='assets/styles/myAccount.css' >
 		<title> Login </title>
 	</head>
 

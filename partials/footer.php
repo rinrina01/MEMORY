@@ -41,9 +41,9 @@
     <div>
         <h3 style="margin-top: 30px;"> Power Of Memory </h3>
         <ul class="footer_list">
-            <a class="footer-description" href="memory.html"> <span style="color:rgba(236,145,35);margin-right:5px;font-weight:bold;"> • </span> Jouer ! </a>
-            <a class="footer-description" href="scores.html"> <span style="color:rgba(236,145,35);margin-right:5px;font-weight:bold;"> • </span> Scores </a>
-            <a class="footer-description" href="contact.html"> <span style="color:rgba(236,145,35);margin-right:5px;font-weight:bold;"> • </span> Nous contacter </a>
+            <a class="footer-description" href="<?php PROJECT_FOLDER?>games/memory/memory.php"> <span style="color:rgba(236,145,35);margin-right:5px;font-weight:bold;"> • </span> Jouer ! </a>
+            <a class="footer-description" href="<?php PROJECT_FOLDER?>games/memory/scores.php"> <span style="color:rgba(236,145,35);margin-right:5px;font-weight:bold;"> • </span> Scores </a>
+            <a class="footer-description" href="<?php PROJECT_FOLDER?>contact.php"> <span style="color:rgba(236,145,35);margin-right:5px;font-weight:bold;"> • </span> Nous contacter </a>
         </ul>
     </div>
 </div>
