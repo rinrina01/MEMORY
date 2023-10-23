@@ -1,5 +1,5 @@
 <?php 
-	require SITE_ROOT.'utils/common.php';
+	require '../../utils/common.php';
 	require_once SITE_ROOT.'utils/database.php'; 
 ?>
 
