@@ -1,4 +1,5 @@
 <?php
+$page = "contact";
 require 'utils/common.php';
 require_once SITE_ROOT . 'utils/database.php';
 ?>

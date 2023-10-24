@@ -520,6 +520,18 @@ header {
 }
 
 /* ---------------- HOVER ANIMATION --------------------------- */
+.active { 
+    position: relative;
+    font-family: "Poppins", sans-serif;
+    font-weight:bold;
+    text-decoration: none;
+    color:#EA9033;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  
+    white-space: nowrap;
+  }
+
 .header-a { 
   position: relative;
   font-family: "Poppins", sans-serif;
