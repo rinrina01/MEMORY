@@ -2,14 +2,29 @@
 $page = "scores";
 require '../../utils/common.php';
 require_once SITE_ROOT . 'utils/database.php';
+$searchDifficulty = "";
+$searchGameName = "";
+$searchNickname = "";
+$searchScore = "";
+
+if (isset($_POST['difficulties'])) {
+	$searchDifficulty = $_POST['difficulties'];
+}
+if (isset($_POST['gameName'])) {
+	$searchGameName = $_POST['gameName'];
+}
+if (isset($_POST['nickname'])) {
+	$searchPseudo = $_POST['nickname'];
+}
 
 $pdo = connectToDbAndGetPdo();
-$pdoStatement = $pdo->prepare('SELECT U.id, U.pseudo, J.nom_jeu, S.difficulte_partie, S.score_partie, S.date_partie, S.recordTime FROM utilisateur AS U
+$pdoStatement = $pdo->prepare("SELECT U.id, U.pseudo, J.nom_jeu, S.difficulte_partie, S.score_partie, S.date_partie, S.recordTime FROM utilisateur AS U
 INNER JOIN score AS S 
     ON U.id = S.id_joueur
 INNER JOIN jeu AS J 
     ON S.id_jeu = J.id
-ORDER BY J.nom_jeu ASC, S.score_partie DESC;');
+WHERE S.difficulte_partie LIKE '%$searchDifficulty%' AND J.nom_jeu LIKE '%$searchGameName%' AND U.pseudo LIKE '%$searchNickname%'
+ORDER BY J.nom_jeu ASC, S.score_partie DESC;");
 $pdoStatement->execute();
 $infos = $pdoStatement->fetchAll();
 $id = 1
@@ -34,6 +49,16 @@ $id = 1
 	</div>
 	<!------------------------------------------------------------->
 
+
+	<form action="" method="post">
+		<input type="search" name="gameName" id="gameName" placeholder="Nom du jeu">
+		<input type="search" name="nickname" id="nickname" placeholder="Pseudo">
+		<input type="search" name="difficulties" id="difficulties" placeholder="Difficulté">
+		<button type="submit">Filtrer</button>
+	</form>
+	<form action="" method="post">
+		<button type="submit">Reset</button>
+	</form>
 
 
 	<main id="table">
