@@ -1,5 +1,5 @@
 <?php
-function connectToDbAndGetPdo(): object {
+function connectToDbAndGetPdo(): PDO {
         $dbname = 'KLN';
         $host = 'localhost';
 
@@ -19,4 +19,3 @@ function connectToDbAndGetPdo(): object {
             echo 'La connexion à la base de données a échouée.';
         }
     }
-?>

@@ -1,25 +1,27 @@
-<?php 
-	require '../../utils/common.php';
-	require_once SITE_ROOT.'utils/database.php'; 
+<?php
+require '../../utils/common.php';
+require_once SITE_ROOT . 'utils/database.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-		<?php 
-			require SITE_ROOT.'partials/head.php';
-			require SITE_ROOT.'partials/header.php';
-		?>
+	<?php
+	require SITE_ROOT . 'partials/head.php';
+	require SITE_ROOT . 'partials/header.php';
+	?>
 	<title>Memory (10x10)</title>
 </head>
+
 <body>
-	
-		<!-------------------------- BANNER --------------------------->
-		<div class="top-banner-container">
-		  <img src="ASSETS/IMAGES/2814.jpg" style="width:100%;height:300px;object-fit: cover;opacity: 0.3;">
-		  <div class="top-banner-centered"> MEMORY </div>
-		</div>
-		<!------------------------------------------------------------->
+
+	<!-------------------------- BANNER --------------------------->
+	<div class="top-banner-container">
+		<img src="ASSETS/IMAGES/2814.jpg" style="width:100%;height:300px;object-fit: cover;opacity: 0.3;">
+		<div class="top-banner-centered"> MEMORY </div>
+	</div>
+	<!------------------------------------------------------------->
 	<div class="box">
 		<h2>Difficulté: moyenne (10x10)</h2>
 	</div>
@@ -29,7 +31,7 @@
 		<h3>| Cartes disponibles: 0 (normal)</h3>
 		<h3>| 00:00</h3>
 	</div>
-	
+
 	<br>
 	<div class="box">
 		<div class="grid">
@@ -146,21 +148,22 @@
 		</div>
 	</div>
 
-		<!-------------------------- FOOTER --------------------------->
+	<!-------------------------- FOOTER --------------------------->
 	<main>
 		<footer>
-		<?php 
-				require SITE_ROOT.'partials/footer.php';
-				?>
+			<?php
+			require SITE_ROOT . 'partials/footer.php';
+			?>
 		</footer>
 	</main>
 	<!------------------------------------------------------------->
 
 
 	<!-------------------------- HEADER --------------------------->
-	   <?php 
-				require SITE_ROOT.'partials/header.php';
-				?>
+	<?php
+	require SITE_ROOT . 'partials/header.php';
+	?>
 	<!------------------------------------------------------------->
 </body>
+
 </html>

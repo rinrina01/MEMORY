@@ -1,16 +1,17 @@
-<?php 
-	require 'utils/common.php';
-	require_once SITE_ROOT.'utils/database.php'; 
+<?php
+require 'utils/common.php';
+require_once SITE_ROOT . 'utils/database.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-		<?php 
-			require SITE_ROOT.'partials/head.php';
-			require SITE_ROOT.'partials/header.php';
-		?>
-		<title> Login </title>
-	</head>
+	<?php
+	require SITE_ROOT . 'partials/head.php';
+	require SITE_ROOT . 'partials/header.php';
+	?>
+	<title> Login </title>
+</head>
 
 
 
@@ -19,8 +20,8 @@
 
 	<!-------------------------- BANNER --------------------------->
 	<div class="top-banner-container">
-	  <img src="ASSETS/IMAGES/2814.jpg" style="width:100%;height:300px;object-fit: cover;opacity: 0.3;">
-	  <div class="top-banner-centered"> SE CONNECTER </div>
+		<img src="ASSETS/IMAGES/2814.jpg" style="width:100%;height:300px;object-fit: cover;opacity: 0.3;">
+		<div class="top-banner-centered"> SE CONNECTER </div>
 	</div>
 	<!------------------------------------------------------------->
 
@@ -43,21 +44,22 @@
 	<!-------------------------- FOOTER --------------------------->
 	<main>
 		<footer>
-		<?php 
-				require SITE_ROOT.'partials/footer.php';
-				?>
+			<?php
+			require SITE_ROOT . 'partials/footer.php';
+			?>
 		</footer>
 	</main>
 	<!------------------------------------------------------------->
 
 
 	<!-------------------------- HEADER --------------------------->
-	   <?php 
-				require SITE_ROOT.'partials/header.php';
-				?>
+	<?php
+	require SITE_ROOT . 'partials/header.php';
+	?>
 	<!------------------------------------------------------------->
 
 
 
 </body>
+
 </html>
