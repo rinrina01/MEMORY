@@ -13,7 +13,7 @@ function connectToDbAndGetPdo(): PDO {
     ];
     try {
         $pdo = new PDO($dsn, $user, $pass, $driver_options);
-        echo 'La connexion à la base de données marche';
+        //echo 'La connexion à la base de données marche';
         return $pdo;
     } catch (PDOException $e) {
         echo 'La connexion à la base de données a échouée.';

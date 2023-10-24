@@ -2,6 +2,13 @@
 $page = "index";
 require 'utils/common.php';
 require_once SITE_ROOT . 'utils/database.php';
+
+$pdo = connectToDbAndGetPdo();
+$pdoStatement = $pdo->prepare('SELECT count(DISTINCT U.id) as numberOfInscriptions, count(S.id) as numberOfGames, min(recordTime) as recordTime FROM utilisateur AS U 
+INNER JOIN score AS S ON U.id = S.id_joueur;');
+$pdoStatement->execute();
+$infos = $pdoStatement->fetchAll();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -134,12 +141,19 @@ require_once SITE_ROOT . 'utils/database.php';
 
 				<div class="carrebleu">
 					<p>
-						<strong>310</strong><br> Rage quits par jour
+						<strong>
+							<?php foreach ($infos as $info) {
+								echo $info->numberOfGames;
+							} ?>
+
+						</strong><br> Parties joués
 					</p>
 				</div>
 				<div class="carreviolet">
 					<p>
-						<strong> 10 sec</strong> <br> Temps Record
+						<strong> <?php foreach ($infos as $info) {
+										echo $info->recordTime;
+									} ?> </strong> <br> Temps Record
 					</p>
 				</div>
 			</div>
@@ -148,12 +162,22 @@ require_once SITE_ROOT . 'utils/database.php';
 
 			<div class="carrevert">
 				<p>
-					<strong>1020</strong> <br> Joueurs Connectés
+					<strong>
+						<?php $number_of_users = count(glob(session_save_path() . '/*')); /// Compte uniquement les refresh car les sessions ne sont pas supprimés
+						echo $number_of_users; ?>
+
+					</strong> <br> Joueurs Connectés
 				</p>
 			</div>
 			<div class="carreorange">
 				<p>
-					<strong> 21 300</strong> <br> RAGEUX
+					<strong>
+						<?php
+						foreach ($infos as $info) {
+							echo $info->numberOfInscriptions;
+						}
+						?>
+					</strong> <br> Joueurs Inscrits
 				</p>
 			</div>
 		</div>
