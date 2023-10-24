@@ -1,4 +1,5 @@
 <?php
+$page = "index";
 require 'utils/common.php';
 require_once SITE_ROOT . 'utils/database.php';
 ?>
@@ -39,18 +40,9 @@ require_once SITE_ROOT . 'utils/database.php';
 
 		<div id="top-header">
 			<header>
-				<div class="top-left">
-					<p style="font-size:16px;"> The Power Of Memory </p>
-				</div>
-
-
-				<nav>
-					<a class="menu" href="index.php"> ACCUEIL </a>
-					<a class="menu" href="games/memory/memory.php"> JEU </a>
-					<a class="menu" href="games/memory/scores.php"> SCORE </a>
-					<a class="menu" href="contact.php"> NOUS CONTACTER </a>
-					<a class="menu" href="login.php"> SE CONNECTER </a>
-				</nav>
+				<?php
+				require SITE_ROOT . 'partials/header.php';
+				?>
 			</header>
 		</div>
 
