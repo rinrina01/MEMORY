@@ -10,7 +10,6 @@ require_once SITE_ROOT . 'utils/database.php';
 <head>
 	<?php
 	require SITE_ROOT . 'partials/head.php';
-	require SITE_ROOT . 'partials/header.php';
 	?>
 	<title>Memory</title>
 </head>
