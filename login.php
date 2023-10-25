@@ -36,7 +36,7 @@ require_once SITE_ROOT . 'utils/database.php';
 				<button class="button"> Connexion </button>
 			</div>
 		</div>
-		<p style="font-size:10px;"> Pas de compte ? <a id="connexion" href="register.html"> <span style="color:#EA9033;">S'inscrire </a></p>
+		<p style="font-size:10px;"> Pas de compte ? <a id="connexion" href="<?php echo PROJECT_FOLDER; ?>register.php"?>> <span style="color:#EA9033;">S'inscrire </a></p>
 	</div>
 
 
