@@ -69,13 +69,17 @@ function isPasswordsMatches($pdo, $emailForm, $passwordForm, $pseudoForm, $infos
 {
 	try {
 		if (isset($_POST['password'])) {
+			
 			if (isset($_POST['passwordconfirm'])) {
+				
 				if ($_POST['password'] == $_POST['passwordconfirm']) {
 					echo " passage mdp et mdpc identiques ";
-					$_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
+					$_POST['password'] = password_hash($_POST['password'], CRYPT_SHA256);
+					
 					$passwordForm = $_POST['password'];
 					$passwordPattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!()@#$%^&*]).{8,}$/';
 					$regex = preg_match($passwordPattern, $_POST['password']);
+					
 					if (!$regex) {
 						echo " 	Veuillez mettre 1 majuscule, 1 caractère spécial et 1 chiffre dans votre mot de passe. ";
 					} else { // SI LE MOT DE PASSE EST BON
