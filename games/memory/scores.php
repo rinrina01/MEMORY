@@ -5,7 +5,6 @@ require_once SITE_ROOT . 'utils/database.php';
 $searchDifficulty = "";
 $searchGameName = "";
 $searchNickname = "";
-$searchScore = "";
 
 if (isset($_POST['difficulties'])) {
 	$searchDifficulty = $_POST['difficulties'];
