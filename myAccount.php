@@ -4,8 +4,13 @@ require 'utils/common.php';
 require_once SITE_ROOT . 'utils/database.php';
 
 $pdo = connectToDbAndGetPdo();
-$id = 38;
+$id = $_SESSION['id'];
 
+var_dump($_SESSION);
+if (isset($_SESSION['id'])) {
+	session_destroy();
+	echo 'session has been destroyed'; // FAIRE UNE PAGE DE DÉCONNEXION
+}
 
 
 
@@ -100,10 +105,11 @@ if (isset($_POST['email'])) { // CHECK SI LES MAILS SONT EXISTANTS
 <html lang="fr">
 
 <head>
+	<link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>assets/styles/myAccount.css" />
 	<?php
 	require SITE_ROOT . 'partials/head.php';
 	?>
-	<title> Login </title>
+	<title> My Account </title>
 </head>
 
 

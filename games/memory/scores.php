@@ -17,22 +17,23 @@ if (isset($_POST['nickname'])) {
 }
 
 $pdo = connectToDbAndGetPdo();
-$pdoStatement = $pdo->prepare("SELECT U.id, U.pseudo, J.nom_jeu, S.difficulte_partie, S.score_partie, S.date_partie, S.recordTime FROM utilisateur AS U
+$pdoStatement = $pdo->prepare("SELECT U.id_utilisateur, U.pseudo, J.nom_jeu, S.difficulte_partie, S.score_partie, S.date_partie, S.recordTime FROM utilisateur AS U
 INNER JOIN score AS S 
-    ON U.id = S.id_joueur
+    ON U.id_utilisateur = S.id_joueur
 INNER JOIN jeu AS J 
     ON S.id_jeu = J.id
 WHERE S.difficulte_partie LIKE '%$searchDifficulty%' AND J.nom_jeu LIKE '%$searchGameName%' AND U.pseudo LIKE '%$searchNickname%'
 ORDER BY J.nom_jeu ASC, S.score_partie DESC;");
 $pdoStatement->execute();
 $infos = $pdoStatement->fetchAll();
-$id = 1
+$id = $_SESSION['id'];
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
+	<link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>assets/styles/scores.css" />
 	<?php
 	require SITE_ROOT . 'partials/head.php';
 	?>
@@ -43,7 +44,7 @@ $id = 1
 
 	<!-------------------------- BANNER --------------------------->
 	<div class="top-banner-container">
-		<img src="ASSETS/IMAGES/2814.jpg" style="width:100%;height:300px;object-fit: cover;opacity: 0.3;">
+		<img src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/2814.jpg" style="width:100%;height:300px;object-fit: cover;opacity: 0.3;">
 		<div class="top-banner-centered"> SCORES </div>
 	</div>
 	<!------------------------------------------------------------->
@@ -72,7 +73,7 @@ $id = 1
 			</tr>
 
 			<?php foreach ($infos as $score) : ?>
-				<?php if ($id == $score->id) : ?>
+				<?php if ($id == $score->id_utilisateur) : ?>
 					<tr style="color: orange">
 					<?php else : ?>
 					<tr style="color: white">
@@ -101,12 +102,11 @@ $id = 1
 
 
 	<!-------------------------- HEADER --------------------------->
-	<?php
-	require SITE_ROOT . 'partials/header.php';
-	?>
+	<header>
+		<?php
+		require SITE_ROOT . 'partials/header.php';
+		?>
+	</header>
 	<!------------------------------------------------------------->
 
-
 </body>
-
-</html>

@@ -21,6 +21,40 @@ function connectToDbAndGetPdo(): PDO
     }
 }
 
+function connexionUtilisateur($userEmail, $userPassword, $userId, $userPseudo): string
+{
+    $userEmail = $_POST['email'];
+    $userPassword = password_hash($_POST['password'], CRYPT_SHA256);
+    //var_dump($userEmail,$userPassword);
+
+    try {
+        $pdo = connectToDbAndGetPdo();
+        $pdoStatement = $pdo->prepare("SELECT pseudo, id_utilisateur FROM utilisateur
+        WHERE email='$userEmail' AND mot_de_passe='$userPassword';");
+        $pdoStatement->execute();
+        $infosLogin = $pdoStatement->fetchAll();
+        //var_dump($infosLogin);
+
+        foreach ($infosLogin as $infos) {
+            $userPseudo = $infos->pseudo;
+            $userId = $infos->id_utilisateur;
+            //var_dump($userEmail, $userPassword, $userPseudo, $userId ); // CORRIGER L'AFFICHAGE
+        }
+
+        if ($userId == null) {
+            return 'Email ou mot de passe erroné';
+        } else {
+            $_SESSION['id'] = $userId;
+            //var_dump($_SESSION);
+            return "Bienvenue $userPseudo !";
+        }
+    } catch (PDOException $e) {
+        $errMessage = "";
+        $errMessage = $e->getMessage();
+        echo $errMessage;
+    }
+}
+
 function registerWithSQL($pdo, $emailForm, $passwordForm, $pseudoForm): void
 {
     try {

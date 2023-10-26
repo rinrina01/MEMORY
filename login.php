@@ -2,11 +2,26 @@
 $page = "login";
 require 'utils/common.php';
 require_once SITE_ROOT . 'utils/database.php';
-?>
+
+var_dump($_SESSION);
+
+$userEmail = '';
+$userPassword = '';
+$userId = null;
+$userPseudo = '';
+
+$ConnexionSuccessOrFailMessage = null;
+if (isset($_POST['email']) && isset($_POST['password'])) {
+	$ConnexionSuccessOrFailMessage = connexionUtilisateur($userEmail, $userPassword, $userId, $userPseudo);
+} ?>
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
+	<link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>assets/styles/login.css" />
 	<?php
 	require SITE_ROOT . 'partials/head.php';
 	?>
@@ -28,15 +43,16 @@ require_once SITE_ROOT . 'utils/database.php';
 
 
 	<div class="account-box">
-		<div class="contact-password-form">
-			<input type="email" name="Email" placeholder="Email" id="email">
-			<input type="password" name="MotDePasse" placeholder="Mot de passe" id="password">
+		<form class="contact-password-form" action="" method="post">
+			<input type="email" name="email" placeholder="Entrez votre email" id="email">
+			<input type="password" name="password" placeholder="Entrez votre mot de passe" id="password">
 			<br>
 			<div class="contact-form-button">
 				<button class="button"> Connexion </button>
 			</div>
-		</div>
-		<p style="font-size:10px;"> Pas de compte ? <a id="connexion" href="<?php echo PROJECT_FOLDER; ?>register.php"?>> <span style="color:#EA9033;">S'inscrire </a></p>
+		</form>
+		<p style="font-size:10px;"> Pas de compte ? <a id="connexion" href="<?php echo PROJECT_FOLDER; ?>register.php" ?>> <span style="color:#EA9033;">S'inscrire </a></p>
+		<label> <?php echo $ConnexionSuccessOrFailMessage ?> </label>
 	</div>
 
 
@@ -53,13 +69,11 @@ require_once SITE_ROOT . 'utils/database.php';
 
 
 	<!-------------------------- HEADER --------------------------->
-	<?php
-	require SITE_ROOT . 'partials/header.php';
-	?>
+	<header>
+		<?php
+		require SITE_ROOT . 'partials/header.php';
+		?>
+	</header>
 	<!------------------------------------------------------------->
 
-
-
 </body>
-
-</html>
