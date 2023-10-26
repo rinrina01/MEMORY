@@ -1,4 +1,5 @@
 <?php
+$page = "memory_lvl1";
 require '../../utils/common.php';
 require_once SITE_ROOT . 'utils/database.php';
 ?>
@@ -7,6 +8,7 @@ require_once SITE_ROOT . 'utils/database.php';
 <html lang="fr">
 
 <head>
+	<link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>assets/styles/memorylvl1.css" />
 	<?php
 	require SITE_ROOT . 'partials/head.php';
 	?>
@@ -37,39 +39,39 @@ require_once SITE_ROOT . 'utils/database.php';
 		<div class="grid">
 			<table>
 				<tr>
-					<img class="card" src="ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="ASSETS/IMAGES/CARDS/CLASSIC/2.png">
+					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
+					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
+					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
+					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
+					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/CARDS/CLASSIC/2.png">
 				</tr>
 				<tr>
-					<img class="card" src="ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="ASSETS/IMAGES/dos_cartes.png">
+					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
+					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
+					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
+					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
+					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
 				</tr>
 				<tr>
-					<img class="card" src="ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="ASSETS/IMAGES/CARDS/CLASSIC/2.png">
-					<img class="card" src="ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="ASSETS/IMAGES/dos_cartes.png">
+					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
+					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/CARDS/CLASSIC/2.png">
+					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
+					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
+					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
 				</tr>
 				<tr>
-					<img class="card" src="ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="ASSETS/IMAGES/dos_cartes.png">
+					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
+					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
+					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
+					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
+					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
 				</tr>
 				<tr>
-					<img class="card" src="ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="ASSETS/IMAGES/dos_cartes.png">
+					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
+					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
+					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
+					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
+					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
 				</tr>
 			</table>
 		</div>
@@ -88,10 +90,11 @@ require_once SITE_ROOT . 'utils/database.php';
 
 
 	<!-------------------------- HEADER --------------------------->
-	<?php
-	require SITE_ROOT . 'partials/header.php';
-	?>
+	<header>
+		<?php
+		require SITE_ROOT . 'partials/header.php';
+		?>
+	</header>
 	<!------------------------------------------------------------->
-</body>
 
-</html>
+</body>

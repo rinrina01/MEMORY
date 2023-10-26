@@ -1,0 +1,156 @@
+body {
+  background-color:#0E0F2E;
+  color:white;
+  font-family:'Poppins';
+}
+main {
+    margin-top: 75px; /* AJOUT D'ESPACE ENTRE LES ÉLÉMENTS */
+}
+/* ---------------- FONT/SETUP ----------------------- */
+@font-face {
+  font-family: "Poppins";
+  src: url("FONTS/POPPINS/Poppins-Light.ttf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("FONTS/POPPINS/Poppins-Bold.ttf");
+  font-weight: bold;
+}/* -------------------------------------------------- */
+
+
+
+
+
+
+
+.grid{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* 100+(nombre de cartes sur ligne * 100) */
+    width: 1000px;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.textsbox{
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: gray;
+}
+
+h3{
+    margin-right: 10px;
+}
+
+input{
+    background-color: rgb(38, 39, 69);
+    border-radius: 2px;
+    border: none;
+    color: white;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 10px;
+    height: 32px;
+    width: 512px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.button{
+    background-color: orange;
+    padding: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+    border-radius: 2px;
+    border: none;
+    align-self: flex-start;
+}
+.button:hover{
+    background-color: yellow;
+    padding: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: black;
+    border-radius: 2px;
+    border: none;
+}
+
+
+
+
+.titre{
+    font-size: 40px;
+    padding-top: 50px;
+    padding-bottom: 75px;
+}
+
+.card{
+    width: 90px;
+    margin: 2px;
+}
+
+
+
+
+
+
+/* -------------------------------- FOOOTER --------------------------------------------- */
+footer {
+  background-color: rgba(13,11,38,255);
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  margin-top: 20px;
+  padding:20px; /* ESPACE EN HAUT DU FOOTER */
+}
+
+footer img {
+  border-radius: 7%;
+  scale:85%;
+}
+
+.footer-description{
+    color: #CECEE8;
+    display: flex;
+    text-decoration: none;
+}
+
+.footer-wrapper {
+    display: flex;
+    justify-content: space-around;
+    line-height: 2.2;
+}
+
+.footer-logos {
+  display:flex;
+  align-items: flex-start;
+}
+.footer-logos > div{
+    transition: transform .25s;
+}
+
+.footer-logos > div:hover{
+    transform: scale(1.2);
+    }
+
+.copyright {
+  margin-top: 70px;
+  background-color: rgba(11,11,38);
+  color:#CECEE8;
+}
+
+.copyright p {
+  font-size: 0.9em;
+  text-align: left;
+}/* ------------------------------------------------------------------------------------- */

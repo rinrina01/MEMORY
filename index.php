@@ -14,9 +14,10 @@ $infos = $pdoStatement->fetchAll();
 <html>
 
 <head>
-	<?php
-	require SITE_ROOT . 'partials/head.php';
-	?>
+	<link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>assets/styles/index.css" />
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>assets/styles/footer.css" />
+	<link rel="icon" type="image/x-icon" href="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/favicon.ico">
 	<title>The Memory</title>
 </head>
 

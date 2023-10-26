@@ -7,6 +7,7 @@ require_once SITE_ROOT . 'utils/database.php';
 <html>
 
 <head>
+	<link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>assets/styles/contact.css" />
 	<?php
 	require SITE_ROOT . 'partials/head.php';
 	?>
@@ -71,8 +72,11 @@ require_once SITE_ROOT . 'utils/database.php';
 
 
 	<!-------------------------- HEADER --------------------------->
-	<?php
-	require SITE_ROOT . 'partials/header.php';
-	?>
+	<header>
+		<?php
+		require SITE_ROOT . 'partials/header.php';
+		?>
+	</header>
 	<!------------------------------------------------------------->
+
 </body>

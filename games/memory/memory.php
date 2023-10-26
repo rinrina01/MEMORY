@@ -8,6 +8,7 @@ require_once SITE_ROOT . 'utils/database.php';
 <html lang="fr">
 
 <head>
+	<link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>assets/styles/memory.css" />
 	<?php
 	require SITE_ROOT . 'partials/head.php';
 	?>
@@ -37,9 +38,9 @@ require_once SITE_ROOT . 'utils/database.php';
 
 		<h2>Choississez votre difficulté</h2>
 		<form>
-			<button type="submit" formaction="memory_lvl1.html">Facile (5x5)</button>
-			<button type="submit" formaction="memory_lvl2.html">Moyenne (10x10)</button>
-			<button type="submit" formaction="memory_lvl3.html">Difficile (20x20)</button>
+			<button type="submit" formaction="<?php echo PROJECT_FOLDER; ?>games/memory/memory_lvl1.php">Facile (5x5)</button>
+			<button type="submit" formaction="<?php echo PROJECT_FOLDER; ?>games/memory/memory_lvl2.php">Moyenne (10x10)</button>
+			<button type="submit" formaction="<?php echo PROJECT_FOLDER; ?>games/memory/memory_lvl3.php">Difficile (20x20)</button>
 		</form>
 
 		<h2>Choississez votre thème</h2>
@@ -64,11 +65,11 @@ require_once SITE_ROOT . 'utils/database.php';
 
 
 	<!-------------------------- HEADER --------------------------->
-	<?php
-	require SITE_ROOT . 'partials/header.php';
-	?>
+	<header>
+		<?php
+		require SITE_ROOT . 'partials/header.php';
+		?>
+	</header>
 	<!------------------------------------------------------------->
 
 </body>
-
-</html>

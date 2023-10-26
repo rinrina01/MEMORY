@@ -1,9 +1,9 @@
 <?php
-$page = "register";
+$page = "chat";
 require 'utils/common.php';
 require_once SITE_ROOT . 'utils/database.php';
 
-$id = 2;
+$id = $_SESSION['id'];
 
 $pdo = connectToDbAndGetPdo();
 
@@ -35,11 +35,11 @@ $infos = $pdoStatement->fetchAll();
 <html lang="fr">
 
 <head>
+    <link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>assets/styles/chat.css" />
     <?php
     require SITE_ROOT . 'partials/head.php';
     ?>
     <title>Chat</title>
-    <link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>assets/styles/chat.css" />
 </head>
 
 <body>
@@ -82,23 +82,22 @@ $infos = $pdoStatement->fetchAll();
 
 
     <!-------------------------- FOOTER --------------------------->
-    <main>
-        <footer>
-            <?php
-            require SITE_ROOT . 'partials/footer.php';
-            ?>
-        </footer>
-    </main>
-    <!------------------------------------------------------------->
-
-    <!-------------------------- HEADER --------------------------->
-    <?php
-    require SITE_ROOT . 'partials/header.php';
-    ?>
-    <!------------------------------------------------------------->
+	<main>
+		<footer>
+			<?php
+			require SITE_ROOT . 'partials/footer.php';
+			?>
+		</footer>
+	</main>
+	<!------------------------------------------------------------->
 
 
+	<!-------------------------- HEADER --------------------------->
+	<header>
+		<?php
+		require SITE_ROOT . 'partials/header.php';
+		?>
+	</header>
+	<!------------------------------------------------------------->
 
 </body>
-
-</html>
