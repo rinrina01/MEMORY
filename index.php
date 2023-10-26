@@ -4,8 +4,8 @@ require 'utils/common.php';
 require_once SITE_ROOT . 'utils/database.php';
 
 $pdo = connectToDbAndGetPdo();
-$pdoStatement = $pdo->prepare('SELECT count(DISTINCT U.id) as numberOfInscriptions, count(S.id) as numberOfGames, min(recordTime) as recordTime FROM utilisateur AS U 
-INNER JOIN score AS S ON U.id = S.id_joueur;');
+$pdoStatement = $pdo->prepare('SELECT count(DISTINCT U.id_utilisateur) as numberOfInscriptions, count(S.id) as numberOfGames, min(recordTime) as recordTime FROM utilisateur AS U 
+INNER JOIN score AS S ON U.id_utilisateur = S.id_joueur;');
 $pdoStatement->execute();
 $infos = $pdoStatement->fetchAll();
 

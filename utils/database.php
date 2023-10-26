@@ -24,6 +24,7 @@ function connectToDbAndGetPdo(): PDO
 function registerWithSQL($pdo, $emailForm, $passwordForm, $pseudoForm): void
 {
     try {
+        $passwordForm = password_hash($passwordForm, CRYPT_SHA256);
         $pdoStatement2 = $pdo->prepare('INSERT INTO utilisateur (email, mot_de_passe, pseudo, date_inscription, derniere_connexion) 
 		VALUES ( "' . $emailForm . '", "' . $passwordForm . '",  "' . $pseudoForm . '", NOW(), NOW() );
 		');
@@ -80,28 +81,32 @@ function isPseudoUnique($pdo, $emailForm, $passwordForm, $pseudoForm, $infos): b
     }
 }
 
-function isPasswordsMatches($pdo, $emailForm, $passwordForm, $pseudoForm, $infos): bool
+function isPasswordsMatches($passwordForm, $passwordConfirmForm): bool
 {
     try {
-        if (isset($_POST['password'])) {
+        if (isset($passwordForm)) {
 
-            if (isset($_POST['passwordconfirm'])) {
+            if (isset($passwordConfirmForm)) {
 
-                if ($_POST['password'] == $_POST['passwordconfirm']) {
-                    $_POST['password'] = password_hash($_POST['password'], CRYPT_SHA256);
+                if ($passwordForm == $passwordConfirmForm) {
+                    $passwordForm = password_hash($passwordForm, CRYPT_SHA256);
 
-                    $passwordForm = $_POST['password'];
+                    $passwordForm = $passwordForm;
                     $passwordPattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!()@#$%^&*]).{8,}$/';
-                    $regex = preg_match($passwordPattern, $_POST['password']);
+                    $regex = preg_match($passwordPattern, $passwordForm);
 
                     if (!$regex) {
                         echo " 	Veuillez mettre 1 majuscule, 1 caractère spécial et 1 chiffre dans votre mot de passe. ";
                         return false;
                     } else { // SI LE MOT DE PASSE EST BON
-                        $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
+                        $passwordForm = password_hash($passwordForm, PASSWORD_DEFAULT);
                         return true;
                     }
+                } else {
+                    return false;
                 }
+            } else {
+                return false;
             }
         } else {
             return false;
@@ -112,13 +117,18 @@ function isPasswordsMatches($pdo, $emailForm, $passwordForm, $pseudoForm, $infos
     }
 }
 
-function register($pdo, $emailForm, $passwordForm, $pseudoForm, $infos): void
+function register($pdo, $emailForm, $passwordForm, $passwordConfirmForm, $pseudoForm, $infos): void
 {
-    if (isPasswordsMatches($pdo, $emailForm, $passwordForm, $pseudoForm, $infos) == true) {
+    if (isPasswordsMatches($passwordForm, $passwordConfirmForm) == true) {
         if (isPseudoUnique($pdo, $emailForm, $passwordForm, $pseudoForm, $infos) == true) {
             if (isEmailUnique($pdo, $emailForm, $passwordForm, $pseudoForm, $infos) == true) {
                 registerWithSQL($pdo, $emailForm, $passwordForm, $pseudoForm, $infos);
             }
         }
     }
+}
+
+function checkPassword($password, $id): bool
+{
+    return true;
 }

@@ -11,6 +11,7 @@ $infos = $pdoStatement->fetchAll();
 $emailForm = "";
 $pseudoForm = "";
 $passwordForm = "";
+$passwordConfirmForm = "";
 
 
 if (isset($_POST['email'])) {
@@ -20,7 +21,19 @@ if (isset($_POST['email'])) {
 	}
 }
 
-register($pdo, $emailForm, $passwordForm, $pseudoForm, $infos);
+
+
+if (isset($_POST['email'])) {
+	if (isset($_POST['password'])) {
+		if (isset($_POST['passwordconfirm'])) {
+			if (isset($_POST['pseudo'])) {
+				echo "email: " . $_POST['email'] . " pseudo:" . $_POST['pseudo'] . " password:" . $_POST['password'] . " confirmpassword:" . $_POST['passwordconfirm'];
+				register($pdo, $_POST['email'], $_POST['password'], $_POST['passwordconfirm'], $_POST['pseudo'], $infos);
+			}
+		}
+	}
+}
+
 
 
 
