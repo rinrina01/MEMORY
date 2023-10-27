@@ -3,19 +3,27 @@ $page = "chat";
 require 'utils/common.php';
 require_once SITE_ROOT . 'utils/database.php';
 
-$id = $_SESSION['id'];
+$id = 1;
+
+if (isset($_SESSION['id'])) {
+    $id = $_SESSION['id'];
+} else {
+    $id = 1;
+}
 
 $pdo = connectToDbAndGetPdo();
 
+if ($id != -1) {
+    $id = $_SESSION['id'];
+    if (isset($_POST['message'])) {
+        $pdoSendMessage = $pdo->prepare('INSERT INTO message (id_jeu, id_expediteur, message, date_message)
+                                        VALUES (1, :id, :message, NOW())');
 
-if (isset($_POST['message'])) {
-    $pdoSendMessage = $pdo->prepare('INSERT INTO message (id_jeu, id_expediteur, message, date_message)
-                                    VALUES (1, :id, :message, NOW())');
+        $pdoSendMessage->bindParam(':id', $id, PDO::PARAM_INT);
+        $pdoSendMessage->bindParam(':message', $_POST['message'], PDO::PARAM_STR);
 
-    $pdoSendMessage->bindParam(':id', $id, PDO::PARAM_INT);
-    $pdoSendMessage->bindParam(':message', $_POST['message'], PDO::PARAM_STR);
-
-    $pdoSendMessage->execute();
+        $pdoSendMessage->execute();
+    }
 }
 
 
@@ -68,11 +76,15 @@ $infos = $pdoStatement->fetchAll();
                 </div>
             <?php endforeach; ?>
 
-            <!-- Formulaire pour envoyer un message -->
-            <form method="post">
-                <input type="text" name="message" placeholder="Saisissez votre message" required>
-                <button type="submit">Envoyer</button>
-            </form>
+            <?php if ($id != -1) : ?>
+                <!-- Formulaire pour envoyer un message -->
+                <form method="post">
+                    <input type="text" name="message" placeholder="Saisissez votre message" required>
+                    <button type="submit">Envoyer</button>
+                </form>
+            <?php else : ?>
+                <p style="color:red">Veuillez vous connecter pour pouvoir envoyer des messages</p>
+            <?php endif ?>
         </div>
     </div>
 
@@ -82,22 +94,22 @@ $infos = $pdoStatement->fetchAll();
 
 
     <!-------------------------- FOOTER --------------------------->
-	<main>
-		<footer>
-			<?php
-			require SITE_ROOT . 'partials/footer.php';
-			?>
-		</footer>
-	</main>
-	<!------------------------------------------------------------->
+    <main>
+        <footer>
+            <?php
+            require SITE_ROOT . 'partials/footer.php';
+            ?>
+        </footer>
+    </main>
+    <!------------------------------------------------------------->
 
 
-	<!-------------------------- HEADER --------------------------->
-	<header>
-		<?php
-		require SITE_ROOT . 'partials/header.php';
-		?>
-	</header>
-	<!------------------------------------------------------------->
+    <!-------------------------- HEADER --------------------------->
+    <header>
+        <?php
+        require SITE_ROOT . 'partials/header.php';
+        ?>
+    </header>
+    <!------------------------------------------------------------->
 
 </body>

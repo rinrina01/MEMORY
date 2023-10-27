@@ -16,6 +16,12 @@ if (isset($_POST['nickname'])) {
 	$searchPseudo = $_POST['nickname'];
 }
 
+if ($_SESSION != null) {
+	$id = $_SESSION['id'];
+} else {
+	$id = -1;
+}
+
 $pdo = connectToDbAndGetPdo();
 $pdoStatement = $pdo->prepare("SELECT U.id_utilisateur, U.pseudo, J.nom_jeu, S.difficulte_partie, S.score_partie, S.date_partie, S.recordTime FROM utilisateur AS U
 INNER JOIN score AS S 
@@ -26,7 +32,6 @@ WHERE S.difficulte_partie LIKE '%$searchDifficulty%' AND J.nom_jeu LIKE '%$searc
 ORDER BY J.nom_jeu ASC, S.score_partie DESC;");
 $pdoStatement->execute();
 $infos = $pdoStatement->fetchAll();
-$id = $_SESSION['id'];
 ?>
 
 <!DOCTYPE html>
@@ -75,17 +80,17 @@ $id = $_SESSION['id'];
 			<?php foreach ($infos as $score) : ?>
 				<?php if ($id == $score->id_utilisateur) : ?>
 					<tr style="color: orange">
-					<?php else : ?>
+				<?php else : ?>
 					<tr style="color: white">
-					<?php endif; ?>
+				<?php endif; ?>
 					<td><?php echo $score->nom_jeu ?></td>
 					<td><?php echo $score->pseudo ?></td>
 					<td><?php echo $score->difficulte_partie ?></td>
 					<td><?php echo $score->score_partie ?></td>
 					<td><?php echo $score->date_partie ?></td>
 					<td><?php echo $score->recordTime ?></td>
-					</tr>
-				<?php endforeach; ?>
+				</tr>
+			<?php endforeach; ?>
 		</table>
 	</main>
 

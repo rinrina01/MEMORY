@@ -24,8 +24,7 @@ function connectToDbAndGetPdo(): PDO
 function connexionUtilisateur($userEmail, $userPassword, $userId, $userPseudo): string
 {
     $userEmail = $_POST['email'];
-    $userPassword = password_hash($_POST['password'], CRYPT_SHA256);
-    //var_dump($userEmail,$userPassword);
+
 
     try {
         $pdo = connectToDbAndGetPdo();
@@ -33,21 +32,20 @@ function connexionUtilisateur($userEmail, $userPassword, $userId, $userPseudo): 
         WHERE email='$userEmail' AND mot_de_passe='$userPassword';");
         $pdoStatement->execute();
         $infosLogin = $pdoStatement->fetchAll();
-        //var_dump($infosLogin);
 
         foreach ($infosLogin as $infos) {
-            $userPseudo = $infos->pseudo;
-            $userId = $infos->id_utilisateur;
-            //var_dump($userEmail, $userPassword, $userPseudo, $userId ); // CORRIGER L'AFFICHAGE
+            if (password_verify($userPassword, $infos->password)) {
+                $userPseudo = $infos->pseudo;
+                $userId = $infos->id_utilisateur;
+                $_SESSION['id'] = $userId;
+                //var_dump($_SESSION);
+                return "Bienvenue $userPseudo !";
+            } else {
+                return 'Mauvais mot de passe';
+            }
         }
 
-        if ($userId == null) {
-            return 'Email ou mot de passe erroné';
-        } else {
-            $_SESSION['id'] = $userId;
-            //var_dump($_SESSION);
-            return "Bienvenue $userPseudo !";
-        }
+        return "aaa";
     } catch (PDOException $e) {
         $errMessage = "";
         $errMessage = $e->getMessage();
@@ -123,8 +121,6 @@ function isPasswordsMatches($passwordForm, $passwordConfirmForm): bool
             if (isset($passwordConfirmForm)) {
 
                 if ($passwordForm == $passwordConfirmForm) {
-                    $passwordForm = password_hash($passwordForm, CRYPT_SHA256);
-
                     $passwordForm = $passwordForm;
                     $passwordPattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!()@#$%^&*]).{8,}$/';
                     $regex = preg_match($passwordPattern, $passwordForm);
@@ -133,7 +129,6 @@ function isPasswordsMatches($passwordForm, $passwordConfirmForm): bool
                         echo " 	Veuillez mettre 1 majuscule, 1 caractère spécial et 1 chiffre dans votre mot de passe. ";
                         return false;
                     } else { // SI LE MOT DE PASSE EST BON
-                        $passwordForm = password_hash($passwordForm, PASSWORD_DEFAULT);
                         return true;
                     }
                 } else {

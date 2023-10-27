@@ -2,6 +2,27 @@
 $page = "contact";
 require 'utils/common.php';
 require_once SITE_ROOT . 'utils/database.php';
+
+$to = '';
+$subject = '';
+$message = "";
+$headers = "From: azpicsaw@gmail.com";
+
+if (isset($_POST['email'])){
+	$to = $_POST['email'];
+}
+
+
+if (isset($_POST['message'])){
+	$message = $_POST['message'];
+}
+
+
+if (isset($_POST['sujet'])){
+	$subject = $_POST['sujet'];
+}
+mail($to, $subject, $message, $headers);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -47,7 +68,7 @@ require_once SITE_ROOT . 'utils/database.php';
 
 		<!------------------------------------------------------------------------->
 		<!-------------------------- FORMULAIRE ----------------------------------->
-		<form class="contact-form">
+		<form class="contact-form" method="post">
 			<div class="contact-form-first-row">
 				<input type="text" id="fname" name="nom" placeholder="Nom">
 				<input type="text" id="lname" name="email" placeholder="Email">

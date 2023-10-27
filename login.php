@@ -10,8 +10,11 @@ $userPassword = '';
 $userId = null;
 $userPseudo = '';
 
+
 $ConnexionSuccessOrFailMessage = null;
 if (isset($_POST['email']) && isset($_POST['password'])) {
+	$userPassword = $_POST['password'];
+	$userEmail = $_POST['email'];
 	$ConnexionSuccessOrFailMessage = connexionUtilisateur($userEmail, $userPassword, $userId, $userPseudo);
 } ?>
 
