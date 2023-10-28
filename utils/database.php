@@ -24,46 +24,42 @@ function connectToDbAndGetPdo(): PDO
 function connexionUtilisateur($userEmail, $userPassword, $userId, $userPseudo): string
 {
     $userEmail = $_POST['email'];
-    $userPassword = password_hash($_POST['password'], CRYPT_SHA256);
-    //var_dump($userEmail,$userPassword);
 
     try {
         $pdo = connectToDbAndGetPdo();
-        $pdoStatement = $pdo->prepare("SELECT pseudo, id_utilisateur FROM utilisateur
-        WHERE email='$userEmail' AND mot_de_passe='$userPassword';");
-        $pdoStatement->execute();
-        $infosLogin = $pdoStatement->fetchAll();
-        //var_dump($infosLogin);
+        $pdoStatement = $pdo->prepare("SELECT pseudo, id_utilisateur, mot_de_passe FROM utilisateur WHERE email=:email;");
+        $pdoStatement->execute([
+            ':email' => $userEmail,
+        ]);
+        $infosLogin = $pdoStatement->fetch();
 
-        foreach ($infosLogin as $infos) {
-            $userPseudo = $infos->pseudo;
-            $userId = $infos->id_utilisateur;
-            //var_dump($userEmail, $userPassword, $userPseudo, $userId ); // CORRIGER L'AFFICHAGE
-        }
-
-        if ($userId == null) {
-            return 'Email ou mot de passe erroné';
-        } else {
+        if ($infosLogin !== false && password_verify($userPassword, $infosLogin->mot_de_passe)) {
+            $userPseudo = $infosLogin->pseudo;
+            $userId = $infosLogin->id_utilisateur;
             $_SESSION['id'] = $userId;
-            //var_dump($_SESSION);
+            $_SESSION['pseudo'] = $userPseudo;
+            header("Location: index.php");
             return "Bienvenue $userPseudo !";
+        } else {
+            return 'Mauvais mot de passe';
         }
     } catch (PDOException $e) {
-        $errMessage = "";
         $errMessage = $e->getMessage();
         echo $errMessage;
     }
 }
 
+
 function registerWithSQL($pdo, $emailForm, $passwordForm, $pseudoForm): void
 {
     try {
-        $passwordForm = password_hash($passwordForm, CRYPT_SHA256);
+        $passwordForm = password_hash($passwordForm, PASSWORD_DEFAULT);
         $pdoStatement2 = $pdo->prepare('INSERT INTO utilisateur (email, mot_de_passe, pseudo, date_inscription, derniere_connexion) 
 		VALUES ( "' . $emailForm . '", "' . $passwordForm . '",  "' . $pseudoForm . '", NOW(), NOW() );
 		');
         $pdoStatement2->execute();
         echo " Félicitations " . $pseudoForm . " vous êtes bien inscrits !";
+        header("Location: login.php");
     } catch (PDOException $e) {
         throw new Exception("L'inscription à échouée dans la abse de donnée.");
     }
@@ -123,17 +119,13 @@ function isPasswordsMatches($passwordForm, $passwordConfirmForm): bool
             if (isset($passwordConfirmForm)) {
 
                 if ($passwordForm == $passwordConfirmForm) {
-                    $passwordForm = password_hash($passwordForm, CRYPT_SHA256);
-
                     $passwordForm = $passwordForm;
                     $passwordPattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!()@#$%^&*]).{8,}$/';
                     $regex = preg_match($passwordPattern, $passwordForm);
 
                     if (!$regex) {
-                        echo " 	Veuillez mettre 1 majuscule, 1 caractère spécial et 1 chiffre dans votre mot de passe. ";
                         return false;
                     } else { // SI LE MOT DE PASSE EST BON
-                        $passwordForm = password_hash($passwordForm, PASSWORD_DEFAULT);
                         return true;
                     }
                 } else {

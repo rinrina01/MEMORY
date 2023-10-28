@@ -1,118 +1,117 @@
-
-
-
 /* -------------------------------- HEADER --------------------------------------- */
 header {
   position: fixed; /* LE HEADER RESTE EN HAUT DE LA PAGE EN SCROLLANT */
   width: 100%;
-  top:0;
+  top: 0;
   left: 0;
   background-color: rgba(14, 14, 47, 0.8);
   overflow: hidden;
-  padding:3vh;
+  padding: 3vh;
 }
 /* ---------------- HEADER SETUP --------------------------- */
 *,
 *:before {
-padding: 0;
-margin: 0;
-box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.header-nav { /* CLASSE NAVIGATION HEADER (ÉLÉMENTS DE DROITE)*/
-display: flex;
-align-items: center;
-justify-content: space-around;
-flex-wrap: nowrap;
+.header-nav {
+  /* CLASSE NAVIGATION HEADER (ÉLÉMENTS DE DROITE)*/
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: nowrap;
 
-width: 50vw; /* ESPACEMENT ÉLÉMENTS NAV */
-min-width: 15vh; /* LARGEUR TOTALE DE NAV */
+  width: 50vw; /* ESPACEMENT ÉLÉMENTS NAV */
+  min-width: 15vh; /* LARGEUR TOTALE DE NAV */
 }
 
-.header-left-element { /* ÉLÉMENT DE GAUCHE DU HEADER */
-display:flex;
-align-items: center;
+.header-left-element {
+  /* ÉLÉMENT DE GAUCHE DU HEADER */
+  display: flex;
+  align-items: center;
 
-white-space: nowrap;
-overflow: hidden;
-text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.header-alignment { /* ALIGNEMENT ET POSITION DES ÉLÉMENTS DE GAUCHE/DROITE */
-display: flex;
-justify-content: space-between;
-margin-right:10vh;
-margin-left:10vh;
+.header-alignment {
+  /* ALIGNEMENT ET POSITION DES ÉLÉMENTS DE GAUCHE/DROITE */
+  display: flex;
+  justify-content: space-between;
+  margin-right: 10vh;
+  margin-left: 10vh;
 
-flex-wrap: nowrap;
+  flex-wrap: nowrap;
 }
 
 /* ---------------- HOVER ANIMATION --------------------------- */
-.active { 
-position: relative;
-font-family: "Poppins", sans-serif;
-font-weight:bold;
-text-decoration: none;
-color:white;
-font-size: 13px;
-letter-spacing: 0.5px;
+.active {
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  color: orange;
+  font-size: 13px;
+  letter-spacing: 0.5px;
 
-white-space: nowrap;
+  white-space: nowrap;
 }
 
-.header-a { 
-position: relative;
-font-family: "Poppins", sans-serif;
-font-weight:bold;
-text-decoration: none;
-color:white;
-font-size: 13px;
-letter-spacing: 0.5px;
-
-white-space: nowrap;
-}
-
-.header-a:before {
-content: "";
-position: absolute;
-height: 3px;
-width: 0;
-background-color: #EA9033;
-transition: 0.3s;
+.header-a {
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
 }
 
 .header-a:before {
-right: 0;
-top: -4.4vh;
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 0;
+  background-color: #ea9033;
+  transition: 0.3s;
+  right: 0;
+  top: -4.4vh;
 }
 
 .header-a:hover {
-color: #EA9033;
+  color: #ea9033;
 }
 
 .header-a:hover:before {
-width: 100%;
-}/* -------------------------------------------------- */
-/* ------------------------------------------------------------------------------------- */
-
-
-
-
-
-/* -------------------------------- IMG BANNER ----------------------------------------- */
-.top-banner-container { /* BANNIÈRE AVEC IMAGE DU HAUT */
-position: relative;
-text-align: center;
+  width: 100%;
 }
 
-.top-banner-centered { /* TEXTE CENTRÉ SUR IMAGE */
-position: absolute;
-top: 55%;
-left: 50%;
-transform: translate(-50%, -50%);
+/* -------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
 
-font-weight: bold;
-font-size: 40px;
-}/* ------------------------------------------------------------------------------------- */
+/* -------------------------------- IMG BANNER ----------------------------------------- */
+.top-banner-container {
+  /* BANNIÈRE AVEC IMAGE DU HAUT */
+  position: relative;
+  text-align: center;
+}
 
+.top-banner-centered {
+  /* TEXTE CENTRÉ SUR IMAGE */
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
+  font-weight: bold;
+  font-size: 40px;
+} /* ------------------------------------------------------------------------------------- */
+
+a {
+  text-decoration: none;
+  color: white;
+}

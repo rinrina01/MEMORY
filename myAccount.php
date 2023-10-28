@@ -6,18 +6,19 @@ require_once SITE_ROOT . 'utils/database.php';
 $pdo = connectToDbAndGetPdo();
 $id = $_SESSION['id'];
 
-var_dump($_SESSION);
-if (isset($_SESSION['id'])) {
+if (isset($_POST['logout'])) {
 	session_destroy();
-	echo 'session has been destroyed'; // FAIRE UNE PAGE DE DÉCONNEXION
+	header("Location: login.php"); // Rediriger vers la page de connexion après déconnexion
+	exit();
 }
-
-
-
 
 $email = "";
 $newemail = "";
 $password = "";
+
+$emailChangeMessage = "";
+$passwordChangeMessage = "";
+
 
 $oldpassword = "";
 $password2 = "";
@@ -44,63 +45,63 @@ if (isset($_POST['newpassword'])) {
 }
 
 // CHANGER LE MOT DE PASSE
-if (isPasswordsMatches($password2, $newpassword)) { // regarde si le nouveau mot de passe est bien confirmé
-	if (checkPassword($oldpassword, $id) == true) { // regarde si le mot de passe actuel est le bon
-		echo "mot de passe bon ";
-		// préparer la requête de changement de mot de passe
+if (isPasswordsMatches($password2, $newpassword)) {
+	if (checkPassword($oldpassword, $id) == true) {
+		// Préparer la requête de changement de mot de passe
 		$newpassword = password_hash($newpassword, CRYPT_SHA256);
-		$pdoStatementChangePassword = $pdo->prepare('UPDATE utilisateur SET mot_de_passe = "' . $newpassword . '"
-			WHERE id_utilisateur = "' . $id . '";');
-		$pdoStatementChangePassword->execute(); // executer la requete de changement de mot de passe
-		echo " mot de passe modifié ";
+		$pdoStatementChangePassword = $pdo->prepare('UPDATE utilisateur SET mot_de_passe = :newPassword
+            WHERE id_utilisateur = :id;');
+		$pdoStatementChangePassword->execute([
+			':newPassword' => $newpassword,
+			':id' => $id,
+		]);
+		$passwordChangeMessage = "Mot de passe modifié";
 	} else {
-		echo "mot de passe pas bon";
+		$passwordChangeMessage = "Mot de passe incorrect";
 	}
 } else {
-	echo "mot de passe ne matche pas ou ne contiens pas 1 majuscule, 1 chiffre et 1 caractère spécial";
+	$passwordChangeMessage = "Mot de passe ne correspond pas ou ne contient pas 1 majuscule, 1 chiffre et 1 caractère spécial";
 }
 
 // CHANGER L'EMAIL
 $currentEmail = "";
-$pdoStatementCurrentEmail = $pdo->prepare('SELECT email FROM utilisateur
-							WHERE id_utilisateur = "' . $id . '"');
+$pdoStatementCurrentEmail = $pdo->prepare('SELECT email FROM utilisateur WHERE id_utilisateur = "' . $id . '"');
 $currentEmail = $pdoStatementCurrentEmail->execute();
 
-
-if (isset($_POST['email'])) { // CHECK SI LES MAILS SONT EXISTANTS
+if (isset($_POST['email'])) {
 	if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
 		if (isset($_POST['newemail'])) {
 			if (filter_var($_POST['newemail'], FILTER_VALIDATE_EMAIL)) {
-
 				if (isset($_POST['password'])) {
 					$password = password_hash($password, CRYPT_SHA256);
 					if (checkPassword($password, $id) == true) {
-
-						$pdoStatementChangeEmail = $pdo->prepare('UPDATE utilisateur SET email = "' . $newemail . '"
-						WHERE id_utilisateur = "' . $id . '"');
-						$pdoStatementChangeEmail->execute();
-						echo " email changé";
+						$pdoStatementChangeEmail = $pdo->prepare('UPDATE utilisateur SET email = :newEmail
+                        WHERE id_utilisateur = :id');
+						$pdoStatementChangeEmail->execute([
+							':newEmail' => $newemail,
+							':id' => $id,
+						]);
+						$emailChangeMessage = "Email changé";
 					} else {
-						echo "mot de passe non valide";
+						$emailChangeMessage = "Mot de passe incorrect";
 					}
 				} else {
-					echo "mot de passe non existant";
+					$emailChangeMessage = "Mot de passe non existant";
 				}
 			} else {
-				echo "nouvel email non valide";
+				$emailChangeMessage = "Nouvel email non valide";
 			}
 		} else {
-			echo "nouvel email non existant";
+			$emailChangeMessage = "Nouvel email non existant";
 		}
 	} else {
-		echo "email non valide";
+		$emailChangeMessage = "Email non valide";
 	}
 } else {
-	echo "email non existant";
+	$emailChangeMessage = "Email non existant";
 }
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -109,34 +110,32 @@ if (isset($_POST['email'])) { // CHECK SI LES MAILS SONT EXISTANTS
 	<?php
 	require SITE_ROOT . 'partials/head.php';
 	?>
-	<title> My Account </title>
+	<title>My Account</title>
 </head>
-
-
 
 <body>
 
 	<!-------------------------- BANNER --------------------------->
 	<div class="top-banner-container">
 		<img src="ASSETS/IMAGES/2814.jpg" style="width:100%;height:300px;object-fit: cover;opacity: 0.3;">
-		<div class="top-banner-centered"> MON COMPTE </div>
+		<div class="top-banner-centered">MON COMPTE</div>
 	</div>
 	<!------------------------------------------------------------->
 
 	<div class="account-box">
-		<h2 style="margin-bottom:15px"> Changer votre email </h2>
+		<h2 style="margin-bottom:15px">Changer votre email</h2>
 		<div class="contact-password-form">
 			<form action="" method="post">
 				<input type="email" name="email" placeholder="Email actuel" id="email">
 				<input type="email" name="newemail" placeholder="Nouvel email" id="newemail">
 				<input type="password" name="password" placeholder="Mot de passe" id="password">
 				<div class="contact-form-button">
-					<button class="button"> Changer l'email </button>
+					<button class="button">Changer l'email</button>
 				</div>
 			</form>
+			<p><?php echo $emailChangeMessage; ?></p> <!-- Afficher le message d'email ici -->
 		</div>
 	</div>
-
 
 	<div class="account-box">
 		<h2 style="margin-bottom:15px">Changer votre mot de passe</h2>
@@ -146,11 +145,18 @@ if (isset($_POST['email'])) { // CHECK SI LES MAILS SONT EXISTANTS
 				<input type="password" name="password2" placeholder="Nouveau mot de passe" id="password2">
 				<input type="password" name="newpassword" placeholder="Confirmez le mot de passe" id="newpassword">
 				<div class="contact-form-button">
-					<button class="button"> Changer le mot de passe </button>
+					<button class="button">Changer le mot de passe</button>
 				</div>
-
 			</form>
+			<p><?php echo $passwordChangeMessage; ?></p> <!-- Afficher le message du changement de mot de passe ici -->
 		</div>
+	</div>
+
+
+	<div class="account-box">
+		<form action="" method="post">
+			<button type="submit" name="logout" class="button">Se déconnecter</button>
+		</form>
 	</div>
 
 

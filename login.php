@@ -3,15 +3,16 @@ $page = "login";
 require 'utils/common.php';
 require_once SITE_ROOT . 'utils/database.php';
 
-var_dump($_SESSION);
-
 $userEmail = '';
 $userPassword = '';
 $userId = null;
 $userPseudo = '';
 
+
 $ConnexionSuccessOrFailMessage = null;
 if (isset($_POST['email']) && isset($_POST['password'])) {
+	$userPassword = $_POST['password'];
+	$userEmail = $_POST['email'];
 	$ConnexionSuccessOrFailMessage = connexionUtilisateur($userEmail, $userPassword, $userId, $userPseudo);
 } ?>
 

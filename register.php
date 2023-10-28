@@ -60,19 +60,20 @@ if (isset($_POST['email'])) {
 	</div>
 	<!------------------------------------------------------------->
 
-	<main>
-		<div class="register-form">
-			<form method="post">
-				<input type="email" id="email" name="email" placeholder="Email">
-				<input type="text" id="pseudo" name="pseudo" placeholder="Pseudo" minlength="4"><!--minlenght permet de minimiser a 4 caractere--->
-				<input type="password" id="password" name="password" placeholder="Mot de passe" minlength="8">
-				<input type="password" id="passwordconfirm" name="passwordconfirm" placeholder="Confirmez votre mot de passe" minlength="8">
+	<div class="account-box">
+		<form class="register-form" method="post">
+			<input type="email" id="email" name="email" placeholder="Email">
+			<input type="text" id="pseudo" name="pseudo" placeholder="Pseudo" minlength="4">
+			<input type="password" id="password" name="password" placeholder="Mot de passe" minlength="8">
+			<input type="password" id="passwordconfirm" name="passwordconfirm" placeholder="Confirmez votre mot de passe" minlength="8">
+			<div class="contact-form-button">
+				<button class="register-button" type="submit">Inscription</button>
+			</div>
+		</form>
+		<p style="font-size: 10px;">Déjà inscrit ? <a id="connexion" href="<?php echo PROJECT_FOLDER; ?>login.php" ?> <span style="color: #EA9033;">Se connecter </a></p>
+	</div>
 
-				<button class="register-button" type="submit"> Inscription </button>
-			</form>
-		</div>
-		<p style="font-size:10px;"> Déjà inscrit ? <a id="connexion" href="<?php echo PROJECT_FOLDER; ?>login.php" ?>> <span style="color:#EA9033;">Se connecter </a></p>
-	</main>
+
 
 
 	<!-------------------------- FOOTER --------------------------->
