@@ -21,7 +21,7 @@ require_once SITE_ROOT . 'utils/database.php';
 <body>
 	<!-------------------------- BANNER --------------------------->
 	<div class="top-banner-container">
-		<img src="ASSETS/IMAGES/2814.jpg" style="width:100%;height:300px;object-fit: cover;opacity: 0.3;">
+	    <img src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/2814.jpg"  style="width:100%;height:300px;object-fit: cover;opacity: 0.3;">
 		<div class="top-banner-centered"> MEMORY </div>
 	</div>
 	<!------------------------------------------------------------->
