@@ -25,43 +25,41 @@ function connexionUtilisateur($userEmail, $userPassword, $userId, $userPseudo): 
 {
     $userEmail = $_POST['email'];
 
-
     try {
         $pdo = connectToDbAndGetPdo();
-        $pdoStatement = $pdo->prepare("SELECT pseudo, id_utilisateur FROM utilisateur
-        WHERE email='$userEmail' AND mot_de_passe='$userPassword';");
-        $pdoStatement->execute();
-        $infosLogin = $pdoStatement->fetchAll();
+        $pdoStatement = $pdo->prepare("SELECT pseudo, id_utilisateur, mot_de_passe FROM utilisateur WHERE email=:email;");
+        $pdoStatement->execute([
+            ':email' => $userEmail,
+        ]);
+        $infosLogin = $pdoStatement->fetch();
 
-        foreach ($infosLogin as $infos) {
-            if (password_verify($userPassword, $infos->password)) {
-                $userPseudo = $infos->pseudo;
-                $userId = $infos->id_utilisateur;
-                $_SESSION['id'] = $userId;
-                //var_dump($_SESSION);
-                return "Bienvenue $userPseudo !";
-            } else {
-                return 'Mauvais mot de passe';
-            }
+        if ($infosLogin !== false && password_verify($userPassword, $infosLogin->mot_de_passe)) {
+            $userPseudo = $infosLogin->pseudo;
+            $userId = $infosLogin->id_utilisateur;
+            $_SESSION['id'] = $userId;
+            $_SESSION['pseudo'] = $userPseudo;
+            header("Location: index.php");
+            return "Bienvenue $userPseudo !";
+        } else {
+            return 'Mauvais mot de passe';
         }
-
-        return "aaa";
     } catch (PDOException $e) {
-        $errMessage = "";
         $errMessage = $e->getMessage();
         echo $errMessage;
     }
 }
 
+
 function registerWithSQL($pdo, $emailForm, $passwordForm, $pseudoForm): void
 {
     try {
-        $passwordForm = password_hash($passwordForm, CRYPT_SHA256);
+        $passwordForm = password_hash($passwordForm, PASSWORD_DEFAULT);
         $pdoStatement2 = $pdo->prepare('INSERT INTO utilisateur (email, mot_de_passe, pseudo, date_inscription, derniere_connexion) 
 		VALUES ( "' . $emailForm . '", "' . $passwordForm . '",  "' . $pseudoForm . '", NOW(), NOW() );
 		');
         $pdoStatement2->execute();
         echo " Félicitations " . $pseudoForm . " vous êtes bien inscrits !";
+        header("Location: login.php");
     } catch (PDOException $e) {
         throw new Exception("L'inscription à échouée dans la abse de donnée.");
     }

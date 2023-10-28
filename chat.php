@@ -3,17 +3,18 @@ $page = "chat";
 require 'utils/common.php';
 require_once SITE_ROOT . 'utils/database.php';
 
-$id = 1;
+$id = -1;
 
 if (isset($_SESSION['id'])) {
     $id = $_SESSION['id'];
 } else {
-    $id = 1;
+    $id = -1;
 }
+
 
 $pdo = connectToDbAndGetPdo();
 
-if ($id != -1) {
+if ($id != -1 && isset($_SESSION['id'])) {
     $id = $_SESSION['id'];
     if (isset($_POST['message'])) {
         $pdoSendMessage = $pdo->prepare('INSERT INTO message (id_jeu, id_expediteur, message, date_message)

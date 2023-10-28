@@ -8,17 +8,17 @@ $subject = '';
 $message = "";
 $headers = "From: azpicsaw@gmail.com";
 
-if (isset($_POST['email'])){
+if (isset($_POST['email'])) {
 	$to = $_POST['email'];
 }
 
 
-if (isset($_POST['message'])){
+if (isset($_POST['message'])) {
 	$message = $_POST['message'];
 }
 
 
-if (isset($_POST['sujet'])){
+if (isset($_POST['sujet'])) {
 	$subject = $_POST['sujet'];
 }
 mail($to, $subject, $message, $headers);

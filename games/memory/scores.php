@@ -2,19 +2,10 @@
 $page = "scores";
 require '../../utils/common.php';
 require_once SITE_ROOT . 'utils/database.php';
-$searchDifficulty = "";
-$searchGameName = "";
-$searchNickname = "";
 
-if (isset($_POST['difficulties'])) {
-	$searchDifficulty = $_POST['difficulties'];
-}
-if (isset($_POST['gameName'])) {
-	$searchGameName = $_POST['gameName'];
-}
-if (isset($_POST['nickname'])) {
-	$searchPseudo = $_POST['nickname'];
-}
+$searchDifficulty = isset($_POST['difficulties']) ? $_POST['difficulties'] : "";
+$searchGameName = isset($_POST['gameName']) ? $_POST['gameName'] : "";
+$searchNickname = isset($_POST['nickname']) ? $_POST['nickname'] : "";
 
 if ($_SESSION != null) {
 	$id = $_SESSION['id'];
@@ -28,11 +19,18 @@ INNER JOIN score AS S
     ON U.id_utilisateur = S.id_joueur
 INNER JOIN jeu AS J 
     ON S.id_jeu = J.id
-WHERE S.difficulte_partie LIKE '%$searchDifficulty%' AND J.nom_jeu LIKE '%$searchGameName%' AND U.pseudo LIKE '%$searchNickname%'
+WHERE (S.difficulte_partie LIKE :difficulty OR :difficulty = '')
+    AND (J.nom_jeu LIKE :gameName OR :gameName = '')
+    AND (U.pseudo LIKE :nickName OR :nickName = '')
 ORDER BY J.nom_jeu ASC, S.score_partie DESC;");
-$pdoStatement->execute();
+$pdoStatement->execute([
+	':difficulty' => '%' . $searchDifficulty . '%',
+	':gameName' => '%' . $searchGameName . '%',
+	':nickName' => '%' . $searchNickname . '%',
+]);
 $infos = $pdoStatement->fetchAll();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -61,6 +59,7 @@ $infos = $pdoStatement->fetchAll();
 		<input type="search" name="difficulties" id="difficulties" placeholder="Difficulté">
 		<button type="submit">Filtrer</button>
 	</form>
+
 	<form action="" method="post">
 		<button type="submit">Reset</button>
 	</form>
@@ -80,17 +79,17 @@ $infos = $pdoStatement->fetchAll();
 			<?php foreach ($infos as $score) : ?>
 				<?php if ($id == $score->id_utilisateur) : ?>
 					<tr style="color: orange">
-				<?php else : ?>
+					<?php else : ?>
 					<tr style="color: white">
-				<?php endif; ?>
+					<?php endif; ?>
 					<td><?php echo $score->nom_jeu ?></td>
 					<td><?php echo $score->pseudo ?></td>
 					<td><?php echo $score->difficulte_partie ?></td>
 					<td><?php echo $score->score_partie ?></td>
 					<td><?php echo $score->date_partie ?></td>
 					<td><?php echo $score->recordTime ?></td>
-				</tr>
-			<?php endforeach; ?>
+					</tr>
+				<?php endforeach; ?>
 		</table>
 	</main>
 

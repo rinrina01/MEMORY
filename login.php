@@ -3,8 +3,6 @@ $page = "login";
 require 'utils/common.php';
 require_once SITE_ROOT . 'utils/database.php';
 
-var_dump($_SESSION);
-
 $userEmail = '';
 $userPassword = '';
 $userId = null;
