@@ -124,7 +124,6 @@ function isPasswordsMatches($passwordForm, $passwordConfirmForm): bool
                     $regex = preg_match($passwordPattern, $passwordForm);
 
                     if (!$regex) {
-                        echo " 	Veuillez mettre 1 majuscule, 1 caractère spécial et 1 chiffre dans votre mot de passe. ";
                         return false;
                     } else { // SI LE MOT DE PASSE EST BON
                         return true;

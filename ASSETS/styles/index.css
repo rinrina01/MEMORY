@@ -54,6 +54,7 @@ button:hover {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-align: center;
 }
 
 .undertitle {
@@ -93,10 +94,9 @@ button:hover {
 .tout_les_texte {
   display: flex;
   justify-content: center;
-  margin-left: -9%;
-
-  margin: 4px 0;
-  margin: left;
+  margin-left: 100px;
+  margin-right: 100px;
+  min-height: 400px;
 }
 
 .copyright {
@@ -106,7 +106,6 @@ button:hover {
 .zero_un {
   display: flex;
   flex-direction: row;
-  align-items: start;
 }
 
 #zero {
@@ -118,22 +117,26 @@ button:hover {
 .pc_incroyable {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  width: 33%;
+  max-height: 100px;
 }
 .incroyable {
   display: flex;
-  align-items: center;
   flex-direction: column;
   flex-wrap: nowrap;
 }
 
 #a_gauche {
   align-self: flex-start;
-  margin-top: 40px;
-  margin-bottom: -20px;
+  margin-top: 15px;
+  margin-bottom: 20px;
 }
 .description {
   color: grey;
+  font-size: 16px;
+  width: 80%;
+  margin-left: 8%;
+  text-align: justify;
 }
 
 .partie3 {
@@ -220,6 +223,7 @@ button:hover {
 .equipe {
   text-align: center;
   line-height: 0.9;
+  margin-bottom: 10px;
 }
 
 .delimiter {
@@ -238,6 +242,9 @@ button:hover {
   padding-right: 100px;
   padding-bottom: 50px;
   border-radius: 3%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
 }
 .info {
   display: flex;
@@ -249,9 +256,9 @@ button:hover {
 
 .photo {
   border-radius: 100px;
+  align-self: center;
 }
 .fonction {
-  margin-top: -15px;
   color: rgb(255, 255, 255, 0.5);
   font-size: 12px;
 }
@@ -472,3 +479,121 @@ footer img {
   font-size: 0.9em;
   text-align: left;
 } /* ------------------------------------------------------------------------------------- */
+
+/* -------------------------------- HEADER --------------------------------------- */
+header {
+  position: fixed; /* LE HEADER RESTE EN HAUT DE LA PAGE EN SCROLLANT */
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(14, 14, 47, 0.8);
+  overflow: hidden;
+  padding: 3vh;
+}
+/* ---------------- HEADER SETUP --------------------------- */
+*,
+*:before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.header-nav {
+  /* CLASSE NAVIGATION HEADER (ÉLÉMENTS DE DROITE)*/
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+
+  width: 50vw; /* ESPACEMENT ÉLÉMENTS NAV */
+  min-width: 15vh; /* LARGEUR TOTALE DE NAV */
+}
+
+.header-left-element {
+  /* ÉLÉMENT DE GAUCHE DU HEADER */
+  display: flex;
+  align-items: center;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header-alignment {
+  /* ALIGNEMENT ET POSITION DES ÉLÉMENTS DE GAUCHE/DROITE */
+  display: flex;
+  justify-content: space-between;
+  margin-right: 10vh;
+  margin-left: 10vh;
+
+  flex-wrap: nowrap;
+}
+
+/* ---------------- HOVER ANIMATION --------------------------- */
+.active {
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  color: orange;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+
+  white-space: nowrap;
+}
+
+.header-a {
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.header-a:before {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 0;
+  background-color: #ea9033;
+  transition: 0.3s;
+  right: 0;
+  top: -4.4vh;
+}
+
+.header-a:hover {
+  color: #ea9033;
+}
+
+.header-a:hover:before {
+  width: 100%;
+}
+
+/* -------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+/* -------------------------------- IMG BANNER ----------------------------------------- */
+.top-banner-container {
+  /* BANNIÈRE AVEC IMAGE DU HAUT */
+  position: relative;
+  text-align: center;
+}
+
+.top-banner-centered {
+  /* TEXTE CENTRÉ SUR IMAGE */
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-weight: bold;
+  font-size: 40px;
+} /* ------------------------------------------------------------------------------------- */
+
+a {
+  text-decoration: none;
+  color: white;
+}

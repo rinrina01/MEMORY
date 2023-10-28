@@ -22,43 +22,23 @@ $infos = $pdoStatement->fetchAll();
 </head>
 
 <body>
-	<header>
-		<img src="ASSETS/IMAGES/accueil.jpg" style="width:200vh;height:110vh;opacity:0.40;">
 
-		<div class="centered"> BIENVENUE DANS <br> NOTRE STUDIO !
+	<img src="ASSETS/IMAGES/accueil.jpg" style="width:200vh;height:110vh;opacity:0.40;">
 
-			<div class="undertitle">
-				<p> Venez challenger les cerveaux les plus agiles ! </p>
-			</div>
+	<div class="centered"> BIENVENUE DANS <br> NOTRE STUDIO !
 
-			<div class="button">
-				<form>
-					<button type="submit" formaction="games/memory/memory.php">Jouer !</button>
-				</form>
-			</div>
-
+		<div class="undertitle">
+			<p> Venez challenger les cerveaux les plus agiles ! </p>
 		</div>
 
-		<div id="top_image">
-			<div class="top-left">
-				<p style="font-size:16px;"> The Power Of Memory </p>
-			</div>
-
+		<div class="button">
+			<form>
+				<button type="submit" formaction="games/memory/memory.php">Jouer !</button>
+			</form>
 		</div>
 
-		<div id="top-header">
-			<header>
-				<?php
-				require SITE_ROOT . 'partials/header.php';
-				?>
-			</header>
-		</div>
+	</div>
 
-
-
-
-		</div>
-	</header>
 
 	<!---image -->
 	<div class="touteslesimage">
@@ -72,60 +52,31 @@ $infos = $pdoStatement->fetchAll();
 		<div class="pc_incroyable">
 			<div class="zero_un">
 				<p id="zero"> 01</p>
+				<p id="a_gauche">La mémoire</p>
 			</div>
 			<div class="incroyable">
-				<p id="a_gauche">Pc incroyable</p>
 
-				<h6 class="description">communique H24, tu dis <br>
-					qu'j'fais pas d'efforts<br>
-					Donc à quoi ça sert ? On <br>
-					communique H24 même si <BR>
-					j't'en demande encore<br>
-					C'est qu'à moi ça sert<br>
-					On communique dans <br>
-					le SKEU SKEU<br>
-					Trop d'méchants, <br>
-					ils veulent nous SKEU SKEU<br>
-					Moi j'sais pas comment faire ça<br>
-					SKEU SKEU <br>
-				</h6>
+				<h6 class="description">La mémoire est la pierre angulaire de Memory, un jeu où l'agilité mentale est à l'honneur. Dans ce jeu classique, chaque carte est une fenêtre ouverte sur le passé, et chaque paire correspondante révèle la force de votre mémoire visuelle. C'est un défi captivant qui teste et améliore vos compétences de mémorisation, tout en favorisant l'attention et la concentration. Memory est bien plus qu'un simple jeu de société. C'est un voyage qui met en lumière le pouvoir de la mémoire et sa capacité à façonner notre expérience et notre compréhension du monde.</h6>
 			</div>
 		</div>
 		<div class="pc_incroyable">
 			<div class="zero_un">
 				<p id="zero"> 02</p>
+				<p id="a_gauche">L'agilité</p>
 			</div>
 			<div class="incroyable">
-				<p id="a_gauche">Soyez agile</p>
-
-				<h6 class="description">Ah doudou, c'est toi la seule-seule<br>
-					Depuis le début, j'te balade<br>
-					Au point où on en est, c'est pas grave<br>
-					Depuis le début, j'te balade<br>
-					Au point où on en est, c'est pas grave<br>
-					Dans ma tête, j'suis paro'<br>
-					Faut qu'j't'explique, si tu <BR>
-					veux, assieds-toi que j'te briefe<br>
-					J'me mets dans des états pas possible<br>
-				</h6>
+				<h6 class="description">L'agilité dans le jeu de Memory se traduit par une capacité à réagir rapidement et avec précision. Les joueurs doivent faire preuve d'une concentration constante pour mémoriser la position des cartes retournées, tout en étant capables de prendre des décisions éclairées en un instant. Cette réactivité visuelle et mentale est cruciale pour identifier et associer les paires de cartes identiques. La rapidité de prise de décision est un facteur clé pour gagner, car les cartes sont constamment révélées et cachées, créant un défi constant pour les joueurs. À travers la pratique, les joueurs peuvent développer leur agilité mentale et améliorer leurs compétences cognitives, ce qui les rend plus compétents dans ce jeu classique de mémoire.</h6>
 			</div>
 		</div>
 
 		<div class="pc_incroyable">
 			<div class="zero_un">
 				<p id="zero"> 03</p>
+				<p id="a_gauche">La chance</p>
 			</div>
 			<div class="incroyable">
-				<p id="a_gauche">Ayez de la chance</p>
 
-				<h6 class="description">Babe t'attends quoi pour agir ?<br>
-					Ah mama, faut ralentir (Annn)<br>
-					Ralentir (Ann)<br>
-					Ah mama, faut ralentir (Annn), ralentir<br>
-					Les pieds dans la calle, bébé fais-moi changer<br>
-					Dis-moi c'que tu veux, pour toi j'donnerai tout mon bébé<br>
-					Les pieds dans la calle, bébé fais-moi changer<br>
-				</h6>
+				<h6 class="description">La chance dans le jeu Memory est un atout inattendu. Retourner les cartes peut parfois réserver des surprises agréables, lorsque les paires s'alignent parfaitement, facilitant la victoire. Cependant, la chance est fugace, et la stratégie et la mémoire restent essentielles. Cette part d'incertitude ajoute du suspense et du plaisir à chaque partie, rappelant que dans Memory, comme dans la vie, un soupçon de chance peut tout changer.</h6>
 			</div>
 		</div>
 	</div>
@@ -271,5 +222,11 @@ $infos = $pdoStatement->fetchAll();
 		</footer>
 	</main>
 	<!------------------------------------------------------------->
+
+	<header>
+		<?php
+		require SITE_ROOT . 'partials/header.php';
+		?>
+	</header>
 
 </body>
