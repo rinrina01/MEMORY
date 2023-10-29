@@ -36,18 +36,9 @@ require_once SITE_ROOT . 'utils/database.php';
 			<span class="point"> • </span>Le jeu se termine quand toutes les paires de cartes ont été découvertes et ramassées. Le gagnant est le joueur qui possède le plus de paires.
 		</p>
 
-		<h2>Choississez votre difficulté</h2>
+		<h2>Prêt ?</h2>
 		<form>
-			<button type="submit" formaction="<?php echo PROJECT_FOLDER; ?>games/memory/memory_lvl1.php">Facile (5x5)</button>
-			<button type="submit" formaction="<?php echo PROJECT_FOLDER; ?>games/memory/memory_lvl2.php">Moyenne (10x10)</button>
-			<button type="submit" formaction="<?php echo PROJECT_FOLDER; ?>games/memory/memory_lvl3.php">Difficile (20x20)</button>
-		</form>
-
-		<h2>Choississez votre thème</h2>
-		<form>
-			<button>Classique</button>
-			<button>Gens de la classe</button>
-			<button>Politique</button>
+			<button type="submit" formaction="<?php echo PROJECT_FOLDER; ?>games/memory/memory_game.php">Jouer au Memory</button>
 		</form>
 	</div>
 
