@@ -47,7 +47,7 @@ require_once SITE_ROOT . 'utils/database.php';
 
 	<div class="textsbox">
 		<h3>Paires trouvés : 0</h3>
-		<h3><span id="textTimer">0</span>s</h3>
+		<h3><span id="time">00:00:00</span></h3>
 	</div>
 
 	<br>
