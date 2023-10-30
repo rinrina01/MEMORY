@@ -135,3 +135,29 @@ footer img {
   font-size: 0.9em;
   text-align: left;
 } /* ------------------------------------------------------------------------------------- */
+
+.choices {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+#grid{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.textsbox{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}

@@ -19,71 +19,42 @@ require_once SITE_ROOT . 'utils/database.php';
 
 	<!-------------------------- BANNER --------------------------->
 	<div class="top-banner-container">
-	    <img src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/2814.jpg"  style="width:100%;height:300px;object-fit: cover;opacity: 0.3;">
+		<img src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/2814.jpg" style="width:100%;height:300px;object-fit: cover;opacity: 0.3;">
 		<div class="top-banner-centered"> MEMORY </div>
 	</div>
 	<!------------------------------------------------------------->
 
 	<div class="choices">
+
 		<select id="difficulties">
 			<option value="easy">Facile</option>
-			<option value="mediul">Moyen</option>
+			<option value="medium">Moyen</option>
 			<option value="hard">Difficile</option>
 		</select>
+
+		<select id="themes">
+			<option value="classic">Classique</option>
+			<option value="numbers">Nombres</option>
+			<option value="theme3">Theme3</option>
+		</select>
+
+		<button onclick="generateGrid()">Lancer la game</button>
 	</div>
 
 	<div class="box">
-		<h2>Difficulté : facile (6x5)</h2>
+		<h2>Difficulté <span id="textDifficulty">...</span></h2>
 	</div>
 
 	<div class="textsbox">
-		<h3>Paires trouvés : 0 </h3>
-		<h3>| <span id="temps">0:00</span></h3>
+		<h3>Paires trouvés : 0</h3>
+		<h3><span id="time">00:00:00</span></h3>
 	</div>
 
 	<br>
-	<div class="box">
-		<div class="grid">
-			<table>
-				<tr>
-					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/CARDS/CLASSIC/2.png">
-				</tr>
-				<tr>
-					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
-				</tr>
-				<tr>
-					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/CARDS/CLASSIC/2.png">
-					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
-				</tr>
-				<tr>
-					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
-				</tr>
-				<tr>
-					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
-					<img class="card" src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/dos_cartes.png">
-				</tr>
-			</table>
-		</div>
-	</div>
 
+	<div id="grid">
+
+	</div>
 
 	<!-------------------------- FOOTER --------------------------->
 	<main>
@@ -103,5 +74,7 @@ require_once SITE_ROOT . 'utils/database.php';
 		?>
 	</header>
 	<!------------------------------------------------------------->
+
+	<script src="<?php echo PROJECT_FOLDER; ?>assets/scripts/memory_game.js"></script>
 
 </body>
