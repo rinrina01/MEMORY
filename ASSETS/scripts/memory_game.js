@@ -2,7 +2,7 @@ let numbersOfPairs = 0;
 let pairsGenerated = [];
 let gridCards = [];
 
-function generateGrid() {
+function generateGrid() { // Générer la grille
   let xCards = 5;
   let yCards = 5;
 
@@ -12,7 +12,7 @@ function generateGrid() {
   let grid = document.getElementById("grid"); // définit les bordels
   let textDifficulty = document.getElementById("textDifficulty"); // définit les bordels
 
-  if (difficulty.value == "easy") {
+  if (difficulty.value == "easy") { // Initialise les variables pour une difficulté choisie
     xCards = 6;
     yCards = 5;
     numbersOfPairs = 15;
@@ -29,7 +29,7 @@ function generateGrid() {
     textDifficulty.textContent = "difficile";
   }
 
-  if (themes.value == "classic") {
+  if (themes.value == "classic") { // Définit le dossier des images à l'aide de la difficulté choisie
     themeName = "classic";
   } else if (themes.value == "numbers") {
     themeName = "numbers";
@@ -37,7 +37,7 @@ function generateGrid() {
     themeName = "politics";
   }
 
-  for (i = 0; i < numbersOfPairs; i++) {
+  for (i = 0; i < numbersOfPairs; i++) { // Génère l'array du compte des pairs générés
     pairsGenerated.push(0);
   }
 
@@ -49,7 +49,7 @@ function generateGrid() {
     }
   }
 
-  for (i = 0; i < xCards; i++) {
+  for (i = 0; i < xCards; i++) { // Création et affichage des images
     let div = document.createElement("div");
     grid.append(div);
     for (j = 0; j < yCards; j++) {
@@ -66,10 +66,10 @@ function generateGrid() {
   console.log(gridCards);
   console.log(pairsGenerated);
 
-  inGame();
+  inGame(); // Lancement du jeu
 }
 
-function setPair(i, j) {
+function setPair(i, j) { // Définit et attribue au carte des pairs
   var pairok = false;
   while (pairok === false) {
     var pairNumber = Math.floor(Math.random() * numbersOfPairs);
@@ -83,12 +83,14 @@ function setPair(i, j) {
   }
 }
 
-function inGame() {
+function inGame() { // Fonction du jeu
   let secondes = 0;
   let textTimer = document.getElementById("textTimer"); // définit les bordels
   timer();
 }
 
+
+// TIMER //
 var h1 = document.getElementById('time');
 var sec = 0;
 var min = 0;
