@@ -48,7 +48,7 @@ if (isset($_POST['email'])) {
 	require SITE_ROOT . 'partials/head.php';
 	?>
 	<title>S'inscrire</title>
-	<script src="./ASSETS/script/register.js"></script>
+	<script src="./ASSETS/scripts/register.js"></script>
 </head>
 
 <body>
