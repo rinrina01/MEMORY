@@ -1,24 +1,33 @@
 function mdp(){
-    var pass1 = document.getElementById('password');
-    var pass2 = document.getElementById('passwordconfirm');
+    var password = document.getElementById('password');
+    var passwordconfirm = document.getElementById('passwordconfirm');
     var message = document.getElementById('error-nwl');
     var goodColor = "#66cc66";
     var badColor = "#ff6666";
- 	
-    if(password.value.length > 7)
-    {
+    var midcolor = "#ff8c00";
+ 	var reg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!()@#$%^&*]).{8,}$/
+    
+     if (password.value.match(reg)) {
         password.style.backgroundColor = goodColor;
         message.style.color = goodColor;
-        message.innerHTML = "character number ok!"
+        console.log('DEBUG')
     }
-    else
+     
+    else if(password.value.length > 7)
     {
+        password.style.backgroundColor = midcolor;
+        message.style.color = midcolor;
+        message.innerHTML = "stp fait un effort !"
+    }
+    
+    else{
         password.style.backgroundColor = badColor;
         message.style.color = badColor;
-        message.innerHTML = " plus de 8 charactére!"
+        message.innerHTML = " plus de 8 caractère!"
         return;
     }
   
+
     if(password.value == passwordconfirm.value)
     {
         passwordconfirm.style.backgroundColor = goodColor;
@@ -29,6 +38,6 @@ function mdp(){
     {
         passwordconfirm.style.backgroundColor = badColor;
         message.style.color = badColor;
-        message.innerHTML = " le mot de passe ne coinside pas"
+        message.innerHTML = " le mot de passe ne correspond pas"
     }
 }

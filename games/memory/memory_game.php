@@ -12,7 +12,7 @@ require_once SITE_ROOT . 'utils/database.php';
 	<?php
 	require SITE_ROOT . 'partials/head.php';
 	?>
-	<title> Memory (5x5) </title>
+	<title> Memory </title>
 </head>
 
 <body>
@@ -46,7 +46,7 @@ require_once SITE_ROOT . 'utils/database.php';
 	</div>
 
 	<div class="textsbox">
-		<h3>Paires trouvés : 0</h3>
+		<h3>Paires trouvés : <span id="score">0</span></h3>
 		<h3><span id="time">00:00:00</span></h3>
 	</div>
 
