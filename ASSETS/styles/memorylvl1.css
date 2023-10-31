@@ -161,3 +161,44 @@ footer img {
   align-items: center;
   justify-content: center;
 }
+
+select{
+  background-color: orange;
+  padding: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 2px;
+  border: none;
+  color: white;
+  margin-bottom: 15px;
+  width: 256px;
+  align-content: center;
+  text-align: center;
+}
+
+button{
+  padding: 20px;
+  background-color: rgba(13, 11, 38, 0);
+  border: none;
+}
+
+#launch {
+  background-color: orange;
+  padding: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: white;
+  border-radius: 2px;
+  border: none;
+  margin-bottom: 15px;
+  width: 256px;
+}
+#launch:hover {
+  background-color: #ffb43c;
+  padding: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 2px;
+  border: none;
+  margin-bottom: 15px;
+}

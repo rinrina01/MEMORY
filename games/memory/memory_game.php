@@ -24,7 +24,11 @@ require_once SITE_ROOT . 'utils/database.php';
 	</div>
 	<!------------------------------------------------------------->
 
-	<div class="choices">
+	<div class="choices" id="startText">
+		<h3>Veuillez choisir une difficulté et un thème avant de commencer.</h3>
+	</div>
+
+	<div class="choices" id="startSelect">
 
 		<select id="difficulties">
 			<option value="easy">Facile</option>
@@ -38,16 +42,20 @@ require_once SITE_ROOT . 'utils/database.php';
 			<option value="theme3">Theme3</option>
 		</select>
 
-		<button onclick="generateGrid()">Lancer la game</button>
+		<button onclick="generateGrid()" id="launch">Lancer la game</button>
 	</div>
 
-	<div class="box">
-		<h2>Difficulté <span id="textDifficulty">...</span></h2>
-	</div>
+	<div id="infosGame">
 
-	<div class="textsbox">
-		<h3>Paires trouvés : <span id="score">0</span></h3>
-		<h3><span id="time">00:00:00</span></h3>
+		<div class="box">
+			<h2>Difficulté <span id="textDifficulty">...</span></h2>
+		</div>
+
+		<div class="textsbox">
+			<h3>Paires trouvés : <span id="score">0</span></h3>
+			<h3><span id="time">00:00:00</span></h3>
+		</div>
+
 	</div>
 
 	<br>

@@ -1,10 +1,23 @@
 let numbersOfPairs = 0;
 let pairsGenerated = [];
 let gridCards = [];
+let blockedClicks = false;
 var score = 0;
 var temps = null;
 
+let startText = document.getElementById("startText");
+let startSelect = document.getElementById("startSelect");
+let infosGame = document.getElementById("infosGame");
+startText.style.visibility = "visible";
+startSelect.style.visibility = "visible";
+infosGame.style.visibility = "hidden";
+
 function generateGrid() {
+  // Changer les textes
+  startText.style.visibility = "hidden";
+  startSelect.style.visibility = "hidden";
+  infosGame.style.visibility = "visible";
+
   // Générer la grille
   let xCards = 5;
   let yCards = 5;
@@ -90,7 +103,11 @@ function revealCard(event, themeName) {
   let i = buttonImage.getAttribute("data-i");
   let j = buttonImage.getAttribute("data-j");
 
-  if (!cardsRevelated.includes([i, j])) {
+  if (
+    !cardsRevelated.includes([i, j]) &&
+    !cardsComparaison.includes([i, j]) &&
+    blockedClicks == false
+  ) {
     let image = document.createElement("img");
     let pairNumber = gridCards[i][j];
     image.src = `../../assets/images/cards/${themeName}/${pairNumber}.png`;
@@ -135,6 +152,7 @@ function revealCard(event, themeName) {
         score += 1;
         textScore.textContent = score.toString();
       } else {
+        blockedClicks = true;
         setTimeout(resetCard, 1000, event, themeName, buttonImage);
       }
       cardsComparaison = [];
@@ -145,7 +163,7 @@ function revealCard(event, themeName) {
 
 function checkVictory() {
   if (score >= numbersOfPairs) {
-    alert("vous avez vaincu le boo maitre des cartes !")
+    alert("vous avez vaincu le boo maitre des cartes !");
   }
 }
 
@@ -159,6 +177,7 @@ function resetCard(event, themeName, buttonImage) {
   image2.src = `../../assets/images/cards/${themeName}/dos_cartes.png`;
   buttonImage2.innerHTML = ""; // Efface le contenu actuel du bouton
   buttonImage2.append(image2);
+  blockedClicks = false;
 }
 
 function setPair(i, j) {
