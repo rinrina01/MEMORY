@@ -39,6 +39,26 @@ $infos = $pdoStatement->fetchAll();
 
 	</div>
 
+	<div class="bondsheader">
+		<div class="bounds">
+			<img class="image" src="assets/images/easteregg/boo-mario.gif" height="100px"> </img>
+		</div>
+	</div>
+
+	<audio autoplay="true" id="audioboo">
+		<source src="assets/images/easteregg/boo_effect.mp3" type="audio/mpeg" />
+		Your browser does not support the audio element.
+	</audio>
+
+	<script>
+		function jouerSon() {
+			var audio = document.getElementById("audioboo");
+			audio.play();
+		}
+		setInterval(jouerSon, 10000);
+	</script>
+
+
 
 	<!---image -->
 	<div class="touteslesimage">
@@ -228,5 +248,4 @@ $infos = $pdoStatement->fetchAll();
 		require SITE_ROOT . 'partials/header.php';
 		?>
 	</header>
-
 </body>
