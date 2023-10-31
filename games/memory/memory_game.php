@@ -25,7 +25,7 @@ require_once SITE_ROOT . 'utils/database.php';
 	<!------------------------------------------------------------->
 
 	<div class="choices" id="startText">
-		<h3>Veuillez choisir une difficulté et un thème avant de commencer.</h3>
+		<h2>Veuillez choisir une difficulté et un thème avant de commencer.</h2>
 	</div>
 
 	<div class="choices" id="startSelect">
