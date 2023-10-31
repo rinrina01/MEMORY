@@ -1,7 +1,8 @@
 let numbersOfPairs = 0;
 let pairsGenerated = [];
 let gridCards = [];
-let score = 0;
+var score = 0;
+var temps = null;
 
 function generateGrid() {
   // Générer la grille
@@ -77,7 +78,7 @@ function generateGrid() {
   }
 
   inGame(); // Lancement du jeu
-  console.log(gridCards)
+  console.log(gridCards);
 }
 
 let cardsRevelated = []; // Liste toutes les cartes révélés
@@ -110,7 +111,10 @@ function revealCard(event, themeName) {
         [0, 0],
       ];
       let idCard2 = -1;
-      let cardPos = [[0,0],[0,0]];
+      let cardPos = [
+        [0, 0],
+        [0, 0],
+      ];
       for (i = 0; i < cardsComparaison.length; i++) {
         // Parcourt toutes les cartes en comparaison
         cardPos[i] = cardsComparaison[i];
@@ -134,12 +138,19 @@ function revealCard(event, themeName) {
         setTimeout(resetCard, 1000, event, themeName, buttonImage);
       }
       cardsComparaison = [];
+      checkVictory();
     }
   }
 }
 
+function checkVictory() {
+  if (score >= numbersOfPairs) {
+    alert("vous avez vaincu le boo maitre des cartes !")
+  }
+}
+
 function resetCard(event, themeName, buttonImage) {
-  console.log("RESETTTTTTTTTTTTT")
+  console.log("RESETTTTTTTTTTTTT");
   let image = document.createElement("img");
   image.src = `../../assets/images/cards/${themeName}/dos_cartes.png`;
   buttonImage.innerHTML = ""; // Efface le contenu actuel du bouton
@@ -198,6 +209,7 @@ function add() {
     (min > 9 ? min : "0" + min) +
     ":" +
     (sec > 9 ? sec : "0" + sec);
+  temps = h1.textContent;
   timer();
 }
 function timer() {

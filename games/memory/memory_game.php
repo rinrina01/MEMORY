@@ -12,7 +12,7 @@ require_once SITE_ROOT . 'utils/database.php';
 	<?php
 	require SITE_ROOT . 'partials/head.php';
 	?>
-	<title> Memory (5x5) </title>
+	<title> Memory </title>
 </head>
 
 <body>
