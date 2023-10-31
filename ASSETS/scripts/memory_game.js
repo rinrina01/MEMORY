@@ -85,7 +85,13 @@ function generateGrid() {
 
       // Appel de revealCard pour révéler les cartes
       buttonImage.addEventListener("click", function (event) {
-        revealCard(event, themeName);
+        if (
+          cardsRevelated.includes([i, j]) == false &&
+          cardsComparaison.includes([i, j]) == false &&
+          blockedClicks === false
+        ) {
+          revealCard(event, themeName);
+        }
       });
     }
   }
@@ -104,62 +110,44 @@ function revealCard(event, themeName) {
   let j = buttonImage.getAttribute("data-j");
 
   if (
-    !cardsRevelated.includes([i, j]) &&
-    !cardsComparaison.includes([i, j]) &&
-    blockedClicks == false
+    cardsRevelated.includes([i, j]) == false &&
+    cardsComparaison.includes([i, j]) == false &&
+    blockedClicks === false
   ) {
     let image = document.createElement("img");
     let pairNumber = gridCards[i][j];
     image.src = `../../assets/images/cards/${themeName}/${pairNumber}.png`;
-    buttonImage.innerHTML = ""; // Efface le contenu actuel du bouton
+    buttonImage.innerHTML = "";
     buttonImage.append(image);
 
     if (cardsComparaison.length < 1) {
-      // Regarde si dans la comparaison y'a moins d'une carte
-      cardsComparaison.push([i, j]); // Ajoute à la comparaison
+      cardsComparaison.push([i, j]);
       buttonImage2 = buttonImage;
-    } else {
-      cardsComparaison.push([i, j]); // Ajoute à la comparaison
+    } else if (cardsComparaison.length === 1) {
+      if (cardsComparaison[0][0] !== i || cardsComparaison[0][1] !== j) {
+        cardsComparaison.push([i, j]);
+        // Compare
+        let idCard = gridCards[cardsComparaison[0][0]][cardsComparaison[0][1]];
+        let idCard2 = gridCards[i][j];
 
-      // Compare
-      let idCard = -1;
-      let posCards = [
-        [0, 0],
-        [0, 0],
-      ];
-      let idCard2 = -1;
-      let cardPos = [
-        [0, 0],
-        [0, 0],
-      ];
-      for (i = 0; i < cardsComparaison.length; i++) {
-        // Parcourt toutes les cartes en comparaison
-        cardPos[i] = cardsComparaison[i];
-        posCards[i] = cardPos;
-        if (i === 0) {
-          idCard = gridCards[cardPos[i][0]][cardPos[i][1]];
+        if (idCard === idCard2) {
+          cardsRevelated.push(cardsComparaison[0]);
+          cardsRevelated.push([i, j]);
+
+          let textScore = document.getElementById("score");
+          score += 1;
+          textScore.textContent = score.toString();
         } else {
-          idCard2 = gridCards[cardPos[i][0]][cardPos[i][1]];
+          blockedClicks = true;
+          setTimeout(resetCard, 1000, event, themeName, buttonImage);
         }
+        cardsComparaison = [];
+        checkVictory();
       }
-      if (idCard === idCard2) {
-        // Regarde si les cartes sont identiques
-        // Ajoute les 2 cartes dans la liste pour éviter de recliquer dessus
-        cardsRevelated.push(cardPos[0]);
-        cardsRevelated.push(cardPos[1]);
-        console.log("ok");
-        let textScore = document.getElementById("score"); // définit les bordels
-        score += 1;
-        textScore.textContent = score.toString();
-      } else {
-        blockedClicks = true;
-        setTimeout(resetCard, 1000, event, themeName, buttonImage);
-      }
-      cardsComparaison = [];
-      checkVictory();
     }
   }
 }
+
 
 function checkVictory() {
   if (score >= numbersOfPairs) {
