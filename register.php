@@ -48,6 +48,7 @@ if (isset($_POST['email'])) {
 	require SITE_ROOT . 'partials/head.php';
 	?>
 	<title>S'inscrire</title>
+	<script src="./ASSETS/scripts/register.js"></script>
 </head>
 
 <body>
@@ -64,8 +65,9 @@ if (isset($_POST['email'])) {
 		<form class="register-form" method="post">
 			<input type="email" id="email" name="email" placeholder="Email">
 			<input type="text" id="pseudo" name="pseudo" placeholder="Pseudo" minlength="4">
-			<input type="password" id="password" name="password" placeholder="Mot de passe" minlength="8">
-			<input type="password" id="passwordconfirm" name="passwordconfirm" placeholder="Confirmez votre mot de passe" minlength="8">
+			<input type="password" id="password" name="password" placeholder="Mot de passe" minlength="8"  onkeyup="mdp(); return false;">
+			<input type="password" id="passwordconfirm" name="passwordconfirm" placeholder="Confirmez votre mot de passe" minlength="8" onkeyup="mdp(); return false;">
+			<div id="error-nwl"></div>
 			<div class="contact-form-button">
 				<button class="register-button" type="submit">Inscription</button>
 			</div>
