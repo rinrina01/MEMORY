@@ -19,7 +19,6 @@ $password = "";
 $emailChangeMessage = "";
 $passwordChangeMessage = "";
 
-
 $oldpassword = "";
 $password2 = "";
 $newpassword = "";
@@ -100,6 +99,23 @@ if (isset($_POST['email'])) {
 } else {
 	$emailChangeMessage = "Email non existant";
 }
+
+// Gérer la mise à jour de la photo de profil
+if (isset($_POST['upload_profile_picture'])) {
+	$profilePictureDirectory = 'userFiles/' . $id . '/';
+
+	if (!is_dir($profilePictureDirectory)) {
+		mkdir($profilePictureDirectory, 0777, true);
+	}
+
+	if (isset($_FILES['profile_picture']) && $_FILES['profile_picture']['error'] === UPLOAD_ERR_OK) {
+		$profilePictureName = 'profile_picture.jpg';
+		move_uploaded_file($_FILES['profile_picture']['tmp_name'], $profilePictureDirectory . $profilePictureName);
+		$uploadSuccessMessage = "Photo de profil mise à jour avec succès.";
+	} else {
+		$uploadErrorMessage = "Erreur lors du téléchargement de la photo de profil.";
+	}
+}
 ?>
 
 <!DOCTYPE html>
@@ -107,20 +123,46 @@ if (isset($_POST['email'])) {
 
 <head>
 	<link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>assets/styles/myAccount.css" />
-	<?php
-	require SITE_ROOT . 'partials/head.php';
-	?>
+	<?php require SITE_ROOT . 'partials/head.php'; ?>
 	<title>My Account</title>
 </head>
 
 <body>
 
-	<!-------------------------- BANNER --------------------------->
 	<div class="top-banner-container">
 		<img src="ASSETS/IMAGES/2814.jpg" style="width:100%;height:300px;object-fit: cover;opacity: 0.3;">
 		<div class="top-banner-centered">MON COMPTE</div>
 	</div>
-	<!------------------------------------------------------------->
+
+	<div class="account-box">
+		<h2 style="margin-bottom:15px">Photo de profil</h2>
+		<div class="profile-picture-container">
+			<?php
+			$profilePicturePath = 'userFiles/' . $id . '/profile_picture.jpg';
+			if (file_exists($profilePicturePath)) {
+				echo '<img src="' . $profilePicturePath . '" alt="Photo de profil">';
+			} else {
+				echo '<p>Aucune photo de profil disponible</p>';
+			}
+			?>
+		</div>
+		<div class="contact-password-form">
+			<form action="myAccount.php" method="post" enctype="multipart/form-data">
+				<input type="file" name="profile_picture" accept="image/*">
+				<div class="contact-form-button">
+					<button class="button" type="submit" name="upload_profile_picture">Changer de photo de profil</button>
+				</div>
+			</form>
+			<?php
+			if (isset($uploadSuccessMessage)) {
+				echo '<p class="success-message">' . $uploadSuccessMessage . '</p>';
+			}
+			if (isset($uploadErrorMessage)) {
+				echo '<p class="error-message">' . $uploadErrorMessage . '</p>';
+			}
+			?>
+		</div>
+	</div>
 
 	<div class="account-box">
 		<h2 style="margin-bottom:15px">Changer votre email</h2>
@@ -152,31 +194,21 @@ if (isset($_POST['email'])) {
 		</div>
 	</div>
 
-
 	<div class="account-box">
 		<form action="" method="post">
 			<button type="submit" name="logout" class="button">Se déconnecter</button>
 		</form>
 	</div>
 
-
-	<!-------------------------- FOOTER --------------------------->
 	<main>
 		<footer>
-			<?php
-			require SITE_ROOT . 'partials/footer.php';
-			?>
+			<?php require SITE_ROOT . 'partials/footer.php'; ?>
 		</footer>
 	</main>
-	<!------------------------------------------------------------->
 
-
-	<!-------------------------- HEADER --------------------------->
 	<header>
-		<?php
-		require SITE_ROOT . 'partials/header.php';
-		?>
+		<?php require SITE_ROOT . 'partials/header.php'; ?>
 	</header>
-	<!------------------------------------------------------------->
 
 </body>
+</html>
