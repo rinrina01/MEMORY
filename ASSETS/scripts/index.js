@@ -13,17 +13,12 @@ closeChatButton.addEventListener("click", () => {
 });
 
 
-// Récupérer l'élément img
 const chatGif = document.getElementById('chat-gif');
 
-// Faire une requête à l'API The Cat API
 fetch('https://api.thecatapi.com/v1/images/search?mime_types=gif')
   .then(response => response.json())
   .then(data => {
-    // Extraire l'URL du gif depuis la réponse JSON
     const gifUrl = data[0].url;
-
-    // Mettre l'URL du gif dans l'attribut src de l'élément img
     chatGif.src = gifUrl;
   })
   .catch(error => {
