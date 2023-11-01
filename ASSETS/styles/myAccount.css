@@ -128,3 +128,9 @@ footer img {
   font-size: 0.9em;
   text-align: left;
 } /* ------------------------------------------------------------------------------------- */
+
+h2 {
+  color: orange;
+  margin-top: 100px;
+  margin-bottom: 30px;
+}

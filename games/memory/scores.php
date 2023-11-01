@@ -53,45 +53,47 @@ $infos = $pdoStatement->fetchAll();
 	<!------------------------------------------------------------->
 
 
-	<form action="" method="post">
-		<input type="search" name="gameName" id="gameName" placeholder="Nom du jeu">
-		<input type="search" name="nickname" id="nickname" placeholder="Pseudo">
-		<input type="search" name="difficulties" id="difficulties" placeholder="Difficulté">
-		<button type="submit">Filtrer</button>
-	</form>
+	<div class="searchbar">
+		<form action="" method="post">
+			<input type="search" name="gameName" id="gameName" placeholder="Nom du jeu">
+			<input type="search" name="nickname" id="nickname" placeholder="Pseudo">
+			<input type="search" name="difficulties" id="difficulties" placeholder="Difficulté">
+			<button type="submit" class="search">Filtrer</button>
+		</form>
 
-	<form action="" method="post">
-		<button type="submit">Reset</button>
-	</form>
+		<form action="" method="post">
+			<button type="submit" class="search">Reset</button>
+		</form>
+	</div>
 
 
 	<main id="table">
 		<table>
-			<tr>
-				<th>Jeu</th>
-				<th>Pseudo</th>
-				<th>Difficulté</th>
-				<th>Score</th>
-				<th>Date</th>
-				<th>Temps de jeu</th>
-			</tr>
-
-			<?php foreach ($infos as $score) : ?>
-				<?php if ($id == $score->id_utilisateur) : ?>
-					<tr style="color: orange">
-					<?php else : ?>
-					<tr style="color: white">
-					<?php endif; ?>
-					<td><?php echo $score->nom_jeu ?></td>
-					<td><?php echo $score->pseudo ?></td>
-					<td><?php echo $score->difficulte_partie ?></td>
-					<td><?php echo $score->score_partie ?></td>
-					<td><?php echo $score->date_partie ?></td>
-					<td><?php echo $score->recordTime ?></td>
+			<thead>
+				<tr>
+					<th>Jeu</th>
+					<th>Pseudo</th>
+					<th>Difficulté</th>
+					<th>Score</th>
+					<th>Date</th>
+					<th>Temps de jeu</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php foreach ($infos as $score) : ?>
+					<tr>
+						<td><?php echo $score->nom_jeu ?></td>
+						<td><?php echo $score->pseudo ?></td>
+						<td><?php echo $score->difficulte_partie ?></td>
+						<td><?php echo $score->score_partie ?></td>
+						<td><?php echo $score->date_partie ?></td>
+						<td><?php echo $score->recordTime ?></td>
 					</tr>
 				<?php endforeach; ?>
+			</tbody>
 		</table>
 	</main>
+
 
 
 	<!-------------------------- FOOTER --------------------------->

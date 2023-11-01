@@ -67,7 +67,6 @@ $infos = $pdoStatement->fetchAll();
             foreach ($infos as $messageInfo) :
                 $messageClass = ($messageInfo->isSender == 1) ? 'sender' : 'receiver';
             ?>
-                <!-- Messages existants -->
                 <div class="messageContainer">
                     <p class="messageInfo"><?php echo $messageInfo->pseudo; ?></p>
                     <div class="messageBubble <?php echo $messageClass; ?>">
@@ -78,7 +77,6 @@ $infos = $pdoStatement->fetchAll();
             <?php endforeach; ?>
 
             <?php if ($id != -1) : ?>
-                <!-- Formulaire pour envoyer un message -->
                 <form method="post">
                     <input type="text" name="message" placeholder="Saisissez votre message" required>
                     <button type="submit">Envoyer</button>

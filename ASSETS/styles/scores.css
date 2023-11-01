@@ -19,31 +19,44 @@ main {
 } /* -------------------------------------------------- */
 
 table {
-  margin: 50px;
-  border: 3px dashed rgb(38, 39, 69);
-  border-radius: 5px;
-  width: 100%;
-  padding: 20px;
+  width: 80%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: #333; /* Fond sombre */
+  color: #fff; /* Texte blanc */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#table{
+  display: flex;
+  justify-content: center;
+}
+
+thead {
+  background-color: #ea9033; /* En-tête bleu */
+  color: #fff;
+}
+
+th, td {
+  padding: 10px 20px;
+  text-align: left;
+  border-bottom: 1px solid #555; /* Lignes de séparation plus foncées */
+  border-right: 1px solid #555; /* Bordure à droite pour les cellules */
 }
 
 th {
-  color: orange;
-  padding: 25px;
-  padding-top: 5px;
+  font-weight: bold;
 }
 
-td {
-  padding-left: 10px;
-  padding-right: 10px;
-  text-align: center;
+tr:nth-child(even) {
+  background-color: #444; /* Lignes paires plus sombres */
 }
 
-#table {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+tr:hover {
+  background-color: #555; /* Survol plus foncé */
 }
+
+
 
 /* -------------------------------- FOOOTER --------------------------------------------- */
 footer {
@@ -93,3 +106,44 @@ footer img {
   font-size: 0.9em;
   text-align: left;
 } /* ------------------------------------------------------------------------------------- */
+
+input {
+  background-color: rgb(38, 39, 69);
+  border-radius: 2px;
+  border: none;
+  color: white;
+  padding: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 10px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.searchbar {
+  margin-top: 64px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.search {
+  background-color: #ea9033;
+  padding: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: white;
+  border-radius: 2px;
+  border: none;
+  align-self: flex-start;
+  margin-right: 16px;
+}
+.search:hover {
+  background-color: #ffb43c;
+  padding: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: white;
+  border-radius: 2px;
+  border: none;
+}

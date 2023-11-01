@@ -2,8 +2,10 @@ body {
   background-color: #0e0f2e;
   color: white;
   font-family: "Poppins";
-  margin: 0px;
+  margin: 0;
+  overflow-x: hidden;
 }
+
 
 header {
   overflow: hidden;
@@ -263,100 +265,6 @@ button:hover {
   font-size: 12px;
 }
 
-/* partie du chatBox  */
-.chat-box {
-  position: fixed;
-  bottom: 2px;
-  right: 2px;
-  width: 300px;
-  background-color: #fff;
-  border: 1px solid #473f2d;
-  border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-}
-
-.chat-header {
-  background-color: #0e0f2e;
-  color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-}
-
-.chat-messages {
-  flex-grow: 1;
-  padding: 10px;
-  overflow-y: scroll;
-}
-
-#message-input {
-  padding: 10px;
-  border: none;
-  border-top: 1px solid #b90000;
-  width: 100%;
-}
-
-#send-message {
-  background-color: #0e0f2e;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-}
-
-#close-chat {
-  background-color: #ff0000;
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-}
-
-.chat-box {
-  position: fixed;
-  bottom: 2px;
-  right: 2px;
-  min-width: 300px;
-  min-height: 100px;
-  background-color: #fff;
-  border: 1px solid #473f2d;
-  border-radius: 50px;
-  display: flex;
-  flex-direction: column;
-  resize: vertical;
-  overflow: hidden;
-}
-
-.bouttonc {
-  background-color: gray;
-  display: flex;
-  border-radius: 100px;
-}
-
-.bouttoncc {
-  background-color: blue;
-  display: flex;
-  border-radius: 100px;
-  margin-left: 110px;
-}
-.bouttonccc {
-  background-color: gray;
-  display: flex;
-  border-radius: 100px;
-}
-
-.bouttoncccc {
-  background-color: blue;
-  display: flex;
-  border-radius: 110px;
-  margin-left: 110px;
-}
-
-.chat {
-  margin-left: 19px;
-}
 
 .top-left {
   /* HEADER : LOGO 'The Power Of Memory' */
