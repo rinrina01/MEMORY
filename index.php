@@ -9,6 +9,33 @@ INNER JOIN score AS S ON U.id_utilisateur = S.id_joueur;');
 $pdoStatement->execute();
 $infos = $pdoStatement->fetchAll();
 
+$id = -1;
+
+
+if (isset($_SESSION['id'])) {
+	$id = $_SESSION['id'];
+	if (isset($_POST['message'])) {
+		$pdoSendMessage = $pdo->prepare('INSERT INTO message (id_jeu, id_expediteur, message, date_message)
+                                        VALUES (1, :id, :message, NOW())');
+
+		$pdoSendMessage->bindParam(':id', $id, PDO::PARAM_INT);
+		$pdoSendMessage->bindParam(':message', $_POST['message'], PDO::PARAM_STR);
+
+		$pdoSendMessage->execute();
+	}
+}
+
+
+$pdoStatement = $pdo->prepare('SELECT M.message, U.pseudo, M.date_message, M.id_expediteur = "' . $id . '" AS isSender
+                                FROM message AS M
+                                INNER JOIN utilisateur AS U
+                                ON M.id_expediteur = U.id_utilisateur
+                                WHERE M.date_message >= NOW() - INTERVAL 1 DAY
+                                ORDER BY M.date_message ASC;');
+$pdoStatement->execute();
+$infoschat = $pdoStatement->fetchAll();
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,6 +44,7 @@ $infos = $pdoStatement->fetchAll();
 	<link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>assets/styles/index.css" />
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>assets/styles/footer.css" />
+	<link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>assets/styles/chat.css" />
 	<link rel="icon" type="image/x-icon" href="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/favicon.ico">
 	<title>The Memory</title>
 </head>
@@ -39,12 +67,13 @@ $infos = $pdoStatement->fetchAll();
 
 	</div>
 
+
+	<!-----------
 	<div class="bondsheader">
 		<div class="bounds">
 			<img class="image" src="assets/images/easteregg/boo-mario.gif" height="100px"> </img>
 		</div>
 	</div>
-
 	<audio autoplay="true" id="audioboo">
 		<source src="assets/images/easteregg/boo_effect.mp3" type="audio/mpeg" />
 		Your browser does not support the audio element.
@@ -57,6 +86,9 @@ $infos = $pdoStatement->fetchAll();
 		}
 		setInterval(jouerSon, 10000);
 	</script>
+	------>
+
+
 
 
 
@@ -208,27 +240,63 @@ $infos = $pdoStatement->fetchAll();
 	</div>
 
 
-	<div class="chat-box resizable">
+	<div class="open-chat-button" id="open-chat-button">Ouvrir le chat</div>
+
+	<div class="chat-box" style="display: none;">
 		<div class="chat-header">
 			<h3 class="chat">Chat</h3>
 			<button id="close-chat">X</button>
 		</div>
 		<div class="chat-messages">
 			<div id="message-container" class="message-container">
-				Les messages seront ajoutés ici
-				<button class="bouttonc">t'est trop EZ</button>
-				<P></P>
-				<button class="bouttoncc">je te prend 1 vs 1 quand tu veux</button>
-				<P>K</P>
-				<button class="bouttonccc">Message de la France NON !</button>
-				<p>K</p>
 
-				<button class="bouttoncccc">on va détruire la concurence</button>
+
+
+
+				<div class="messageColumns">
+					<div class="messageColumn">
+						<?php
+						foreach ($infoschat as $messageInfo) :
+							$messageClass = ($messageInfo->isSender == 1) ? 'sender' : 'receiver';
+						?>
+							<!-- Messages existants -->
+							<div class="messageContainer">
+								<p class="messageInfo"><?php echo $messageInfo->pseudo; ?></p>
+								<div class="messageBubble <?php echo $messageClass; ?>">
+									<p class="messageText"><?php echo $messageInfo->message; ?></p>
+								</div>
+								<p class="messageDate"><?php echo $messageInfo->date_message; ?></p>
+							</div>
+						<?php endforeach; ?>
+
+						<div class="welcome-chat">
+							<p>Bienvenue dans le chat !</p>
+							<img id="chat-gif" src="" alt="Chat Gif" height="200px" />
+						</div>
+
+
+					</div>
+				</div>
+
+
+
+
 			</div>
 		</div>
-		<input type="text" id="message-input" placeholder="Entrez votre message">
-		<button id="send-message">Envoyer</button>
+
+
+		<?php if (isset($_SESSION['id'])): ?>
+			<form method="post">
+				<input type="text" name="message" id="message-input" placeholder="Entrez votre message">
+				<button type="submit" id="send-message">Envoyer</button>
+			</form>
+		<?php else : ?>
+			<p style="color:red">Veuillez vous connecter pour pouvoir envoyer des messages</p>
+		<?php endif ?>
+
 	</div>
+
+	<script src="assets/scripts/index.js"></script>
 
 
 

@@ -1,8 +1,8 @@
+<link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>assets/styles/header.css" />
 <div class="header-alignment">
     <p class="header-left-element"> The Power Of Memory </p>
 
     <nav class="header-nav">
-
         <a href="<?php echo PROJECT_FOLDER; ?>index.php" class="<?php if ($page == "index") {
                                                                     echo "active";
                                                                 } else {
@@ -23,18 +23,22 @@
                                                                     } else {
                                                                         echo "header-a";
                                                                     } ?>"> NOUS CONTACTER </a>
-        <a href="<?php echo PROJECT_FOLDER; ?>login.php" class="<?php if ($page == "login") {
-                                                                    echo "active";
-                                                                } else {
-                                                                    echo "header-a";
-                                                                } ?>"> SE CONNECTER </a>
-        <a href="<?php echo PROJECT_FOLDER; ?>myAccount.php" class="<?php if ($page == "myAccount") {
-                                                                        echo "active";
-                                                                    } else {
-                                                                        echo "header-a";
-                                                                    } ?>"> <?php if ($_SESSION != null) {
-                                                                                echo $_SESSION['pseudo'];
-                                                                            } ?>
-        </a>
+
+        <?php
+        if ($_SESSION != null) {
+            $profilePictureUrl = PROJECT_FOLDER . 'userFiles/' . $_SESSION['id'] . '/profile_picture.jpg';
+        
+            echo '<a href="' . PROJECT_FOLDER . 'myAccount.php" class="' . ($page == "myAccount" ? "active" : "header-a") . '">';
+            echo '<div class="profile-info">';
+            echo '<img src="' . $profilePictureUrl . '" alt="Photo de profil" width="30" height="30">';
+            echo ' ' . $_SESSION['pseudo'];
+            echo '</div>';
+            echo '</a>';
+        } else {
+            echo '<a href="' . PROJECT_FOLDER . 'login.php" class="' . ($page == "login" ? "active" : "header-a") . '"> SE CONNECTER </a>';
+        }
+        
+
+        ?>
     </nav>
 </div>

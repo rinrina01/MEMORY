@@ -115,3 +115,16 @@ a {
   text-decoration: none;
   color: white;
 }
+
+
+header {
+  height: 70px;
+}
+
+.profile-info img {
+  height: 30px; 
+  width: 30px; 
+  margin-right: 5px; 
+  margin-bottom: -10px;
+}
+
