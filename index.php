@@ -15,16 +15,17 @@ $id = -1;
 if (isset($_SESSION['id'])) {
 	$id = $_SESSION['id'];
 	if (isset($_POST['message'])) {
-		$pdoSendMessage = $pdo->prepare('INSERT INTO message (id_jeu, id_expediteur, message, date_message)
-                                        VALUES (1, :id, :message, NOW())');
+		$message = $_POST['message'];
+		$pdoSendMessage = $pdo->prepare("INSERT INTO message (id_jeu, id_expediteur, message, date_message)
+                                        VALUES (1, 2, '$message', NOW())");
 
-		$pdoSendMessage->bindParam(':id', $id, PDO::PARAM_INT);
-		$pdoSendMessage->bindParam(':message', $_POST['message'], PDO::PARAM_STR);
+		//$pdoSendMessage->bindParam(':id', $id, PDO::PARAM_INT);
 
-		$pdoSendMessage->execute();
+		$pdoSendMessage->execute([':message' => $message]);
+	} else {
+		echo '<h3> doesnt work </h3>';
 	}
 }
-
 
 $pdoStatement = $pdo->prepare('SELECT M.message, U.pseudo, M.date_message, M.id_expediteur = "' . $id . '" AS isSender
                                 FROM message AS M
@@ -269,6 +270,8 @@ $infoschat = $pdoStatement->fetchAll();
 							</div>
 						<?php endforeach; ?>
 
+						<span id='response' style='color:black;'></span>
+
 						<div class="welcome-chat">
 							<p>Bienvenue dans le chat !</p>
 							<img id="chat-gif" src="" alt="Chat Gif" height="200px" />
@@ -285,11 +288,9 @@ $infoschat = $pdoStatement->fetchAll();
 		</div>
 
 
-		<?php if (isset($_SESSION['id'])): ?>
-			<form method="post">
-				<input type="text" name="message" id="message-input" placeholder="Entrez votre message">
-				<button type="submit" id="send-message">Envoyer</button>
-			</form>
+		<?php if (isset($_SESSION['id'])) : ?>
+			<input type="text" name="message" id="message-input" placeholder="Entrez votre message">
+			<button type='submit' id="send-message" onclick='send_msg_to_DB()'> Envoyer </button>
 		<?php else : ?>
 			<p style="color:red">Veuillez vous connecter pour pouvoir envoyer des messages</p>
 		<?php endif ?>
