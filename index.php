@@ -11,7 +11,6 @@ $infos = $pdoStatement->fetchAll();
 
 $id = -1;
 
-
 if (isset($_SESSION['id'])) {
 	$id = $_SESSION['id'];
 	if (isset($_POST['message'])) {
@@ -61,9 +60,7 @@ $infoschat = $pdoStatement->fetchAll();
 		</div>
 
 		<div class="button">
-			<form>
-				<button type="submit" formaction="games/memory/memory.php">Jouer !</button>
-			</form>
+			<a href='games/memory/memory.php?'> <button>Jouer !</button> </a>
 		</div>
 
 	</div>
@@ -250,10 +247,6 @@ $infoschat = $pdoStatement->fetchAll();
 		</div>
 		<div class="chat-messages">
 			<div id="message-container" class="message-container">
-
-
-
-
 				<div class="messageColumns">
 					<div class="messageColumn">
 						<?php
@@ -276,14 +269,11 @@ $infoschat = $pdoStatement->fetchAll();
 							<p>Bienvenue dans le chat !</p>
 							<img id="chat-gif" src="" alt="Chat Gif" height="200px" />
 						</div>
+						
 
 
 					</div>
 				</div>
-
-
-
-
 			</div>
 		</div>
 
