@@ -13,7 +13,7 @@ closeChatButton.addEventListener("click", () => {
 });
 
 
-const chatGif = document.getElementById('chat-gif');
+const chatGif = document.getElementById('chat-gif')
 
 fetch('https://api.thecatapi.com/v1/images/search?mime_types=gif')
   .then(response => response.json())
@@ -25,3 +25,23 @@ fetch('https://api.thecatapi.com/v1/images/search?mime_types=gif')
     console.error('Erreur lors de la récupération du gif de chat :', error);
   });
 
+
+
+  function send_msg_to_DB(){
+    // SEND MESSAGE TO DB
+    //var message = document.getElementById('send-message').innerHTML;
+    var message = document.getElementById('message-input').value;  
+    console.log(message);
+    document.getElementById('message-input').value = '';
+  
+    var httpr = new XMLHttpRequest();
+    httpr.open('POST',"../ProjectMemory/index.php",true);
+    httpr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    httpr.onreadystatechange = function() {
+      if (httpr.readyState==4 && httpr.status==200) {
+        document.getElementById('response').textContent = message;
+        console.log('request gud');
+      }
+    }
+    httpr.send('message='+message);
+  }
