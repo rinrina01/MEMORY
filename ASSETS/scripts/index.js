@@ -27,7 +27,7 @@ fetch('https://api.thecatapi.com/v1/images/search?mime_types=gif')
 
 
 
-  function send_msg_to_DB(pseudo){
+  function send_msg_to_DB(){
     // SEND MESSAGE TO DB
     var message = document.getElementById('message-input').value;
     var messageColumn = document.getElementsByClassName("messageColumn")[0]; 
@@ -48,7 +48,7 @@ fetch('https://api.thecatapi.com/v1/images/search?mime_types=gif')
 
         var messageInfo = document.createElement("p");
         messageInfo.className = "messageInfo"
-        messageInfo.textContent = pseudo.toString();
+        messageInfo.textContent = "Vous";
         messageContainer.append(messageInfo);
 
         var messageBubble = document.createElement("div");
