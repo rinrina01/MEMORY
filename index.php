@@ -26,7 +26,6 @@ if (isset($_SESSION['id'])) {
 	}
 }
 
-
 $pdoStatement = $pdo->prepare('SELECT M.message, U.pseudo, M.date_message, M.id_expediteur = "' . $id . '" AS isSender
                                 FROM message AS M
                                 INNER JOIN utilisateur AS U

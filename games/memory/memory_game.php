@@ -2,6 +2,16 @@
 $page = "memory_game";
 require '../../utils/common.php';
 require_once SITE_ROOT . 'utils/database.php';
+
+if (isset($_POST['player_time'])) {
+    $player_time = $_POST['player_time'];
+
+    $pdo = connectToDbAndGetPdo();
+    $pdoStatement = $pdo->prepare("INSERT INTO score
+                                    (id_joueur, id_jeu, difficulte_partie, score_partie, recordTime)
+                                   VALUES (1,1,'facile',2345, '$player_time');");
+    $pdoStatement->execute();
+}
 ?>
 
 <!DOCTYPE html>
@@ -63,6 +73,16 @@ require_once SITE_ROOT . 'utils/database.php';
 	<div id="grid">
 
 	</div>
+
+	    <div>
+		<input id='input_player_time' type='button' onclick="GetTimerTime()"/>
+		<input type='button' value='submit' onclick='send_data()'/>
+	    </div>
+	
+	    <span id='response'>
+	    </span>
+	
+	    <button onclick='location.reload()'> restart button </button>
 
 	<!-------------------------- FOOTER --------------------------->
 	<main>
