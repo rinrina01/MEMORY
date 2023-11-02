@@ -111,11 +111,6 @@ function createParticles(targetCell) {
 }
 
 
-
-
-
-
-// Compte le nombre de bombes autour de chaque case
 function countBombsAround() {
     cells.forEach((cell) => {
         const row = parseInt(cell.dataset.row);
@@ -131,7 +126,6 @@ function countBombsAround() {
     });
 }
 
-// Récupère les voisins d'une case
 function getNeighbors(row, col) {
     const neighbors = [];
     for (let i = -1; i <= 1; i++) {
@@ -151,7 +145,6 @@ function getNeighbors(row, col) {
     return neighbors;
 }
 
-// Ajoute l'effet de tremblement à une cellule
 function shakeCell(cell) {
     cell.classList.add('shake');
     setTimeout(() => {
@@ -159,14 +152,12 @@ function shakeCell(cell) {
     }, 500);
 }
 
-// Bascule le drapeau sur une cellule
 function toggleFlag(cell) {
     if (cell.classList.contains('revealed')) return;
     cell.classList.toggle('flagged');
     cell.textContent = cell.classList.contains('flagged') ? '🚩' : '';
 }
 
-// Gère la fin du jeu
 function gameOver(win) {
     if (win) {
         alert('Félicitations, vous avez gagné !');
@@ -176,18 +167,13 @@ function gameOver(win) {
     location.reload();
 }
 
-// Initialise le jeu
 createBoard();
 
-// Sélectionnez l'élément image
 const logoImg = document.getElementById('logo-img');
 
-// Écoutez le clic sur l'image
 logoImg.addEventListener('click', () => {
-    // Ajoutez la classe "shake" pour déclencher l'animation
     logoImg.classList.add('shake');
 
-    // Supprimez la classe après un certain délai (0.5s ici)
     setTimeout(() => {
         logoImg.classList.remove('shake');
     }, 500);
