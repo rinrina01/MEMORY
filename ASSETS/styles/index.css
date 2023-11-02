@@ -73,7 +73,7 @@ button:hover {
   transform: translate(-0%, 50%);
 }
 
-.button {
+.buttons {
   /*0 BOUTON */
   position: relative;
   top: 60%;

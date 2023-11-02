@@ -23,7 +23,7 @@ main {
   flex-direction: row;
   flex-wrap: wrap;
   /* 100+(nombre de cartes sur ligne * 100) */
-  width: 1650px;
+  width: 600px;
 }
 
 .box {
@@ -46,6 +46,12 @@ h3 {
   margin-right: 10px;
 }
 
+h2 {
+  color: orange;
+  margin-top: 100px;
+  margin-bottom: 30px;
+}
+
 input {
   background-color: rgb(38, 39, 69);
   border-radius: 2px;
@@ -61,7 +67,7 @@ input {
   font-size: 14px;
 }
 
-.button {
+button {
   background-color: orange;
   padding: 15px;
   padding-left: 20px;
@@ -69,16 +75,48 @@ input {
   color: white;
   border-radius: 2px;
   border: none;
-  align-self: flex-start;
+  margin-bottom: 15px;
+  width: 256px;
 }
-.button:hover {
-  background-color: yellow;
+button:hover {
+  background-color: #ffb43c;
   padding: 15px;
   padding-left: 20px;
   padding-right: 20px;
-  color: black;
   border-radius: 2px;
   border: none;
+  margin-bottom: 15px;
+}
+
+.image-container div {
+  margin: 0 9px;
+}
+
+.image-container img {
+  max-width: 90%;
+  height: auto;
+}
+
+.image-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+}
+
+#lastheader {
+  padding-bottom: 50px;
+}
+.titre {
+  font-size: 40px;
+  padding-top: 50px;
+  padding-bottom: 75px;
+}
+
+.card {
+  width: 100px;
+  margin: 10px;
 }
 
 /* -------------------------------- FOOOTER --------------------------------------------- */
@@ -129,3 +167,12 @@ footer img {
   font-size: 0.9em;
   text-align: left;
 } /* ------------------------------------------------------------------------------------- */
+
+.titleGame{
+  color: aqua;
+  margin-top: 300px;
+}
+
+.point{
+  color: #ffb43c;
+}

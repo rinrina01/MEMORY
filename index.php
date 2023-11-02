@@ -21,8 +21,6 @@ if (isset($_SESSION['id'])) {
 		//$pdoSendMessage->bindParam(':id', $id, PDO::PARAM_INT);
 
 		$pdoSendMessage->execute([':message' => $message]);
-	} else {
-		echo '<h3> doesnt work </h3>';
 	}
 }
 
@@ -59,8 +57,10 @@ $infoschat = $pdoStatement->fetchAll();
 			<p> Venez challenger les cerveaux les plus agiles ! </p>
 		</div>
 
-		<div class="button">
-			<a href='games/memory/memory.php?'> <button>Jouer !</button> </a>
+		<br>
+
+		<div class="buttons">
+			<a href='games/jeux.php'> <button>Jouer !</button> </a>
 		</div>
 
 	</div>

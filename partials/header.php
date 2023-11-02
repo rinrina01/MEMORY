@@ -8,11 +8,11 @@
                                                                 } else {
                                                                     echo "header-a";
                                                                 } ?>"> ACCUEIL </a>
-        <a href="<?php echo PROJECT_FOLDER; ?>games/memory/memory.php" class="<?php if ($page == "memory") {
+        <a href="<?php echo PROJECT_FOLDER; ?>games/jeux.php" class="<?php if ($page == "jeux") {
                                                                                     echo "active";
                                                                                 } else {
                                                                                     echo "header-a";
-                                                                                } ?>"> JEU </a>
+                                                                                } ?>"> JEUX </a>
         <a href="<?php echo PROJECT_FOLDER; ?>games/memory/scores.php" class="<?php if ($page == "scores") {
                                                                                     echo "active";
                                                                                 } else {
