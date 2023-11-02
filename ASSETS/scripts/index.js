@@ -65,8 +65,6 @@ fetch('https://api.thecatapi.com/v1/images/search?mime_types=gif')
         messageDate.textContent = Date().toString();
         messageContainer.append(messageDate);
 
-
-        document.getElementById('response').textContent = message;
         console.log('request gud');
       }
     }

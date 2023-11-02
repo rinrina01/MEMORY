@@ -280,7 +280,7 @@ $infoschat = $pdoStatement->fetchAll();
 
 		<?php if (isset($_SESSION['id'])) : ?>
 			<input type="text" name="message" id="message-input" placeholder="Entrez votre message">
-			<button type='submit' id="send-message" onclick="send_msg_to_DB('test')"> Envoyer </button>
+			<button type='submit' id="send-message" onclick="send_msg_to_DB('Vous')"> Envoyer </button>
 		<?php else : ?>
 			<p style="color:red">Veuillez vous connecter pour pouvoir envoyer des messages</p>
 		<?php endif ?>
