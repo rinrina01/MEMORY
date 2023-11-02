@@ -27,10 +27,10 @@ fetch('https://api.thecatapi.com/v1/images/search?mime_types=gif')
 
 
 
-  function send_msg_to_DB(){
+  function send_msg_to_DB(pseudo){
     // SEND MESSAGE TO DB
-    //var message = document.getElementById('send-message').innerHTML;
-    var message = document.getElementById('message-input').value;  
+    var message = document.getElementById('message-input').value;
+    var messageColumn = document.getElementsByClassName("messageColumn")[0]; 
     console.log(message);
     document.getElementById('message-input').value = '';
   
@@ -39,6 +39,33 @@ fetch('https://api.thecatapi.com/v1/images/search?mime_types=gif')
     httpr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     httpr.onreadystatechange = function() {
       if (httpr.readyState==4 && httpr.status==200) {
+        // Quand c'est ok
+
+        // Crée le message et l'envoie
+        var messageContainer = document.createElement("div");
+        messageContainer.className = "messageContainer"
+        messageColumn.append(messageContainer);
+
+        var messageInfo = document.createElement("p");
+        messageInfo.className = "messageInfo"
+        messageInfo.textContent = pseudo.toString();
+        messageContainer.append(messageInfo);
+
+        var messageBubble = document.createElement("div");
+        messageBubble.className = "messageBubble sender";
+        messageContainer.append(messageBubble);
+
+        var messageText = document.createElement("p");
+        messageText.className = "messageText"
+        messageText.textContent = message;
+        messageBubble.append(messageText);
+
+        var messageDate = document.createElement("p");
+        messageDate.className = "messageDate"
+        messageDate.textContent = Date().toString();
+        messageContainer.append(messageDate);
+
+
         document.getElementById('response').textContent = message;
         console.log('request gud');
       }
