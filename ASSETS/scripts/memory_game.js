@@ -196,6 +196,7 @@ var sec = 0;
 var min = 0;
 var hrs = 0;
 var t;
+var is_gameover = false ;
 
 function tick() {
   sec++;
@@ -209,16 +210,50 @@ function tick() {
   }
 }
 function add() {
-  tick();
-  h1.textContent =
-    (hrs > 9 ? hrs : "0" + hrs) +
-    ":" +
-    (min > 9 ? min : "0" + min) +
-    ":" +
-    (sec > 9 ? sec : "0" + sec);
-  temps = h1.textContent;
-  timer();
+  if (!is_gameover){
+    tick();
+    h1.textContent =
+      (hrs > 9 ? hrs : "0" + hrs) +
+      ":" +
+      (min > 9 ? min : "0" + min) +
+      ":" +
+      (sec > 9 ? sec : "0" + sec);
+    temps = h1.textContent;
+    timer();
+  }
 }
+
 function timer() {
   t = setTimeout(add, 1000);
+}
+
+// STOP GAME AND GET TIME
+
+function GetTimerTime() {
+  var get_timer = document.getElementById('time').innerHTML; // récupération temps
+  console.log(get_timer);
+  is_gameover = true; // variable qui arrête le timer ds add()
+  document.getElementById('input_player_time').value = get_timer;
+}
+
+function send_data(){
+  // SEND SCORE TO DB
+  var player_time = document.getElementById('input_player_time').value;
+
+  /*
+  $.ajax({
+    url: "serverScript.php",
+    method: "POST",
+    data: { "profile_viewer_uid": profile_viewer_uid }
+  })*/
+
+  var httpr = new XMLHttpRequest();
+  httpr.open('POST',"../../games/memory/memory_game.php",true);
+  httpr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  httpr.onreadystatechange = function() {
+    if (httpr.readyState==4 && httpr.status==200) {
+      document.getElementById('response').innerHTML = player_time;
+    }
+  }
+  httpr.send('player_time='+player_time);
 }
