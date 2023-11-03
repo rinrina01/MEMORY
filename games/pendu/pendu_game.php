@@ -14,7 +14,7 @@ require_once SITE_ROOT . 'utils/database.php';
     require SITE_ROOT . 'partials/head.php';
     ?>
     <title> Démineur </title>
-    <link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>assets/styles/demineur_game.css" />
+    <link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>assets/styles/pendu_game.css" />
 </head>
 
 <body>
@@ -28,9 +28,6 @@ require_once SITE_ROOT . 'utils/database.php';
 
 
     <div id="pendu-container">
-        <div id="container">
-            <h1>Le pendu de l'extrême</h1>
-        </div>
         <div id="word-display" class="white-text"></div>
         <p id="guesses-remaining">Nombre de tentatives restantes : <span id="attempts"></span></p>
         <input type="text" id="letter-input" maxlength="1">
