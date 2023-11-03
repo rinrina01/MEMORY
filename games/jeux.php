@@ -35,6 +35,9 @@ require_once SITE_ROOT . 'utils/database.php';
 		<form action="">
 			<button type="submit" formaction="#demineur">Démineur</button>
 		</form>
+		<form action="">
+			<button type="submit" formaction="#pendu">Pendu</button>
+		</form>
 		<marquee behavior="" direction="right">*A la limite des stocks disponibles !</marquee>
 	</div>
 
@@ -69,6 +72,20 @@ require_once SITE_ROOT . 'utils/database.php';
 		<h2>Prêt ?</h2>
 		<form>
 			<button type="submit" formaction="<?php echo PROJECT_FOLDER; ?>games/demineur/demineur_game.php">Jouer au Démineur</button>
+		</form>
+	</div>
+
+	<div class="box">
+		<h1 class="titleGame" id="pendu">Pendu</h1>
+		<h2>COMMENT JOUER ?</h2>
+		<p id="description"><span class="point"> • </span> Deviner toute les lettres qui doivent composer un mot, éventuellement avec un nombre limité de tentatives et des thèmes fixés à l'avance. <br>
+			<span class="point"> • </span> A chaque fois que le joueur devine une lettre, celle-ci est affichée. <br>
+			<span class="point"> • </span> Dans le cas contraire, le dessin d'un pendu se met à apparaître… <br>
+		</p>
+
+		<h2>Prêt ?</h2>
+		<form>
+			<button type="submit" formaction="<?php echo PROJECT_FOLDER; ?>games/pendu/pendu_game.php">Jouer au Pendu</button>
 		</form>
 	</div>
 

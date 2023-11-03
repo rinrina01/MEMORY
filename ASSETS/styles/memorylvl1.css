@@ -206,3 +206,39 @@ button{
 h2{
   color: orange;
 }
+
+.shake {
+  animation: shake 0.5s ease-in-out infinite;
+}
+
+@keyframes shake {
+  0% { transform: translate(0, 0); }
+  10%, 30%, 50%, 70%, 90% { transform: translate(-5px, 0); }
+  20%, 40%, 60%, 80%, 100% { transform: translate(5px, 0); }
+}
+
+.cell.revealed.shake {
+  animation: shake 0.2s ease-in-out 2 alternate;
+}
+
+.particle {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background-color: #ffb43c;
+  border-radius: 50%;
+  animation: particle-fade 1s ease-out;
+  margin-left: -40px;
+  margin-top: -145px;
+}
+
+@keyframes particle-fade {
+  from {
+      opacity: 0.5;
+      transform: scale(1);
+  }
+  to {
+      opacity: 0;
+      transform: scale(0);
+  }
+}

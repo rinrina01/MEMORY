@@ -120,6 +120,8 @@ function revealCard(event, themeName) {
     buttonImage.innerHTML = "";
     buttonImage.append(image);
 
+    createParticles(buttonImage);
+
     if (cardsComparaison.length < 1) {
       cardsComparaison.push([i, j]);
       buttonImage2 = buttonImage;
@@ -256,4 +258,19 @@ function send_data(){
     }
   }
   httpr.send('player_time='+player_time);
+}
+
+function createParticles(targetCell) {
+  const particleCount = 1;
+  
+  for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      
+      targetCell.appendChild(particle);
+
+      setTimeout(() => {
+          targetCell.removeChild(particle);
+      }, 1000);
+  }
 }

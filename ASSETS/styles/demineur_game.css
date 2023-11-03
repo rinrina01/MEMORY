@@ -10,11 +10,6 @@ body {
   /* ---------------- FONT/SETUP ----------------------- */
   @font-face {
     font-family: "Poppins";
-    src: url("FONTS/POPPINS/Poppins-Light.ttf");
-    font-weight: normal;
-  }
-  @font-face {
-    font-family: "Poppins";
     src: url("FONTS/POPPINS/Poppins-Bold.ttf");
     font-weight: bold;
   } /* -------------------------------------------------- */
@@ -153,10 +148,9 @@ body {
 }
 
 .cell {
-    font-family: "Comic Sans MS", sans-serif;
     width: 30px;
     height: 30px;
-    background-color: #ccc;
+    background-color: #414141;
     display: flex;
     align-items: center;
     justify-content: center;
