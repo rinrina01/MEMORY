@@ -104,16 +104,33 @@ let cardsRevelated = []; // Liste toutes les cartes révélés
 let cardsComparaison = []; // Liste toutes les cartes en cours de comparaison
 let buttonImage2 = null;
 
+function posInArray(posArray, array) {
+  for (i=0;i<array.length;i++) {
+    console.log(array[i].toString()+" | "+posArray.toString())
+    if (array[i][0] == posArray[0] && array[i][1] == posArray[1]) {
+      return true;
+    }
+  }
+  return false;
+}
+
+
 function revealCard(event, themeName) {
   let buttonImage = event.currentTarget;
   let i = buttonImage.getAttribute("data-i");
   let j = buttonImage.getAttribute("data-j");
 
+
   if (
-    cardsRevelated.includes([i, j]) == false &&
-    cardsComparaison.includes([i, j]) == false &&
+    posInArray([i, j], cardsRevelated) === false &&
+    posInArray([i, j], cardsComparaison) === false &&
     blockedClicks === false
   ) {
+    console.log("CLICK")
+    console.log(cardsComparaison.includes([i, j]))
+    console.log(cardsRevelated.includes([i, j]))
+    console.log(cardsComparaison)
+    console.log(cardsRevelated)
     let image = document.createElement("img");
     let pairNumber = gridCards[i][j];
     image.src = `../../assets/images/cards/${themeName}/${pairNumber}.png`;
@@ -121,6 +138,7 @@ function revealCard(event, themeName) {
     buttonImage.append(image);
 
     createParticles(buttonImage);
+
 
     if (cardsComparaison.length < 1) {
       cardsComparaison.push([i, j]);
@@ -149,7 +167,6 @@ function revealCard(event, themeName) {
     }
   }
 }
-
 
 function checkVictory() {
   if (score >= numbersOfPairs) {
@@ -198,7 +215,7 @@ var sec = 0;
 var min = 0;
 var hrs = 0;
 var t;
-var is_gameover = false ;
+var is_gameover = false;
 
 function tick() {
   sec++;
@@ -212,7 +229,7 @@ function tick() {
   }
 }
 function add() {
-  if (!is_gameover){
+  if (!is_gameover) {
     tick();
     h1.textContent =
       (hrs > 9 ? hrs : "0" + hrs) +
@@ -232,15 +249,15 @@ function timer() {
 // STOP GAME AND GET TIME
 
 function GetTimerTime() {
-  var get_timer = document.getElementById('time').innerHTML; // récupération temps
+  var get_timer = document.getElementById("time").innerHTML; // récupération temps
   console.log(get_timer);
   is_gameover = true; // variable qui arrête le timer ds add()
-  document.getElementById('input_player_time').value = get_timer;
+  document.getElementById("input_player_time").value = get_timer;
 }
 
-function send_data(){
+function send_data() {
   // SEND SCORE TO DB
-  var player_time = document.getElementById('input_player_time').value;
+  var player_time = document.getElementById("input_player_time").value;
 
   /*
   $.ajax({
@@ -250,27 +267,27 @@ function send_data(){
   })*/
 
   var httpr = new XMLHttpRequest();
-  httpr.open('POST',"../../games/memory/memory_game.php",true);
-  httpr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-  httpr.onreadystatechange = function() {
-    if (httpr.readyState==4 && httpr.status==200) {
-      document.getElementById('response').innerHTML = player_time;
+  httpr.open("POST", "../../games/memory/memory_game.php", true);
+  httpr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  httpr.onreadystatechange = function () {
+    if (httpr.readyState == 4 && httpr.status == 200) {
+      document.getElementById("response").innerHTML = player_time;
     }
-  }
-  httpr.send('player_time='+player_time);
+  };
+  httpr.send("player_time=" + player_time);
 }
 
 function createParticles(targetCell) {
   const particleCount = 1;
-  
-  for (let i = 0; i < particleCount; i++) {
-      const particle = document.createElement('div');
-      particle.classList.add('particle');
-      
-      targetCell.appendChild(particle);
 
-      setTimeout(() => {
-          targetCell.removeChild(particle);
-      }, 1000);
+  for (let i = 0; i < particleCount; i++) {
+    const particle = document.createElement("div");
+    particle.classList.add("particle");
+
+    targetCell.appendChild(particle);
+
+    setTimeout(() => {
+      targetCell.removeChild(particle);
+    }, 1000);
   }
 }
