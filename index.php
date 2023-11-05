@@ -84,7 +84,7 @@ $infoschat = $pdoStatement->fetchAll();
 		}
 		setInterval(jouerSon, 10000);
 	</script>
-	------>
+
 
 
 
