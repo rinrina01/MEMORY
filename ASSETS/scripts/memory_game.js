@@ -48,11 +48,11 @@ function generateGrid() {
 
   if (themes.value == "classic") {
     // Définit le dossier des images à l'aide de la difficulté choisie
-    themeName = "classic";
+    themeName = "CLASSIC";
   } else if (themes.value == "numbers") {
     themeName = "numbers";
   } else if (themes.value == "theme3") {
-    themeName = "politics";
+    themeName = "POLITICS";
   }
 
   for (i = 0; i < numbersOfPairs; i++) {

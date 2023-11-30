@@ -10,7 +10,7 @@ body {
   /* ---------------- FONT/SETUP ----------------------- */
   @font-face {
     font-family: "Poppins";
-    src: url("FONTS/POPPINS/Poppins-Bold.ttf");
+    src: url("../FONTS/POPPINS/Poppins-Bold.ttf");
     font-weight: bold;
   } /* -------------------------------------------------- */
   
