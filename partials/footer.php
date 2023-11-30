@@ -9,31 +9,31 @@
         <section class="footer-logos" style="margin-top:10px">
             <div>
                 <a href="https://www.facebook.com/">
-                    <img src="<?php echo PROJECT_FOLDER; ?>assets/IMAGES/facebook-orange.png" alt="Facebook">
+                    <img src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/facebook-orange.png" alt="Facebook">
                 </a>
             </div>
 
             <div>
                 <a href="https://twitter.com/">
-                    <img src="<?php echo PROJECT_FOLDER; ?>assets/IMAGES/twitter-orange.png" alt="Twitter">
+                    <img src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/twitter-orange.png" alt="Twitter">
                 </a>
             </div>
 
             <div>
                 <a href="https://www.google.com/">
-                    <img src="<?php echo PROJECT_FOLDER; ?>assets/IMAGES/google-orange.png" alt="Google">
+                    <img src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/google-orange.png" alt="Google">
                 </a>
             </div>
 
             <div>
                 <a href="https://www.pinterest.fr/">
-                    <img src="<?php echo PROJECT_FOLDER; ?>assets/IMAGES/pinterest-orange.png" alt="Pinterest">
+                    <img src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/pinterest-orange.png" alt="Pinterest">
                 </a>
             </div>
 
             <div>
                 <a href="https://www.instagram.com/h_khalid__h/">
-                    <img src="<?php echo PROJECT_FOLDER; ?>assets/IMAGES/instagram-orange.png" alt="Instagram (de Khalid)">
+                    <img src="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/instagram-orange.png" alt="Instagram (de Khalid)">
                 </a>
             </div>
     </div>

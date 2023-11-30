@@ -36,7 +36,7 @@ $infos = $pdoStatement->fetchAll();
 <html lang="fr">
 
 <head>
-	<link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>assets/styles/scores.css" />
+	<link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>ASSETS/styles/scores.css" />
 	<?php
 	require SITE_ROOT . 'partials/head.php';
 	?>

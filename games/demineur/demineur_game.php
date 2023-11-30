@@ -14,7 +14,7 @@ require_once SITE_ROOT . 'utils/database.php';
     require SITE_ROOT . 'partials/head.php';
     ?>
     <title> Démineur </title>
-    <link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>assets/styles/demineur_game.css" />
+    <link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>ASSETS/styles/demineur_game.css" />
 </head>
 
 <body>
@@ -50,7 +50,7 @@ require_once SITE_ROOT . 'utils/database.php';
     </header>
     <!------------------------------------------------------------->
 
-    <script src="<?php echo PROJECT_FOLDER; ?>assets/scripts/demineur_game.js"></script>
+    <script src="<?php echo PROJECT_FOLDER; ?>ASSETS/scripts/demineur_game.js"></script>
 </body>
 
 </html>

@@ -8,7 +8,7 @@ require_once SITE_ROOT . 'utils/database.php';
 <html lang="fr">
 
 <head>
-	<link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>assets/styles/jeux.css" />
+	<link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>ASSETS/styles/jeux.css" />
 	<?php
 	require SITE_ROOT . 'partials/head.php';
 	?>

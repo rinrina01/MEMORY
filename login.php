@@ -22,7 +22,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 <html lang="fr">
 
 <head>
-	<link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>assets/styles/login.css" />
+	<link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>ASSETS/styles/login.css" />
 	<?php
 	require SITE_ROOT . 'partials/head.php';
 	?>

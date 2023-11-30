@@ -18,7 +18,7 @@ if (isset($_POST['player_time'])) {
 <html lang="fr">
 
 <head>
-	<link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>assets/styles/memorylvl1.css" />
+	<link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>ASSETS/styles/memorylvl1.css" />
 	<?php
 	require SITE_ROOT . 'partials/head.php';
 	?>
@@ -103,6 +103,6 @@ if (isset($_POST['player_time'])) {
 	</header>
 	<!------------------------------------------------------------->
 
-	<script src="<?php echo PROJECT_FOLDER; ?>assets/scripts/memory_game.js"></script>
+	<script src="<?php echo PROJECT_FOLDER; ?>ASSETS/scripts/memory_game.js"></script>
 
 </body>

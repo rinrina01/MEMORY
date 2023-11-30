@@ -39,10 +39,10 @@ $infoschat = $pdoStatement->fetchAll();
 <html>
 
 <head>
-	<link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>assets/styles/index.css" />
+	<link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>ASSETS/styles/index.css" />
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>assets/styles/footer.css" />
-	<link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>assets/styles/chat.css" />
+	<link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>ASSETS/styles/footer.css" />
+	<link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>ASSETS/styles/chat.css" />
 	<link rel="icon" type="image/x-icon" href="<?php echo PROJECT_FOLDER; ?>ASSETS/IMAGES/favicon.ico">
 	<title>The Memory</title>
 </head>
@@ -69,11 +69,11 @@ $infoschat = $pdoStatement->fetchAll();
 	<!-----------
 	<div class="bondsheader">
 		<div class="bounds">
-			<img class="image" src="assets/images/easteregg/boo-mario.gif" height="100px"> </img>
+			<img class="image" src="ASSETS/IMAGES/easteregg/boo-mario.gif" height="100px"> </img>
 		</div>
 	</div>
 	<audio autoplay="true" id="audioboo">
-		<source src="assets/images/easteregg/boo_effect.mp3" type="audio/mpeg" />
+		<source src="ASSETS/IMAGES/easteregg/boo_effect.mp3" type="audio/mpeg" />
 		Your browser does not support the audio element.
 	</audio>
 
@@ -92,9 +92,9 @@ $infoschat = $pdoStatement->fetchAll();
 
 	<!---image -->
 	<div class="touteslesimage">
-		<img src="assets/IMAGES/pc.png" alt="PC INCROYABLE" height="300" width="400">
-		<img src="assets/IMAGES/trottinette.png" alt="SOYEZ AGDILE" height="300" width="190">
-		<img src="assets/IMAGES/poker.png" alt="AYEZ DE LA CHANCE" height="300" width="190">
+		<img src="ASSETS/IMAGES/pc.png" alt="PC INCROYABLE" height="300" width="400">
+		<img src="ASSETS/IMAGES/trottinette.png" alt="SOYEZ AGDILE" height="300" width="190">
+		<img src="ASSETS/IMAGES/poker.png" alt="AYEZ DE LA CHANCE" height="300" width="190">
 	</div>
 
 	<div class="tout_les_texte">
@@ -135,7 +135,7 @@ $infoschat = $pdoStatement->fetchAll();
 	<!--partie avec les carré bien chiant-->
 	<div class="partie3">
 		<div class="image_watch_dogs">
-			<img src="assets/IMAGES/watch_dogs.png" alt="watch_dogs" class="wd">
+			<img src="ASSETS/IMAGES/watch_dogs.png" alt="watch_dogs" class="wd">
 		</div>
 		<div class="gbop">
 
@@ -193,12 +193,12 @@ $infoschat = $pdoStatement->fetchAll();
 	<p class="equipe">Salut bonsoir c'est POLO </p>
 	<div class="delimiter">
 
-		<img src="assets/IMAGES/letrait.png" alt="Pour delimiter" class="delimiter">
+		<img src="ASSETS/IMAGES/letrait.png" alt="Pour delimiter" class="delimiter">
 	</div>
 	<div class="kln" style="margin-bottom:100px">
 
 		<div class="khalid">
-			<img class="photo" src="assets/IMAGES/khalid.jpg" alt="khalid" width="128" height="128">
+			<img class="photo" src="ASSETS/IMAGES/khalid.jpg" alt="khalid" width="128" height="128">
 			<div class="info">
 				<p>Khalid</p>
 				<p class="fonction">Boulot</p>
@@ -211,7 +211,7 @@ $infoschat = $pdoStatement->fetchAll();
 		</div>
 
 		<div class="khalid">
-			<img class="photo" src="assets/IMAGES/Lina.png" alt="Lina alias(Lopotitchat)" width="128" height="128">
+			<img class="photo" src="ASSETS/IMAGES/Lina.png" alt="Lina alias(Lopotitchat)" width="128" height="128">
 			<div class="info">
 				<p>Lina</p>
 				<p class="fonction">Team member</p>
@@ -224,7 +224,7 @@ $infoschat = $pdoStatement->fetchAll();
 		</div>
 
 		<div class="khalid">
-			<img class="photo" src="assets/IMAGES/nolan.png" alt="Nolan alias (le mafieu de la Hess)" width="128" height="128">
+			<img class="photo" src="ASSETS/IMAGES/nolan.png" alt="Nolan alias (le mafieu de la Hess)" width="128" height="128">
 			<div class="info">
 				<p>Nolan</p>
 				<p class="fonction">Scrum Master</p>
@@ -287,7 +287,7 @@ $infoschat = $pdoStatement->fetchAll();
 
 	</div>
 
-	<script src="assets/scripts/index.js"></script>
+	<script src="ASSETS/scripts/index.js"></script>
 
 
 

@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>assets/styles/header.css" />
+<link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>ASSETS/styles/header.css" />
 <div class="header-alignment">
     <p class="header-left-element"> The Power Of Memory </p>
 

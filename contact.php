@@ -28,7 +28,7 @@ mail($to, $subject, $message, $headers);
 <html>
 
 <head>
-	<link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>assets/styles/contact.css" />
+	<link rel="stylesheet" href="<?php echo PROJECT_FOLDER; ?>ASSETS/styles/contact.css" />
 	<?php
 	require SITE_ROOT . 'partials/head.php';
 	?>
