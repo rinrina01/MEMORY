@@ -78,7 +78,7 @@ function generateGrid() {
       buttonImage.setAttribute("data-j", j);
       let image = document.createElement("img");
       image.src =
-        "../../assets/images/cards/" + themeName.toString() + "/dos_cartes.png"; // Ajoute la source à l'image
+        "../../ASSETS/IMAGES/CARDS/" + themeName.toString() + "/dos_cartes.png"; // Ajoute la source à l'image
       buttonImage.append(image);
       div.append(buttonImage); // Ajoute une image
       setPair(i, j);
@@ -133,7 +133,7 @@ function revealCard(event, themeName) {
     console.log(cardsRevelated)
     let image = document.createElement("img");
     let pairNumber = gridCards[i][j];
-    image.src = `../../assets/images/cards/${themeName}/${pairNumber}.png`;
+    image.src = `../../ASSETS/IMAGES/CARDS/${themeName}/${pairNumber}.png`;
     buttonImage.innerHTML = "";
     buttonImage.append(image);
 
@@ -177,11 +177,11 @@ function checkVictory() {
 function resetCard(event, themeName, buttonImage) {
   console.log("RESETTTTTTTTTTTTT");
   let image = document.createElement("img");
-  image.src = `../../assets/images/cards/${themeName}/dos_cartes.png`;
+  image.src = `../../ASSETS/IMAGES/CARDS/${themeName}/dos_cartes.png`;
   buttonImage.innerHTML = ""; // Efface le contenu actuel du bouton
   buttonImage.append(image);
   let image2 = document.createElement("img");
-  image2.src = `../../assets/images/cards/${themeName}/dos_cartes.png`;
+  image2.src = `../../ASSETS/IMAGES/CARDS/${themeName}/dos_cartes.png`;
   buttonImage2.innerHTML = ""; // Efface le contenu actuel du bouton
   buttonImage2.append(image2);
   blockedClicks = false;
